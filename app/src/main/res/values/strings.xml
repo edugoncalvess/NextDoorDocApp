@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">NextDoorDocApp</string>
     <string name="textofexample">TextOfExample</string>
+    <string name="testtxt">Nazanin Test</string>
 </resources>
