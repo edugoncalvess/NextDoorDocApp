@@ -13,4 +13,10 @@
     <string name="txtPatRemaining">Remaining</string>
     <string name="txtPatBreakfast">Breakfast</string>
     <string name="btnPatAddFood">Add  Food</string>
+    <string name="btnDocAllpages">Doctor Pages</string>
+    <string name="txtHelloDoc">Hello Doctor!</string>
+    <string name="btnDocShowMessages">Show Messages</string>
+    <string name="btnDocShowSchedule">Show schedule</string>
+    <string name="txtTitleSchedule">Schedule</string>
+    <string name="txtTitleMessages">Messages</string>
 </resources>

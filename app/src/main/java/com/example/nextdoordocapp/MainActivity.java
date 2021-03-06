@@ -21,5 +21,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,PatientMainActions.class));
             }
         });
+
+        Button btnDocAllPages = findViewById(R.id.btnDocAllPages);
+        btnDocAllPages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,DoctorHelloPg1.class));
+            }
+        });
+
     }
 }
