@@ -2,4 +2,13 @@
     <string name="app_name">NextDoorDocApp</string>
     <string name="textofexample">TextOfExample</string>
     <string name="testtxt">Nazanin Test</string>
+    <string name="btnPatFoodTrack">Food Track</string>
+    <string name="btnPatFindDoctor">Find a Doctor</string>
+    <string name="btnPatAllPages">Patient pages</string>
+    <string name="txtPatCaloriesRemainung">Calories Remaining</string>
+    <string name="txtPatGoal">Goal</string>
+    <string name="txtPatMinus">-</string>
+    <string name="txtPatFood">Food</string>
+    <string name="txtPatEqualSign">=</string>
+    <string name="txtPatRemaining">Remaining</string>
 </resources>
