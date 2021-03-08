@@ -19,4 +19,5 @@
     <string name="btnDocShowSchedule">Show schedule</string>
     <string name="txtTitleSchedule">Schedule</string>
     <string name="txtTitleMessages">Messages</string>
+    <string name="btnAdminAllPages">Admin Pages</string>
 </resources>

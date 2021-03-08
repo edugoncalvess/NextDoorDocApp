@@ -36,4 +36,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnPatAllPages" />
 
+    <Button
+        android:id="@+id/btnAdminAllPages"
+        android:layout_width="216dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="72dp"
+        android:text="@string/btnAdminAllPages"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDocAllPages" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

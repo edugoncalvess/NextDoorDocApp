@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NextDoorDocApp">
-        <activity android:name=".DocSchedulePg1"></activity>
+        <activity android:name=".AdmWelcPage"></activity>
+        <activity android:name=".DocSchedulePg1" />
         <activity android:name=".DocMessagesPg1" />
         <activity android:name=".DoctorHelloPg1" />
         <activity android:name=".PatientFoodTrackPg1" />
