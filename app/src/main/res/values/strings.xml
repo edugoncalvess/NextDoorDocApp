@@ -13,4 +13,5 @@
     <string name="txtPatRemaining">Remaining</string>
     <string name="txtPatBreakfast">Breakfast</string>
     <string name="btnPatAddFood">Add  Food</string>
+    <string name="searchViewFood">Search for a food</string>
 </resources>
