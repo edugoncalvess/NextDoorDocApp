@@ -3,14 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#CACACA"
+    android:isScrollContainer="true"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:scrollbarStyle="outsideOverlay"
     tools:context=".PatientFoodTrackPg1">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/crdViewPatFoodTrackTop"
-        android:layout_width="wrap_content"
-        android:layout_height="172dp"
+        android:layout_width="362dp"
+        android:layout_height="187dp"
         android:layerType="software"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +49,6 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginRight="15dp"
-                android:text="25000"
                 android:textColor="#070707"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -90,7 +92,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="2000"
                 android:textColor="#000000"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -132,8 +133,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="57dp"
                 android:layout_marginRight="57dp"
-                android:text="2500"
-                android:textColor="#009F21"
+                android:textColor="#DC0000"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.238"
@@ -155,21 +155,34 @@
                 app:layout_constraintHorizontal_bias="0.718"
                 app:layout_constraintStart_toEndOf="@+id/txtPatFoodLbl"
                 app:layout_constraintTop_toBottomOf="@+id/txtPatRemainingCalculated" />
+
+            <TextView
+                android:id="@+id/txtPatAlarmMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#B30000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtPatGoalLbl" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/crdViewPatFoodTrackBreakfast"
-        android:layout_width="350dp"
-        android:layout_height="151dp"
+        android:layout_width="352dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/crdViewPatFoodTrackTop">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="152dp"
+            android:layout_width="355dp"
+            android:layout_height="wrap_content"
             android:isScrollContainer="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -205,7 +218,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="2000"
                 android:textColor="#000000"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -230,6 +242,64 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+            <EditText
+                android:id="@+id/inptPatFoodName"
+                android:layout_width="207dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/inptPatFood"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toStartOf="@+id/inptPatFoodCalorie"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+            <EditText
+                android:id="@+id/inptPatFoodCalorie"
+                android:layout_width="97dp"
+                android:layout_height="41dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/inptPatFoodCalorie"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/inptPatFoodName"
+                app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+            <TextView
+                android:id="@+id/txtPatBreakfastList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="150dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnPatViewBreakfast"
+                android:layout_width="84dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:layout_marginLeft="9dp"
+                android:text="@string/view"
+                android:textSize="18sp"
+                app:backgroundTint="#009688"
+                app:layout_constraintBottom_toTopOf="@+id/inptPatFoodName"
+                app:layout_constraintStart_toEndOf="@+id/txtPatBreakfastLbl"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
