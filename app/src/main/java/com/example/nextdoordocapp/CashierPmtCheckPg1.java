@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class TestSecondActivity extends AppCompatActivity {
+public class CashierPmtCheckPg1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_second);
+        setContentView(R.layout.activity_cashier_pmt_check_pg1);
     }
 }

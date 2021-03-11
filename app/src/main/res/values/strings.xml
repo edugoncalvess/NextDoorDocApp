@@ -24,5 +24,13 @@
     <string name="inptPatFood">Enter Food Name</string>
     <string name="inptPatFoodCalorie">Calorie</string>
     <string name="view">View</string>
+    <string name="btnCashierAllpages">Cashier Pages</string>
+    <string name="txtHelloCashier">Hello Cashier!</string>
+    <string name="btnCheckPmt">Check Payment</string>
+    <string name="btnRegisterPmt">Register Payment</string>
+    <string name="btnCheck">Check</string>
+    <string name="hintUserID">UserID</string>
+    <string name="txtPmtStatus">Payment Status</string>
+    <string name="txtRegisterPmt">Registering Payment</string>
 
 </resources>
