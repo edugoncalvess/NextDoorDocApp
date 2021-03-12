@@ -29,8 +29,17 @@
     <string name="btnCheckPmt">Check Payment</string>
     <string name="btnRegisterPmt">Register Payment</string>
     <string name="btnCheck">Check</string>
-    <string name="hintUserID">UserID</string>
+    <string name="hintPatientID">PatientID</string>
     <string name="txtPmtStatus">Payment Status</string>
     <string name="txtRegisterPmt">Registering Payment</string>
+    <string name="txtBalance">Balance:</string>
+    <string name="txtDescrPatientId">Enter the Patient ID</string>
+    <string name="btnRegisterPatientPmt">Register Payment</string>
+    <string name="txtPmtPlusTaxes">Payment plus Taxes (GST + PST)</string>
+    <string name="hintAmount">Amount</string>
+    <string name="txtPmtMthdDeposit">Deposit or Transfer</string>
+    <string name="txtPmtMthdCard">Credit or Debit Card</string>
+    <string name="txtPmtMthdCash">Cash</string>
+    <string name="txtPmtMethod">Payment Method</string>
 
 </resources>
