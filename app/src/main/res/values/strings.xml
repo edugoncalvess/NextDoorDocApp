@@ -24,5 +24,12 @@
     <string name="inptPatFood">Enter Food Name</string>
     <string name="inptPatFoodCalorie">Calorie</string>
     <string name="view">View</string>
+    <string name="txtPatWelcomeMessage">Welcome to Patient Panel</string>
+    <string name="txtPatCloseView">Close View</string>
+    <string name="txtPatLunchLbl">Lunch</string>
+    <string name="txtPatDinnerLbl">Dinner</string>
+    <string name="txtPatAddBreakfast">Add Breakfast Item</string>
+    <string name="txtPatAddLunch">Add Lunch Item</string>
+    <string name="txtPatAddDinner">Add Dinner Item</string>
 
 </resources>
