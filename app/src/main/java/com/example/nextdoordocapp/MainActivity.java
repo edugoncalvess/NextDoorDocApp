@@ -37,5 +37,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,AdmWelcPage.class));
             }
         });
+
+        Button btnCashierPages = findViewById(R.id.btnCashierPages);
+        btnCashierPages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,CashierHomePg1.class));
+            }
+        });
+
+
     }
 }

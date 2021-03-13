@@ -47,4 +47,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnDocAllPages" />
 
+    <Button
+        android:id="@+id/btnCashierPages"
+        android:layout_width="218dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="102dp"
+        android:layout_marginLeft="102dp"
+        android:layout_marginTop="87dp"
+        android:layout_marginEnd="103dp"
+        android:layout_marginRight="103dp"
+        android:text="@string/btnCashierAllpages"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAdminAllPages" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
