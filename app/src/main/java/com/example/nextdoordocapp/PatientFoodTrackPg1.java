@@ -3,66 +3,51 @@ package com.example.nextdoordocapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class PatientFoodTrackPg1 extends AppCompatActivity {
     Button addButton;
-    Button viewBreakFastList;
-    Button viewLunchList;
-    Button viewDinnerList;
+    Button viewFoodList;
     TextView patientGoalCalorie;
     TextView patientFoodConsumedCalories;
     TextView patientRemainingCalorie;
     TextView PatientCalorieAlarm;
-    TextView PatientBreakfastTotalCalorie;
-    TextView PatientLunchTotalCalorie;
-    TextView PatientDinnerTotalCalorie;
-    TextView breakFastList;
-    TextView lunchList;
-    TextView dinnerList;
-    EditText patientBreakfastFoodName;
-    EditText patientBreakfastFoodCalorie;
-    EditText patientLunchFoodName;
-    EditText patientLunchFoodCalorie;
-    EditText patientDinnerFoodName;
-    EditText patientDinnerFoodCalorie;
-    int breakfastTotalCalories = 0;
-    int LunchTotalCalories = 0;
-    int DinnerTotalCalories = 0;
-    String breakfastFoodName;
-    String lunchFoodName;
-    String DinnerFoodName;
-    int breakfastFoodCalorie;
-    int lunchFoodCalorie;
-    int dinnerFoodCalorie;
-    Boolean breakfastViewStatus = false;
-    Boolean lunchViewStatus = false;
-    Boolean dinnerViewStatus = false;
+    TextView PatientFoodTotalCalorie;
+    TextView foodList;
+    EditText patientFoodName;
+    EditText patientFoodCalorie;
+    int foodsTotalCalories = 0;
+    String FoodName;
+    int FoodCalorie;
+
+    Boolean foodViewStatus = false;
+
+    int goalCalorie = 2000;
+    int foodConsumedCalories = 0;
+    int currentFoodConsumedCalories = 0;
+    int remainedCalorie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        int goalCalorie = 2000;
-        int foodConsumedCalories =135;
-        int remainedCalorie;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_food_track_pg1);
 
-        //select breakfast cardView
-        CardView crdViewPatFoodTrackBreakfast = findViewById(R.id.crdViewPatFoodTrackBreakfast);
+        //select food items cardView
+        CardView crdViewPatFoodTrackItems = findViewById(R.id.crdViewPatFoodTrack);
 
         //Find alarm label
         PatientCalorieAlarm = findViewById(R.id.txtPatAlarmMessage);
@@ -79,34 +64,54 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
         patientRemainingCalorie = findViewById(R.id.txtPatRemainingCalculated);
         remainedCalorie = goalCalorie - foodConsumedCalories;
         patientRemainingCalorie.setText(String.valueOf(remainedCalorie));
-        if(remainedCalorie > 0){
+        if (remainedCalorie > 0) {
             patientRemainingCalorie.setTextColor(Color.parseColor("#009F21"));
-        }
-        else {
+        } else {
             patientRemainingCalorie.setTextColor(Color.parseColor("#DC0000"));
             PatientCalorieAlarm.setText("Be Careful you passed your Goal!!");
         }
 
-        //Breakfast foodName
-        patientBreakfastFoodName = findViewById(R.id.inptPatFoodName);
+        // foodName
+        patientFoodName = findViewById(R.id.inptPatFoodName);
 
-        //Breakfast foodCalorie
-        patientBreakfastFoodCalorie = findViewById(R.id.inptPatFoodCalorie);
+        // foodCalorie
+        patientFoodCalorie = findViewById(R.id.inptPatFoodCalorie);
 
 
-        //set value for total breakfast calories
-        PatientBreakfastTotalCalorie = findViewById(R.id.txtPatBreakfastCaloryCalculated);
-        PatientBreakfastTotalCalorie.setText("0");
+        //set value for total food calories
+        PatientFoodTotalCalorie = findViewById(R.id.txtPatFoodCalculated);
+        PatientFoodTotalCalorie.setText("0");
 
-       // SharedPreferences preferences = getSharedPreferences("myPref",MODE_PRIVATE);
-
-        addButton=findViewById(R.id.btnPatAddFoodToBreakfast);
+        addButton = findViewById(R.id.btnPatAddFoodToList);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(PatientFoodTrackPg1.this,PatientFoodSearch.class));
-                breakfastTotalCalories = breakfastTotalCalories + Integer.parseInt(String.valueOf(patientBreakfastFoodCalorie.getText()));
-                PatientBreakfastTotalCalorie.setText(String.valueOf(breakfastTotalCalories));
+
+                foodsTotalCalories = foodsTotalCalories + Integer.parseInt(String.valueOf(patientFoodCalorie.getText()));
+                PatientFoodTotalCalorie.setText(String.valueOf(foodsTotalCalories));
+                currentFoodConsumedCalories = foodsTotalCalories;
+                foodConsumedCalories = foodsTotalCalories;
+
+
+                //Refresh Activity
+                /*Intent i = new Intent(PatientFoodTrackPg1.this, PatientFoodTrackPg1.class);
+                finish();
+                overridePendingTransition(0, 0);
+                startActivity(i);
+                overridePendingTransition(0, 0);*/
+
+                //patientFoodConsumedCalories.setText(String.valueOf(breakfastTotalCalories));
+
+                /*SharedPreferences totalConsumedCaloriesPreferences = getSharedPreferences("totalConsumedCalories", MODE_PRIVATE);
+                SharedPreferences.Editor edit = totalConsumedCaloriesPreferences.edit();
+                edit.putInt("key1",currentFoodConsumedCalories);
+                edit.commit();
+
+
+
+                int tBreakcalorie = totalConsumedCaloriesPreferences.getInt("key1",0);
+                Log.d("tBreakcalorie", String.valueOf(tBreakcalorie));
+                //patientFoodConsumedCalories.setText(tBreakcalorie);
 
                 //Using Preference which is not useful here
                /* breakfastFoodName = patientBreakfastFoodName.getText().toString();
@@ -122,218 +127,87 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
                 TextView txtTest = findViewById(R.id.textView5);
                 txtTest.setText(name + calorie);*/
 
-                breakfastFoodName = patientBreakfastFoodName.getText().toString();
-                breakfastFoodCalorie = Integer.parseInt(patientBreakfastFoodCalorie.getText().toString());
+                FoodName = patientFoodName.getText().toString();
+                FoodCalorie = Integer.parseInt(patientFoodCalorie.getText().toString());
+
+
                 try {
-                    FileOutputStream fout= openFileOutput("breakfastFile.txt",MODE_APPEND);
-                    fout.write(breakfastFoodName.getBytes());
-                    //fout.write(breakfastFoodCalorie);
+                    FileOutputStream fout = openFileOutput("foodItemFile.txt", MODE_APPEND);
+
+                    //add today Date
+                    /*SimpleDateFormat sdf = new SimpleDateFormat("HH:mm dd/MM/yyyy");
+                    String currentDateandTime = sdf.format(new Date());
+                    fout.write(currentDateandTime.getBytes());
+                    fout.write("\n".getBytes());*/
+
+                    fout.write(FoodName.getBytes());
+                    fout.write(": ".getBytes());
+                    fout.write(String.valueOf(FoodCalorie).getBytes());
                     fout.write("\n".getBytes());
                     fout.close();
-                    Toast.makeText(PatientFoodTrackPg1.this,"Data Saved",Toast.LENGTH_LONG).show();
-                }
-                catch(IOException e) {
+                    Toast.makeText(PatientFoodTrackPg1.this, "Saving...", Toast.LENGTH_LONG).show();
+
+                    //delete file
+                    /*File dir = getFilesDir();
+                    File file = new File(dir, "breakfastFile.txt");
+                    boolean deleted = file.delete();*/
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
 
-                patientBreakfastFoodName.setText("");
-                patientBreakfastFoodCalorie.setText("");
+                patientFoodName.setText("");
+                patientFoodCalorie.setText("");
 
             }
         });
 
-        viewBreakFastList = findViewById(R.id.btnPatViewBreakfast);
-        breakFastList = findViewById(R.id.txtPatBreakfastList);
-        viewBreakFastList.setOnClickListener(new View.OnClickListener() {
+        viewFoodList = findViewById(R.id.btnPatViewBreakfast);
+        foodList = findViewById(R.id.txtPatBreakfastList);
+        viewFoodList.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                if(breakfastViewStatus==false){
+
+                if(foodViewStatus==false){
 
                     try {
-                        FileInputStream fin = openFileInput("breakfastFile.txt");
-                        String temp="";
-                        int c;
-                        char ch;
-                        while ((c=fin.read()) != -1){
-                            ch = (char) c;
-                            temp += Character.toString(ch);
+                        FileInputStream fin = openFileInput("foodItemFile.txt");
+                        int read = -1;
+                        StringBuffer buffer = new StringBuffer();
+                        while((read =fin.read())!= -1){
+                            buffer.append((char)read);
                         }
-                        breakFastList.setVisibility(View.VISIBLE);
-                        breakFastList.setText(temp);
+                        //Log.d("Code", buffer.toString());
+                        //SimpleDateFormat sdf = new SimpleDateFormat("HH:mm dd/MM/yyyy");
+                        //String currentDateandTime = sdf.format(new Date());
+
+                        String bname = buffer.substring(0,buffer.indexOf(" "));
+                        String bcal = buffer.substring(buffer.indexOf(" ")+1);
+                        foodList.setText(bname + bcal);
+
+                        foodList.setVisibility(View.VISIBLE);
+                        foodList.setText(bname + bcal);
                         fin.close();
                     }
                     catch(IOException e) {
                         e.printStackTrace();
                     }
-                    breakfastViewStatus =true;
-                    viewBreakFastList.setText(R.string.txtPatCloseView);
+                    foodViewStatus =true;
+                    viewFoodList.setText(R.string.txtPatCloseView);
 
 
                 }
-                else if(breakfastViewStatus==true){
-                    breakfastViewStatus =false;
-                    viewBreakFastList.setText(R.string.view);
-                    breakFastList.setVisibility(View.INVISIBLE);
+                else if(foodViewStatus){
+                    foodViewStatus =false;
+                    viewFoodList.setText(R.string.view);
+                    foodList.setVisibility(View.INVISIBLE);
 
 
-                }
-
-            }
-
-        });
-
-
-         //Lunch settings
-        //Lunch foodName
-        patientLunchFoodName = findViewById(R.id.inptPatLunchFoodName);
-
-        //Lunch foodCalorie
-        patientLunchFoodCalorie = findViewById(R.id.inptPatLunchFoodCalorie);
-
-
-        //set value for total breakfast calories
-        PatientLunchTotalCalorie = findViewById(R.id.txtPatLunchCaloryCalculated);
-        PatientLunchTotalCalorie.setText("0");
-
-
-        Button addLunchButton=findViewById(R.id.btnPatAddFoodToLunch);
-        addLunchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LunchTotalCalories = LunchTotalCalories + Integer.parseInt(String.valueOf(patientLunchFoodCalorie.getText()));
-                PatientLunchTotalCalorie.setText(String.valueOf(LunchTotalCalories));
-
-                lunchFoodName = patientLunchFoodName.getText().toString();
-                lunchFoodCalorie = Integer.parseInt(patientLunchFoodCalorie.getText().toString());
-                try {
-                    FileOutputStream foutLunch= openFileOutput("LunchFile.txt",MODE_APPEND);
-                    foutLunch.write(lunchFoodName.getBytes());
-                    //fout.write(breakfastFoodCalorie);
-                    foutLunch.write("\n".getBytes());
-                    foutLunch.close();
-                    Toast.makeText(PatientFoodTrackPg1.this,"Data Saved",Toast.LENGTH_LONG).show();
-                }
-                catch(IOException e) {
-                    e.printStackTrace();
-                }
-
-                patientLunchFoodName.setText("");
-                patientLunchFoodCalorie.setText("");
-
-            }
-        });
-
-        viewLunchList = findViewById(R.id.btnPatViewLunch);
-        lunchList = findViewById(R.id.txtPatLunchList);
-        viewLunchList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(lunchViewStatus==false){
-
-                    try {
-                        FileInputStream finLunch = openFileInput("lunchFile.txt");
-                        String tempLunch="";
-                        int cLunch;
-                        char chLunch;
-                        while ((cLunch=finLunch.read()) != -1){
-                            chLunch = (char) cLunch;
-                            tempLunch += Character.toString(chLunch);
-                        }
-                        lunchList.setVisibility(View.VISIBLE);
-                        lunchList.setText(tempLunch);
-                        finLunch.close();
-                    }
-                    catch(IOException e) {
-                        e.printStackTrace();
-                    }
-                    lunchViewStatus =true;
-                    viewLunchList.setText(R.string.txtPatCloseView);
-                }
-                else if(lunchViewStatus==true){
-                    lunchViewStatus =false;
-                    viewLunchList.setText(R.string.view);
-                    lunchList.setVisibility(View.INVISIBLE);
                 }
 
             }
 
         });
 
-
-        //Dinner settings
-        //Dinner foodName
-        patientDinnerFoodName = findViewById(R.id.inptPatDinnerFoodName);
-
-        //Lunch foodCalorie
-        patientDinnerFoodCalorie = findViewById(R.id.inptPatDinnerFoodCalorie);
-
-
-        //set value for total breakfast calories
-        PatientDinnerTotalCalorie = findViewById(R.id.txtPatDinnerCaloryCalculated);
-        PatientDinnerTotalCalorie.setText("0");
-
-        Button addDinnerButton=findViewById(R.id.btnPatAddFoodToDinner);
-        addDinnerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DinnerTotalCalories = DinnerTotalCalories + Integer.parseInt(String.valueOf(patientDinnerFoodCalorie.getText()));
-                PatientDinnerTotalCalorie.setText(String.valueOf(DinnerTotalCalories));
-
-                DinnerFoodName = patientDinnerFoodName.getText().toString();
-                dinnerFoodCalorie = Integer.parseInt(patientDinnerFoodCalorie.getText().toString());
-                try {
-                    FileOutputStream foutDinner= openFileOutput("DinnerFile.txt",MODE_APPEND);
-                    foutDinner.write(DinnerFoodName.getBytes());
-                    //fout.write(breakfastFoodCalorie);
-                    foutDinner.write("\n".getBytes());
-                    foutDinner.close();
-                    Toast.makeText(PatientFoodTrackPg1.this,"Data Saved",Toast.LENGTH_LONG).show();
-                }
-                catch(IOException e) {
-                    e.printStackTrace();
-                }
-
-                patientDinnerFoodName.setText("");
-                patientDinnerFoodCalorie.setText("");
-
-            }
-        });
-
-        viewDinnerList = findViewById(R.id.btnPatViewDinner);
-        dinnerList = findViewById(R.id.txtPatDinnerList);
-        viewDinnerList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(dinnerViewStatus==false){
-
-                    try {
-                        FileInputStream finDinner = openFileInput("dinnerFile.txt");
-                        String tempDinner="";
-                        int cDinner;
-                        char chDinner;
-                        while ((cDinner=finDinner.read()) != -1){
-                            chDinner = (char) cDinner;
-                            tempDinner += Character.toString(chDinner);
-                        }
-                        dinnerList.setVisibility(View.VISIBLE);
-                        dinnerList.setText(tempDinner);
-                        finDinner.close();
-                    }
-                    catch(IOException e) {
-                        e.printStackTrace();
-                    }
-                    dinnerViewStatus =true;
-                    viewDinnerList.setText(R.string.txtPatCloseView);
-                }
-                else if(dinnerViewStatus==true){
-                    dinnerViewStatus =false;
-                    viewDinnerList.setText(R.string.view);
-                    dinnerList.setVisibility(View.INVISIBLE);
-                }
-
-            }
-
-        });
     }
 }

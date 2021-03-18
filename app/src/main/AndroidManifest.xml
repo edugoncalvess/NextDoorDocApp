@@ -12,7 +12,6 @@
         <activity android:name=".CashierRegisterPmtPg1"></activity>
         <activity android:name=".CashierHomePg1" />
         <activity android:name=".PatientFoodTrackPg1" />
-        <activity android:name=".PatientFoodSearch" />
         <activity android:name=".PatientFindDoctorPg1" />
         <activity android:name=".PatientMainActions" />
         <activity android:name=".CashierPmtCheckPg1" />
