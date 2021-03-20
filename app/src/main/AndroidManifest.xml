@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NextDoorDocApp">
-        <activity android:name=".CashierRegisterPmtPg1"></activity>
+        <activity android:name=".PatientBookAppointmentDoctorPg1"></activity>
+        <activity android:name=".PatientFindDoctorPg2" />
+        <activity android:name=".CashierRegisterPmtPg1" />
         <activity android:name=".CashierHomePg1" />
         <activity android:name=".PatientFoodTrackPg1" />
         <activity android:name=".PatientFindDoctorPg1" />
@@ -20,14 +22,12 @@
         <activity android:name=".DocMessagesPg1" />
         <activity android:name=".DoctorHelloPg1" />
         <activity android:name=".MainActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

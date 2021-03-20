@@ -42,4 +42,18 @@
     <string name="txtPmtMthdCash">Cash</string>
     <string name="txtPmtMethod">Payment Method</string>
     <string name="txtPatAddFoodToList">Add Food Item</string>
+    <string name="inptPatDoctorName">Enter Doctor Name</string>
+    <string name="txtPatOrLabel">OR</string>
+    <string name="inptPatDoctorAddress">Enter Doctor Address</string>
+    <string name="inptPatDoctorPostalCode">Enter Doctor Postal Code</string>
+    <string name="btnPatFindDoctorLabel">Find</string>
+    <string name="txtPatDoctorNameLbl">Doctor Name</string>
+    <string name="txtPatDoctorAddressLbl">Address</string>
+    <string name="txtPatDoctorPhoneLbl">Phone</string>
+    <string name="btnPatDoctorBookAppointment">Book an Appointment</string>
+    <string name="btnPatDoctorCheckAvailability">Check Availability</string>
+    <string name="btnPatDoctorGetOnlineHelp">Get Online Help</string>
+    <string name="txtPatAppointmentDocDays">Day</string>
+    <string name="txtPatAppointmentDocTimes">Time</string>
+    <string name="txtPatAppointmentDocRegister">Register</string>
 </resources>

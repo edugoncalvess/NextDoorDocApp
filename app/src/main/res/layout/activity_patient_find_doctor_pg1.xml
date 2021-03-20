@@ -6,17 +6,72 @@
     android:layout_height="match_parent"
     tools:context=".PatientFindDoctorPg1">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="188dp"
-        android:layout_height="89dp"
-        android:layout_marginStart="99dp"
-        android:layout_marginLeft="99dp"
-        android:layout_marginTop="234dp"
-        android:layout_marginEnd="124dp"
-        android:layout_marginRight="124dp"
-        android:text="Find Dr Page"
+    <EditText
+        android:id="@+id/inptPatDoctorName"
+        android:layout_width="298dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/inptPatDoctorName"
+        android:inputType="textPersonName"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/inptPatDoctorPostalCode"
+        android:layout_width="298dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="192dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/inptPatDoctorPostalCode"
+        android:inputType="textPersonName"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnPatDoctorFind"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:text="@string/btnPatFindDoctor"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inptPatDoctorPostalCode" />
+
+    <TextView
+        android:id="@+id/txtPatOrLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:text="@string/txtPatOrLabel"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inptPatDoctorName" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
