@@ -5,7 +5,6 @@ import androidx.cardview.widget.CardView;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,8 +14,6 @@ import android.widget.Toast;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class PatientFoodTrackPg1 extends AppCompatActivity {
     Button addButton;
@@ -26,6 +23,7 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
     TextView patientRemainingCalorie;
     TextView PatientCalorieAlarm;
     TextView PatientFoodTotalCalorie;
+    TextView PatientFoodTotal2Calorie;
     TextView foodList;
     EditText patientFoodName;
     EditText patientFoodCalorie;
@@ -82,6 +80,10 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
         PatientFoodTotalCalorie = findViewById(R.id.txtPatFoodCalculated);
         PatientFoodTotalCalorie.setText("0");
 
+        //set calculated food calorie -total
+        PatientFoodTotal2Calorie = findViewById(R.id.txtPatFoodCaloryCalculated);
+        PatientFoodTotal2Calorie.setText("0");
+
         addButton = findViewById(R.id.btnPatAddFoodToList);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +91,7 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
 
                 foodsTotalCalories = foodsTotalCalories + Integer.parseInt(String.valueOf(patientFoodCalorie.getText()));
                 PatientFoodTotalCalorie.setText(String.valueOf(foodsTotalCalories));
+                PatientFoodTotal2Calorie.setText(String.valueOf(foodsTotalCalories));
                 currentFoodConsumedCalories = foodsTotalCalories;
                 foodConsumedCalories = foodsTotalCalories;
 
@@ -161,8 +164,8 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
             }
         });
 
-        viewFoodList = findViewById(R.id.btnPatViewBreakfast);
-        foodList = findViewById(R.id.txtPatBreakfastList);
+        viewFoodList = findViewById(R.id.btnPatViewFood);
+        foodList = findViewById(R.id.txtPatFoodList);
         viewFoodList.setOnClickListener(new View.OnClickListener() {
 
             @Override

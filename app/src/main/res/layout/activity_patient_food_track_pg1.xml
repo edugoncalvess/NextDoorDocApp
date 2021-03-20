@@ -106,7 +106,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/txtPatCaloriesRemaining" />
 
                     <TextView
-                        android:id="@+id/txtPatFoodLbl"
+                        android:id="@+id/txtPatFoodLbl2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -159,7 +159,7 @@
                         android:textSize="24sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.718"
-                        app:layout_constraintStart_toEndOf="@+id/txtPatFoodLbl"
+                        app:layout_constraintStart_toEndOf="@+id/txtPatFoodLbl2"
                         app:layout_constraintTop_toBottomOf="@+id/txtPatRemainingCalculated" />
 
                     <TextView
@@ -192,41 +192,25 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <TextView
-                        android:id="@+id/txtPatFoodLbl"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="4dp"
-                        android:text="@string/txtPatFood"
-                        android:textColor="#000000"
-                        android:textSize="24sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.003"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
                     <View
                         android:id="@+id/divider"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginTop="5dp"
                         android:background="?android:attr/listDivider"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/txtPatFoodLbl" />
+                        app:layout_constraintTop_toBottomOf="@+id/btnPatViewFood" />
 
                     <TextView
-                        android:id="@+id/txtPatBreakfastCaloryCalculated"
+                        android:id="@+id/txtPatFoodCaloryCalculated"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:textColor="#000000"
                         android:textSize="24sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.915"
-                        app:layout_constraintStart_toEndOf="@+id/txtPatFoodLbl"
+                        app:layout_constraintHorizontal_bias="0.8"
+                        app:layout_constraintStart_toEndOf="@+id/btnPatViewFood"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <Button
@@ -280,7 +264,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/divider" />
 
                     <TextView
-                        android:id="@+id/txtPatBreakfastList"
+                        android:id="@+id/txtPatFoodList"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
@@ -293,16 +277,32 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <Button
-                        android:id="@+id/btnPatViewBreakfast"
+                        android:id="@+id/btnPatViewFood"
                         android:layout_width="90dp"
                         android:layout_height="38dp"
-                        android:layout_marginStart="9dp"
-                        android:layout_marginLeft="9dp"
+                        android:layout_marginStart="22dp"
+                        android:layout_marginLeft="22dp"
                         android:text="@string/view"
                         android:textSize="15sp"
                         app:backgroundTint="#009688"
                         app:layout_constraintBottom_toTopOf="@+id/inptPatFoodName"
-                        app:layout_constraintStart_toEndOf="@+id/txtPatFoodLbl"
+                        app:layout_constraintStart_toEndOf="@+id/txtPatFoodTitleLbl"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtPatFoodTitleLbl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
+                        android:text="@string/txtPatFood"
+                        android:textColor="#000000"
+                        android:textSize="22sp"
+                        app:layout_constraintEnd_toStartOf="@+id/btnPatViewFood"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
