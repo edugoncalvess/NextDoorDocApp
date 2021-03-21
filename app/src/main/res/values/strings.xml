@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">NextDoorDocApp</string>
     <string name="textofexample">TextOfExample</string>
+    <string name="testtxt">Nazanin Test</string>
     <string name="btnPatFoodTrack">Food Track</string>
     <string name="btnPatFindDoctor">Find a Doctor</string>
     <string name="btnPatAllPages">Patient pages</string>
@@ -10,7 +11,8 @@
     <string name="txtPatFood">Food</string>
     <string name="txtPatEqualSign">=</string>
     <string name="txtPatRemaining">Remaining</string>
-    <string name="btnPatAddFood">Add  Food</string>
+    <string name="txtPatBreakfast">Breakfast</string>
+    <string name="btnPatAddFood" translatable="false">Add  Food</string>
     <string name="btnDocAllpages">Doctor Pages</string>
     <string name="txtHelloDoc">Hello Doctor!</string>
     <string name="btnDocShowMessages">Show Messages</string>
@@ -24,6 +26,11 @@
     <string name="view">View</string>
     <string name="txtPatWelcomeMessage">Welcome to Patient Panel</string>
     <string name="txtPatCloseView">Close View</string>
+    <string name="txtPatLunchLbl">Lunch</string>
+    <string name="txtPatDinnerLbl">Dinner</string>
+    <string name="txtPatAddBreakfast">Add Breakfast Item</string>
+    <string name="txtPatAddLunch">Add Lunch Item</string>
+    <string name="txtPatAddDinner">Add Dinner Item</string>
     <string name="btnCashierAllpages">Cashier Pages</string>
     <string name="txtHelloCashier">Hello Cashier!</string>
     <string name="btnCheckPmt">Check Payment</string>
@@ -41,7 +48,7 @@
     <string name="txtPmtMthdCard">Credit or Debit Card</string>
     <string name="txtPmtMthdCash">Cash</string>
     <string name="txtPmtMethod">Payment Method</string>
-    <string name="txtPatAddFoodToList">Add Food Item</string>
+
     <string name="inptPatDoctorName">Enter Doctor Name</string>
     <string name="txtPatOrLabel">OR</string>
     <string name="inptPatDoctorAddress">Enter Doctor Address</string>
@@ -56,4 +63,11 @@
     <string name="txtPatAppointmentDocDays">Day</string>
     <string name="txtPatAppointmentDocTimes">Time</string>
     <string name="txtPatAppointmentDocRegister">Register</string>
+
+
+
+
+    <string name="txtPatAddFoodToList">Add Food Item</string>
+
+
 </resources>

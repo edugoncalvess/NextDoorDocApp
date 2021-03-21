@@ -11,11 +11,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class PatientFoodTrackPg1 extends AppCompatActivity {
+
+    DatabaseHelper databaseHelper;
+
     Button addButton;
     Button viewFoodList;
     TextView patientGoalCalorie;
@@ -43,6 +47,7 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_food_track_pg1);
+
 
         //select food items cardView
         CardView crdViewPatFoodTrackItems = findViewById(R.id.crdViewPatFoodTrack);
@@ -101,32 +106,25 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
                 finish();
                 overridePendingTransition(0, 0);
                 startActivity(i);
-                overridePendingTransition(0, 0);*/
+                overridePendingTransition(0, 0);*//*
 
                 //patientFoodConsumedCalories.setText(String.valueOf(breakfastTotalCalories));
 
-                /*SharedPreferences totalConsumedCaloriesPreferences = getSharedPreferences("totalConsumedCalories", MODE_PRIVATE);
+                *//*SharedPreferences totalConsumedCaloriesPreferences = getSharedPreferences("totalConsumedCalories", MODE_PRIVATE);
                 SharedPreferences.Editor edit = totalConsumedCaloriesPreferences.edit();
                 edit.putInt("key1",currentFoodConsumedCalories);
                 edit.commit();
-
-
-
                 int tBreakcalorie = totalConsumedCaloriesPreferences.getInt("key1",0);
                 Log.d("tBreakcalorie", String.valueOf(tBreakcalorie));
                 //patientFoodConsumedCalories.setText(tBreakcalorie);
-
                 //Using Preference which is not useful here
                /* breakfastFoodName = patientBreakfastFoodName.getText().toString();
                 SharedPreferences.Editor editor= preferences.edit();
                 editor.putString("key1",breakfastFoodName);
                 editor.putInt("key2",breakfastFoodCalorie);
                 editor.commit();
-
-
                 String name = preferences.getString("key1","");
                 int calorie = preferences.getInt("key2",0);
-
                 TextView txtTest = findViewById(R.id.textView5);
                 txtTest.setText(name + calorie);*/
 
@@ -151,9 +149,9 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
                     Toast.makeText(PatientFoodTrackPg1.this, "Saving...", Toast.LENGTH_LONG).show();
 
                     //delete file
-                    /*File dir = getFilesDir();
+                    File dir = getFilesDir();
                     File file = new File(dir, "breakfastFile.txt");
-                    boolean deleted = file.delete();*/
+                    boolean deleted = file.delete();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -2,22 +2,35 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/txtDay"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DocSchedulePg1">
 
-    <TextView
-        android:id="@+id/txtTitleSchedule"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="174dp"
-        android:layout_marginLeft="174dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="179dp"
-        android:layout_marginRight="179dp"
-        android:text="@string/txtTitleSchedule"
-        android:textSize="30sp"
+    <CalendarView
+        android:id="@+id/calender"
+        android:layout_width="363dp"
+        android:layout_height="332dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TimePicker
+        android:id="@+id/timePickerDoc"
+        android:layout_width="221dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="44dp"
+        android:timePickerMode="spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calender"
+        tools:targetApi="lollipop" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
