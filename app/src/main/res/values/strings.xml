@@ -68,6 +68,12 @@
 
 
     <string name="txtPatAddFoodToList">Add Food Item</string>
+    <string name="titleDocTime">Availabilty time range:</string>
+    <string name="txtDocTimeAvRange">Time</string>
+    <string name="dateView" />
+    <string name="txtToTimeDoc">To</string>
+    <string name="txtDocTimeAvRange2">Time</string>
+    <string name="btnDocSetDT">Insert</string>
 
 
 </resources>

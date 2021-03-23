@@ -13,7 +13,6 @@
         android:layout_height="332dp"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="56dp"
         android:layout_marginEnd="31dp"
         android:layout_marginRight="31dp"
 
@@ -22,15 +21,96 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TimePicker
-        android:id="@+id/timePickerDoc"
-        android:layout_width="221dp"
-        android:layout_height="136dp"
-        android:layout_marginTop="44dp"
-        android:timePickerMode="spinner"
-        app:layout_constraintEnd_toEndOf="parent"
+    <TextView
+        android:id="@+id/titleDocTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="29dp"
+        android:text="@string/titleDocTime"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtDocTimeAvRange"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calender"
-        tools:targetApi="lollipop" />
+        app:layout_constraintTop_toBottomOf="@+id/calender" />
+
+    <EditText
+        android:id="@+id/txtDocTimeAvRange"
+        android:layout_width="105dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="10dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/txtDocTimeAvRange"
+        android:inputType="time"
+        app:layout_constraintBottom_toTopOf="@+id/dateView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleDocTime" />
+
+    <TextView
+        android:id="@+id/dateView"
+        android:layout_width="299dp"
+        android:layout_height="105dp"
+        android:text="@string/dateView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.427"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDocTimeAvRange" />
+
+    <EditText
+        android:id="@+id/txtDocTimeAvRange2"
+        android:layout_width="107dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginRight="69dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/txtDocTimeAvRange2"
+        android:inputType="time"
+        app:layout_constraintBottom_toTopOf="@+id/dateView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleDocTime" />
+
+    <TextView
+        android:id="@+id/txtToTimeDoc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:text="@string/txtToTimeDoc"
+        app:layout_constraintEnd_toStartOf="@+id/txtDocTimeAvRange2"
+        app:layout_constraintHorizontal_bias="0.619"
+        app:layout_constraintStart_toEndOf="@+id/txtDocTimeAvRange"
+        app:layout_constraintTop_toBottomOf="@+id/titleDocTime" />
+
+    <Button
+        android:id="@+id/btnDocSetDT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginLeft="148dp"
+        android:layout_marginBottom="37dp"
+        android:text="@string/btnDocSetDT"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateView"
+        app:layout_constraintVertical_bias="0.477" />
+    <!--
+        <TimePicker
+            android:id="@+id/timePickerDoc"
+            android:layout_width="221dp"
+            android:layout_height="136dp"
+            android:timePickerMode="spinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/calender"
+            tools:targetApi="lollipop" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
