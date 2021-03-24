@@ -65,9 +65,97 @@
     <string name="txtPatAppointmentDocRegister">Register</string>
 
 
-
-
     <string name="txtPatAddFoodToList">Add Food Item</string>
+    <string name="titleDocTime">Enter the time:</string>
+    <string name="txtDocTimeAvRange2">Time</string>
+    <string name="txtToTimeDoc">To</string>
+    <string name="txtDocTimeAvRange">Time</string>
+    <string name="dataView" />
+    <string name="btnDocSetDT">SAVE SCHEDULE</string>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <string name="btnSplashPage">Splash Page</string>
+    <string name="btnLoginPage">Login Page</string>
+    <string name="txtLoginWelcome">Welcome to the NextDoorDoc App</string>
+    <string name="hintLoginUsername">E-mail:</string>
+    <string name="hintLoginPassword">Password:</string>
+    <string name="btnLogin">Login</string>
+    <string name="txtLoginSignUp">Don\'t have and account? Sign-up here</string>
+    <string name="txtLoginIssues">Login Issues?</string>
+    <string name="btnContactOurSupport">Contact Our Support</string>
+    <string name="txtTitleContactOurSupport">Contact Our Support</string>
+    <string name="txtContactSupportMessage">Give us your contact information and describe your request.</string>
+    <string name="txtContactSupportMessage2">If you prefer, call us on 555–555–555 from Monday to Friday 8:00 to 17:00hs.</string>
+    <string name="txtContactSupportDesc">Please, describe your request.</string>
+    <string name="txtLblContactSupportContactData">Please, insert your e-mail and phone number</string>
+    <string name="hintContactSupportUsername">E-mail:</string>
+    <string name="hintContactSupportPhone">Phone:</string>
+    <string name="hintContactSupportDescription">Description:</string>
+    <string name="btnContactSupportSend">Send</string>
+
+    <string name="txtPatientRegistMessage">Please, tell us some info to create your profile:</string>
+    <string name="lblRgstPgFirstName">First Name:</string>
+    <string name="hintRgstPgFirstName">Firstname</string>
+    <string name="lblRgstPgFamilyName">Family Name</string>
+    <string name="hintRgstPgFamilyName">Family Name</string>
+    <string name="lblRgstPgEmail">E-mail:</string>
+    <string name="hintRgstPgEmail">your@email.com</string>
+    <string name="txtRgstPgExplainingEmail">Will be your Username</string>
+    <string name="lblRgstPgPassword">Password:</string>
+    <string name="hintRgstPgPassword">Password</string>
+    <string name="lblRgstPgPhone">Phone No:</string>
+    <string name="hintRgstPgPhone">Phone</string>
+    <string name="lblRgstPgAddress">Address:</string>
+    <string name="hintRgstPgAddress">102–300, Example Rd, Mycity, BC, Canada</string>
+    <string name="lblRgstPgPCode">Postal Code:</string>
+    <string name="hintRgstPgPCode">X1X 1X1</string>
+    <string name="txtRgstPgDOB">Date of Birth:</string>
+    <string name="hintRgstPgDOB">1970–12–31</string>
+    <string name="lblRgstPgHeight">Height in meters:</string>
+    <string name="hintRgstPgHeight">1.89</string>
+    <string name="txtRgstPgM">m</string>
+    <string name="lblRgstPgWeight">Weight in Kg:</string>
+    <string name="hintRgstPgWeight">79.6</string>
+    <string name="txtRgstPgKg">kg</string>
+    <string name="lblRgstPgGender">Gender:</string>
+    <string name="lblRgstPgGenderM">M</string>
+    <string name="lblRgstPgGenderF">F</string>
+    <string name="lblRgstPgGenderOther">Other</string>
+    <string name="spnRgstPgGender">Gender</string>
+    <string name="lblRgstPgInsuranceNumber">Insurance (MSP)</string>
+    <string name="hintRgstPgInsuranceNumber">X36000000000</string>
+    <string name="btnRgstPgCreateProfile">Create Profile</string>
 
 </resources>
