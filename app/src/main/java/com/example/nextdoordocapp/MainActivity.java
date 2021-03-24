@@ -46,6 +46,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button btnLoginPage = findViewById(R.id.btnLoginPage);
+        btnLoginPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,LoginActivityPg1.class));
+            }
+        });
+
+        Button btnSplashPage = findViewById(R.id.btnSplashPage);
+        btnSplashPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,SplashActivity.class));
+            }
+        });
+
 
     }
 }
