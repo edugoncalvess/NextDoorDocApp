@@ -53,13 +53,41 @@
         android:layout_height="62dp"
         android:layout_marginStart="102dp"
         android:layout_marginLeft="102dp"
-        android:layout_marginTop="87dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="103dp"
         android:layout_marginRight="103dp"
         android:text="@string/btnCashierAllpages"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.416"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAdminAllPages" />
+
+    <Button
+        android:id="@+id/btnLoginPage"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/btnLoginPage"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCashierPages" />
+
+    <Button
+        android:id="@+id/btnSplashPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:text="@string/btnSplashPage"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnLoginPage"
+        app:layout_constraintTop_toBottomOf="@+id/btnCashierPages" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
