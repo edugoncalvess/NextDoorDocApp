@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NextDoorDocApp">
         <activity android:name=".PatientSendMessageToDoctorPg1"></activity>
-        <
         <activity android:name=".ContactSupportPg1" />
         <activity android:name=".PatientRegistrationPg1" />
         <activity android:name=".LoginActivityPg1" />
