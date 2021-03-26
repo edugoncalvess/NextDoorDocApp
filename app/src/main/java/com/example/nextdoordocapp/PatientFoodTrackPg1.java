@@ -135,22 +135,22 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
                 FoodName = patientFoodName.getText().toString();
                 FoodCalorie = Integer.parseInt(patientFoodCalorie.getText().toString());
 
-
+/*
                 try {
                     FileOutputStream fout = openFileOutput("foodItemFile.txt", MODE_APPEND);
 
                     //add today Date
-                    /*SimpleDateFormat sdf = new SimpleDateFormat("HH:mm dd/MM/yyyy");
+                    *//*SimpleDateFormat sdf = new SimpleDateFormat("HH:mm dd/MM/yyyy");
                     String currentDateandTime = sdf.format(new Date());
                     fout.write(currentDateandTime.getBytes());
-                    fout.write("\n".getBytes());*/
+                    fout.write("\n".getBytes());*//*
 
                     fout.write(FoodName.getBytes());
                     fout.write(": ".getBytes());
                     fout.write(String.valueOf(FoodCalorie).getBytes());
                     fout.write("\n".getBytes());
                     fout.close();
-                   /* Toast.makeText(PatientFoodTrackPg1.this, "Saving...", Toast.LENGTH_LONG).show();*/
+                   *//* Toast.makeText(PatientFoodTrackPg1.this, "Saving...", Toast.LENGTH_LONG).show();*//*
 
                     //delete file
                     File dir = getFilesDir();
@@ -158,10 +158,7 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
                     boolean deleted = file.delete();
                 } catch (IOException e) {
                     e.printStackTrace();
-                }
-
-                patientFoodName.setText("");
-                patientFoodCalorie.setText("");
+                }*/
 
                 boolean isInserted = databaseHelper.addRecordFoodItem(patientFoodName.getText().toString(),
                         patientFoodCalorie.getText().toString());
