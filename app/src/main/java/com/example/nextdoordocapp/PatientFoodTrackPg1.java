@@ -48,6 +48,8 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_food_track_pg1);
 
+        //add database
+        databaseHelper = new DatabaseHelper(this);
 
         //select food items cardView
         CardView crdViewPatFoodTrackItems = findViewById(R.id.crdViewPatFoodTrack);
@@ -148,7 +150,7 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
                     fout.write(String.valueOf(FoodCalorie).getBytes());
                     fout.write("\n".getBytes());
                     fout.close();
-                    Toast.makeText(PatientFoodTrackPg1.this, "Saving...", Toast.LENGTH_LONG).show();
+                   /* Toast.makeText(PatientFoodTrackPg1.this, "Saving...", Toast.LENGTH_LONG).show();*/
 
                     //delete file
                     File dir = getFilesDir();
@@ -161,6 +163,17 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
                 patientFoodName.setText("");
                 patientFoodCalorie.setText("");
 
+                boolean isInserted = databaseHelper.addRecordFoodItem(patientFoodName.getText().toString(),
+                        patientFoodCalorie.getText().toString());
+
+                if (isInserted){
+                    Toast.makeText(PatientFoodTrackPg1.this,"added to database",Toast.LENGTH_LONG).show();
+
+                }
+                else {
+                    Toast.makeText(PatientFoodTrackPg1.this,"not added to database",Toast.LENGTH_LONG).show();
+
+                }
             }
         });
 
