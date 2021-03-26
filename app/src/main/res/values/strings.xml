@@ -74,38 +74,6 @@
     <string name="btnDocSetDT">SAVE SCHEDULE</string>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <string name="btnSplashPage">Splash Page</string>
     <string name="btnLoginPage">Login Page</string>
     <string name="txtLoginWelcome">Welcome to the NextDoorDoc App</string>
@@ -157,5 +125,11 @@
     <string name="lblRgstPgInsuranceNumber">Insurance (MSP)</string>
     <string name="hintRgstPgInsuranceNumber">X36000000000</string>
     <string name="btnRgstPgCreateProfile">Create Profile</string>
+    <string name="txtPatMessageLbl">Message</string>
+    <string name="txtEditPatMessageHint">Enter message here...</string>
+    <string name="txtPatAmountToPayLabel">Amount</string>
+    <string name="txtPatDollarSign">$</string>
+    <string name="btnPatSendMessageLbl">Send Message</string>
+    <string name="btnPatSendMessageAndPay">Pay and Send Message</string>
 
 </resources>

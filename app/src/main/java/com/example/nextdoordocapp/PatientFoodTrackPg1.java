@@ -65,14 +65,7 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
 
         /*set value to Remaining Calorie label and check the consumed balance*/
         patientRemainingCalorie = findViewById(R.id.txtPatRemainingCalculated);
-        remainedCalorie = goalCalorie - foodConsumedCalories;
-        patientRemainingCalorie.setText(String.valueOf(remainedCalorie));
-        if (remainedCalorie > 0) {
-            patientRemainingCalorie.setTextColor(Color.parseColor("#009F21"));
-        } else {
-            patientRemainingCalorie.setTextColor(Color.parseColor("#DC0000"));
-            PatientCalorieAlarm.setText("Be Careful you passed your Goal!!");
-        }
+
 
         // foodName
         patientFoodName = findViewById(R.id.inptPatFoodName);
@@ -100,6 +93,15 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
                 currentFoodConsumedCalories = foodsTotalCalories;
                 foodConsumedCalories = foodsTotalCalories;
 
+                //Calculate Remained Calorie
+                remainedCalorie = goalCalorie - foodConsumedCalories;
+                patientRemainingCalorie.setText(String.valueOf(remainedCalorie));
+                if (remainedCalorie > 0) {
+                    patientRemainingCalorie.setTextColor(Color.parseColor("#009F21"));
+                } else {
+                    patientRemainingCalorie.setTextColor(Color.parseColor("#DC0000"));
+                    PatientCalorieAlarm.setText("Be Careful you passed your Goal!!");
+                }
 
                 //Refresh Activity
                 /*Intent i = new Intent(PatientFoodTrackPg1.this, PatientFoodTrackPg1.class);
