@@ -14,6 +14,8 @@
         <activity android:name=".AdmPatInformation" />
         <activity android:name=".AdmDocInformation" />
         <activity android:name=".SplashActivity" />
+        <activity android:name=".PatientSendMessageToDoctorPg1"></activity>
+        <
         <activity android:name=".ContactSupportPg1" />
         <activity android:name=".PatientRegistrationPg1" />
         <activity android:name=".LoginActivityPg1" />

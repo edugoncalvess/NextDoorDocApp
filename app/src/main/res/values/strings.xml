@@ -69,10 +69,10 @@
     <string name="btnAdmNext">NEXT</string>
 
 
-    <string name="inptPatDoctorName">Enter Doctor Name</string>
+    <string name="inptPatAddress">Enter your Address</string>
     <string name="txtPatOrLabel">OR</string>
     <string name="inptPatDoctorAddress">Enter Doctor Address</string>
-    <string name="inptPatDoctorPostalCode">Enter Doctor Postal Code</string>
+    <string name="inptPatPostalCode">Enter your Postal Code</string>
     <string name="btnPatFindDoctorLabel">Find</string>
     <string name="txtPatDoctorNameLbl">Doctor Name</string>
     <string name="txtPatDoctorAddressLbl">Address</string>
@@ -145,6 +145,12 @@
     <string name="lblRgstPgInsuranceNumber">Insurance (MSP)</string>
     <string name="hintRgstPgInsuranceNumber">X36000000000</string>
     <string name="btnRgstPgCreateProfile">Create Profile</string>
+    <string name="txtPatMessageLbl">Message</string>
+    <string name="txtEditPatMessageHint">Enter message here...</string>
+    <string name="txtPatAmountToPayLabel">Amount</string>
+    <string name="txtPatDollarSign">$</string>
+    <string name="btnPatSendMessageLbl">Send Message</string>
+    <string name="btnPatSendMessageAndPay">Pay and Send Message</string>
     <string name="txtAdmRegPage2">Continue Entering the Information</string>
     <string name="txtAdmPatientAllergies">Allergies</string>
 

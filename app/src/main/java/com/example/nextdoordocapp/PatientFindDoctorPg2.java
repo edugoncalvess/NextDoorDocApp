@@ -59,7 +59,7 @@ public class PatientFindDoctorPg2 extends AppCompatActivity {
         btnPatDoctorGetOnlineHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(PatientFindDoctorPg2.this,PatientSendMessageToDoctorPg1.class));
             }
         });
     }

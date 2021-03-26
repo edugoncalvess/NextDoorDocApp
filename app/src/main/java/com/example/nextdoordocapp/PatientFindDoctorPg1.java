@@ -4,16 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 public class PatientFindDoctorPg1 extends AppCompatActivity {
 
-    EditText inptPatDoctorName;
-    EditText inptPatDoctorAddress;
-    EditText inptPatDoctorPostalCode;
+    EditText inptPatAddress;
+    EditText inptPatPostalCode;
     Button btnPatDoctorfind;
 
     @Override
@@ -22,10 +20,10 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
         setContentView(R.layout.activity_patient_find_doctor_pg1);
 
         // DoctorName
-        inptPatDoctorName = findViewById(R.id.inptPatDoctorName);
+        inptPatAddress = findViewById(R.id.inptPatAddress);
 
         // DoctorPostalCode
-        inptPatDoctorPostalCode = findViewById(R.id.inptPatDoctorPostalCode);
+        inptPatPostalCode = findViewById(R.id.inptPatPostalCode);
 
         // find Doctor
         btnPatDoctorfind = findViewById(R.id.btnPatDoctorFind);
