@@ -12,14 +12,13 @@
         android:layout_height="40dp"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="144dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
-        android:text="@string/txtPatDoctorNameLbl"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintHorizontal_bias="0.985"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,13 +28,13 @@
         android:layout_height="43dp"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
-        android:textColor="#000000"
+        android:text="@string/btnPatDoctorCheckAvailability"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.991"
+        app:layout_constraintHorizontal_bias="0.009"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,7 +47,7 @@
         android:layout_marginTop="80dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
-        android:textColor="#000000"
+        android:text="@string/btnPatDoctorBookAppointment"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -81,6 +80,7 @@
         android:layout_marginTop="144dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
+        android:text="@string/txtPatDoctorPhoneLbl"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,13 +97,12 @@
         android:layout_marginTop="144dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
-        android:text="@string/txtPatDoctorPhoneLbl"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.009"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPatDoctorPhoneResult" />
 
     <Button
         android:id="@+id/btnPatDoctorBookAppointment"
@@ -118,7 +117,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPatDoctorPhoneResult" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnPatDoctorCheckAvailability"
