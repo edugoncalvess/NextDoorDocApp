@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdmPatInformation">
+
+    <TextView
+        android:id="@+id/lblRgstPgPassword"
+        android:layout_width="106dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/lblRgstPgPassword"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblRgstPgGender" />
+
+    <EditText
+        android:id="@+id/txtRgstPgPassword"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:ems="10"
+        android:hint="@string/hintRgstPgPassword"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lblRgstPgPassword"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <TextView
+        android:id="@+id/lblRgstPgGender"
+        android:layout_width="87dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:text="@string/lblRgstPgGender"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/radioGroup"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAdmInfo" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="243dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lblRgstPgGender"
+        app:layout_constraintTop_toBottomOf="@+id/txtAdmInfo">
+
+        <RadioButton
+            android:id="@+id/lblRgstPgGenderM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/lblRgstPgGenderM" />
+
+        <RadioButton
+            android:id="@+id/lblRgstPgGenderF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/lblRgstPgGenderF" />
+
+        <RadioButton
+            android:id="@+id/lblRgstPgGenderOther"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/lblRgstPgGenderOther" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/lblRgstPgHeight"
+        android:layout_width="158dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/lblRgstPgHeight"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblRgstPgPassword" />
+
+    <EditText
+        android:id="@+id/txtRgstPgHeight"
+        android:layout_width="180dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:ems="10"
+        android:hint="@string/hintRgstPgHeight"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lblRgstPgHeight"
+        app:layout_constraintTop_toBottomOf="@+id/txtRgstPgPassword" />
+
+    <TextView
+        android:id="@+id/lblRgstPgWeight"
+        android:layout_width="156dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/lblRgstPgWeight"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblRgstPgHeight" />
+
+    <TextView
+        android:id="@+id/lblRgstPgInsuranceNumber"
+        android:layout_width="131dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:text="@string/lblRgstPgInsuranceNumber"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toStartOf="@+id/txtRgstPgInsuranceNumber"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblRgstPgWeight" />
+
+    <EditText
+        android:id="@+id/txtRgstPgWeight"
+        android:layout_width="180dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:hint="@string/hintRgstPgWeight"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lblRgstPgWeight"
+        app:layout_constraintTop_toBottomOf="@+id/txtRgstPgHeight" />
+
+    <EditText
+        android:id="@+id/txtRgstPgInsuranceNumber"
+        android:layout_width="220dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        android:ems="10"
+        android:hint="@string/hintRgstPgInsuranceNumber"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lblRgstPgInsuranceNumber"
+        app:layout_constraintTop_toBottomOf="@+id/txtRgstPgWeight" />
+
+    <Button
+        android:id="@+id/btnRgstPgCreateProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/btnRgstPgCreateProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAllergies" />
+
+    <TextView
+        android:id="@+id/txtAdmInfo"
+        android:layout_width="347dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/txtAdmRegPage2"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtAllergies"
+        android:layout_width="129dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="17dp"
+        android:text="@string/txtAdmPatientAllergies"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblRgstPgInsuranceNumber" />
+
+    <EditText
+        android:id="@+id/txtRegPatientAllergies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtAllergies"
+        app:layout_constraintTop_toBottomOf="@+id/txtRgstPgInsuranceNumber" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

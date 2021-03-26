@@ -6,4 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".AdmWelcPage">
 
+    <TextView
+        android:id="@+id/WelAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/WelAdmin"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnAdmReg"
+        android:layout_width="285dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/btnAdmReg"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/WelAdmin" />
+
+    <Button
+        android:id="@+id/btnAdmUpdateDetails"
+        android:layout_width="290dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/btnAdmUpdateDetails"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAdmReg" />
+
+    <Button
+        android:id="@+id/btnAdmMaintenance"
+        android:layout_width="295dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/btnAdmMaintenance"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAdmUpdateDetails" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

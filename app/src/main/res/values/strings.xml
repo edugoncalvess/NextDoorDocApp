@@ -48,6 +48,26 @@
     <string name="txtPmtMthdCard">Credit or Debit Card</string>
     <string name="txtPmtMthdCash">Cash</string>
     <string name="txtPmtMethod">Payment Method</string>
+    <string name="WelAdmin">Hello Admin!</string>
+    <string name="btnAdmReg">Register a New User</string>
+    <string name="btnAdmUpdateDetails">Update Information</string>
+    <string name="btnAdmMaintenance">Application Maintenance</string>
+    <string name="txtAdmRegDetails">Enter the Following details</string>
+    <string name="txtAdmRegFName">First Name :</string>
+    <string name="txtAdmRegLName">Last Name :</string>
+    <string name="txtAdmContact">Cell Number :</string>
+    <string name="txtAdmAddress">Full Address :</string>
+    <string-array name="spnAdmRole">Choose your role :
+        <item>Patient</item>
+        <item>Doctor</item>
+        <item>Admin</item>
+        <item>Cashier</item>
+    </string-array>
+    <string name="txtAdmRole">Select your role :</string>
+    <string name="txtAdmEmail"> Email ID:</string>
+    <string name="btnAdmClear"> Clear </string>
+    <string name="btnAdmNext">NEXT</string>
+
 
     <string name="inptPatDoctorName">Enter Doctor Name</string>
     <string name="txtPatOrLabel">OR</string>
@@ -72,38 +92,6 @@
     <string name="txtDocTimeAvRange">Time</string>
     <string name="dataView" />
     <string name="btnDocSetDT">SAVE SCHEDULE</string>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <string name="btnSplashPage">Splash Page</string>
@@ -157,5 +145,7 @@
     <string name="lblRgstPgInsuranceNumber">Insurance (MSP)</string>
     <string name="hintRgstPgInsuranceNumber">X36000000000</string>
     <string name="btnRgstPgCreateProfile">Create Profile</string>
+    <string name="txtAdmRegPage2">Continue Entering the Information</string>
+    <string name="txtAdmPatientAllergies">Allergies</string>
 
 </resources>
