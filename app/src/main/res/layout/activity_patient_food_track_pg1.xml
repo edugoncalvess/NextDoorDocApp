@@ -22,7 +22,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/crdViewPatFoodTrackTop"
                 android:layout_width="match_parent"
-                android:layout_height="187dp"
+                android:layout_height="200dp"
                 android:layerType="software">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -185,7 +185,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:isScrollContainer="true"
                     android:overScrollMode="always"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -196,8 +196,10 @@
                         android:id="@+id/divider"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
+                        android:layout_marginTop="20dp"
                         android:background="?android:attr/listDivider"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/btnPatViewFood" />
 
@@ -205,13 +207,30 @@
                         android:id="@+id/txtPatFoodCaloryCalculated"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="24dp"
                         android:textColor="#000000"
                         android:textSize="24sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.8"
+                        app:layout_constraintHorizontal_bias="0.793"
                         app:layout_constraintStart_toEndOf="@+id/btnPatViewFood"
                         app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/inptPatFoodName"
+                        android:layout_width="241dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="43dp"
+                        android:layout_marginRight="43dp"
+                        android:autofillHints=""
+                        android:ems="10"
+                        android:hint="@string/inptPatFood"
+                        android:inputType="textPersonName"
+                        app:layout_constraintEnd_toStartOf="@+id/inptPatFoodCalorie"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/divider" />
 
                     <Button
                         android:id="@+id/btnPatAddFoodToList"
@@ -219,7 +238,7 @@
                         android:layout_height="52dp"
                         android:layout_marginStart="15dp"
                         android:layout_marginLeft="15dp"
-                        android:layout_marginTop="52dp"
+                        android:layout_marginTop="84dp"
                         android:layout_marginEnd="15dp"
                         android:layout_marginRight="15dp"
                         android:text="@string/txtPatAddFoodToList"
@@ -232,27 +251,10 @@
                         app:layout_constraintTop_toBottomOf="@+id/divider" />
 
                     <EditText
-                        android:id="@+id/inptPatFoodName"
-                        android:layout_width="207dp"
-                        android:layout_height="41dp"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginRight="16dp"
-                        android:autofillHints=""
-                        android:ems="10"
-                        android:hint="@string/inptPatFood"
-                        android:inputType="textPersonName"
-                        app:layout_constraintEnd_toStartOf="@+id/inptPatFoodCalorie"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/divider" />
-
-                    <EditText
                         android:id="@+id/inptPatFoodCalorie"
                         android:layout_width="97dp"
-                        android:layout_height="41dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="20dp"
                         android:layout_marginEnd="15dp"
                         android:layout_marginRight="15dp"
                         android:autofillHints=""
@@ -260,6 +262,7 @@
                         android:hint="@string/inptPatFoodCalorie"
                         android:inputType="number"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.979"
                         app:layout_constraintStart_toEndOf="@+id/inptPatFoodName"
                         app:layout_constraintTop_toBottomOf="@+id/divider" />
 
@@ -269,23 +272,24 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginLeft="15dp"
-                        android:layout_marginTop="150dp"
+                        android:layout_marginTop="228dp"
                         android:layout_marginEnd="15dp"
                         android:layout_marginRight="15dp"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.498"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <Button
                         android:id="@+id/btnPatViewFood"
-                        android:layout_width="90dp"
-                        android:layout_height="38dp"
-                        android:layout_marginStart="22dp"
-                        android:layout_marginLeft="22dp"
+                        android:layout_width="136dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="16dp"
                         android:text="@string/view"
                         android:textSize="15sp"
                         app:backgroundTint="#009688"
-                        app:layout_constraintBottom_toTopOf="@+id/inptPatFoodName"
                         app:layout_constraintStart_toEndOf="@+id/txtPatFoodTitleLbl"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -295,7 +299,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginLeft="15dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="24dp"
                         android:layout_marginEnd="12dp"
                         android:layout_marginRight="12dp"
                         android:text="@string/txtPatFood"
