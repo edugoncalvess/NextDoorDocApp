@@ -22,6 +22,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final static String T1COL_4 = "loginStartTime";
     final static String T1COL_5 = "loginEndTime";
 
+    final static String T2COL_1 = "FoodId";
+    final static String T2COL_2 = "CalorieAmount";
+    final static String T2COL_3 = "FoodName";
+
+
 
     /*  final static String */
 

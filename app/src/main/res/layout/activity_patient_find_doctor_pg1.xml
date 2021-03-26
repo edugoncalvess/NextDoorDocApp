@@ -7,7 +7,7 @@
     tools:context=".PatientFindDoctorPg1">
 
     <EditText
-        android:id="@+id/inptPatDoctorName"
+        android:id="@+id/inptPatAddress"
         android:layout_width="298dp"
         android:layout_height="74dp"
         android:layout_marginStart="15dp"
@@ -17,7 +17,7 @@
         android:layout_marginRight="15dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/inptPatDoctorName"
+        android:hint="@string/inptPatAddress"
         android:inputType="textPersonName"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/inptPatDoctorPostalCode"
+        android:id="@+id/inptPatPostalCode"
         android:layout_width="298dp"
         android:layout_height="74dp"
         android:layout_marginStart="15dp"
@@ -35,7 +35,7 @@
         android:layout_marginRight="15dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/inptPatDoctorPostalCode"
+        android:hint="@string/inptPatPostalCode"
         android:inputType="textPersonName"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inptPatDoctorPostalCode" />
+        app:layout_constraintTop_toBottomOf="@+id/inptPatPostalCode" />
 
     <TextView
         android:id="@+id/txtPatOrLabel"
@@ -72,6 +72,6 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inptPatDoctorName" />
+        app:layout_constraintTop_toBottomOf="@+id/inptPatAddress" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
