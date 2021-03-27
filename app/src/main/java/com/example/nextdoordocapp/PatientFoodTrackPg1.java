@@ -37,7 +37,6 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
     int foodsTotalCalories = 0;
     String FoodName;
     int FoodCalorie;
-    int userId;
 
     Boolean foodViewStatus = false;
 
@@ -53,8 +52,8 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
         setContentView(R.layout.activity_patient_food_track_pg1);
 
         Intent foodTrackIntent = getIntent();
-        int ReceivedUserId = getIntent().getIntExtra("ReceivedUserId",0);
-        Log.d("This is User id" , String.valueOf(ReceivedUserId));
+        int patientId = getIntent().getIntExtra("patientId",0);
+        Log.d("This is User id" , String.valueOf(patientId));
 
 
 

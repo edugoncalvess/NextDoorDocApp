@@ -11,7 +11,7 @@ public class PatientMainActions extends AppCompatActivity {
     Button foodTrackBtn;
     Button findDoctorBtn;
 
-    int userId = 1;
+    int patientId = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class PatientMainActions extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent foodTrackIntent = new Intent(PatientMainActions.this,PatientFoodTrackPg1.class);
-                foodTrackIntent.putExtra("ReceivedUserId",userId);
+                foodTrackIntent.putExtra("patientId",patientId);
                 startActivity(foodTrackIntent);
 
 
@@ -37,7 +37,10 @@ public class PatientMainActions extends AppCompatActivity {
         findDoctorBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PatientMainActions.this,PatientFindDoctorPg1.class));
+                //startActivity(new Intent(PatientMainActions.this,PatientFindDoctorPg1.class));
+                Intent findDoctorPg1Intent = new Intent(PatientMainActions.this,PatientFindDoctorPg1.class);
+                findDoctorPg1Intent.putExtra("patientId",patientId);
+                startActivity(findDoctorPg1Intent);
             }
         });
     }
