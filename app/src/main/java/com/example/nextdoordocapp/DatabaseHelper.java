@@ -18,20 +18,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /*Pay attention to
                  -the Primary keys, Foreign keys, Composite keys - check with the main file
                  -name of each entity */
-/* Patient (Email, FirstName, LastName, Birthdate, Gender, Height, Weight, Phone, Country, State, City, Street, Postal Code, Password, Insurance Number, DiseasName, AllergyName, MedicineName)
+/*  Patient (Email, FirstName, LastName, Birthdate, Gender, Height, Weight, Phone, Country, State, City, Street, Postal Code, Password, Insurance Number, DiseasName, AllergyName, MedicineName)
 Patient _LoginHistory (LogId, Email, loginDate, loginStartTime,loginEndTime)
 Payment (PaymentId, Email, PDate, PTime, Amount, Method)
 Daily Calories (DCId, Email, Amount, Date)
 FoodItem (FoodId, CaloryAmount, FoodName)
 Patient_BookAppointment_Doctor (DoctorEmail, PatientEmail, AppointmentDate, AppointmentTime)
-Patient_leaveMessage_Doctor (PatientEmail, DoctorEmail, Date, Time, Message, Reply, fee)
+Patient_leaveMessage_Doctor (MessageID, patientID, docID, Date, Time, Message, Reply)
 Cashier (Email_ID, FirstName, LastName, Gender, Phone, SIN, Password)
 Payment (PaymentId, PDate, Ptime, PMethod, PAmount, AppointmentID)
-Doctor (docEmail, first name, last name, password, postal code, phone number, address)
-Schedule (ScheduleID, Sdata, Stime, availability, appointment date, appointment time, patient ID)
-Messages (MessageID, Mdata, Mtime, description, recommendation)
-Doctor_Check_Schedule (docEmail, Schedule ID)
-Doctor_Reply_Messages(docEmail, Message ID)
+Doctor (docID, docEmail, docFName, docLName, docPassword, docPostalCode, docPhoneNumber, docAddress, docCity)
+Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
+
 */
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
     final static int DATABASE_VERSION = 6;
@@ -43,6 +41,8 @@ Doctor_Reply_Messages(docEmail, Message ID)
     final static String TABLE6_NAME = "Patient_BookAppointment_Doctor";
     final static String TABLE7_NAME = "Patient_leaveMessage_Doctor";
 
+    final static String TABLE8_NAME = "Doctor";
+    final static String TABLE9_NAME = "Doctor_Availability";
 
     //Patient_loginHistory table columns
     final static String T1COL_1 = "LogId";
@@ -107,7 +107,25 @@ Doctor_Reply_Messages(docEmail, Message ID)
     final static String T7COL_6 = "Reply";
     final static String T7COL_7 = "Fee";
 
-    /*  final static String */
+    //Doctor table columns
+    final static String T8COL_1 = "docID";
+    final static String T8COL_2 = "docEmail";
+    final static String T8COL_3 = "docFName";
+    final static String T8COL_4 = "docLName";
+    final static String T8COL_5 = "docPassword";
+    final static String T8COL_6 = "docPostalCode";
+    final static String T8COL_7 = "docPhoneNumber";
+    final static String T8COL_8 = "docAddress";
+    final static String T8COL_9 = "docCity";
+
+    //Doctor_Availability table columns
+
+    final static String T9COL_1 = "docAvailabiltyID";
+    final static String T9COL_2 = "docDate";
+    final static String T9COL_3 = "docLName";
+    final static String T9COL_4 = "DocStime";
+    final static String T9COL_5 = "DocEtime";
+    final static String T9COL_6 = "docID";
 
 //Database created - no need fo update here
     public DatabaseHelper(@Nullable Context context) {
@@ -146,7 +164,9 @@ Doctor_Reply_Messages(docEmail, Message ID)
 
         //Table DailyCalories
         String DailyCaloriesQuery = "CREATE TABLE " + TABLE5_NAME + " (" + T5COL_1 + " INTEGER PRIMARY KEY,"
-                + T5COL_2 + " TEXT," + T5COL_3 + " TEXT, " + T5COL_4 + " TEXT)";
+                + T5COL_2 + " TEXT," + T5COL_3 + " TEXT, " + T5COL_4 + " TEXT,"
+        + " FOREIGN KEY (" + T5COL_2 + ") REFERENCES " + TABLE3_NAME + " (" + T3COL_1 + "));";
+
         db.execSQL(DailyCaloriesQuery);
 
         //Table Patient_BookAppointment_Doctor
@@ -159,6 +179,17 @@ Doctor_Reply_Messages(docEmail, Message ID)
                 + T7COL_2 + " TEXT," + T7COL_3 + " TEXT, " + T7COL_4 + " TEXT, " + T7COL_5 + " TEXT, "
                 + T7COL_6 + " TEXT, " + T7COL_7 + " TEXT)";
         db.execSQL(Patient_leaveMessage_DoctorQuery);
+
+        //Table Doctor
+        String DoctorQuery = "CREATE TABLE " +  TABLE8_NAME + " (" + T8COL_1 + " INTEGER PRIMARY KEY,"
+                + T8COL_2 + " TEXT," + T8COL_3 + " TEXT," + T8COL_4 + " TEXT," + T8COL_5 + " TEXT,"
+                + T8COL_6 + " TEXT," + T8COL_7 + " TEXT," + T8COL_8 + " TEXT," + T8COL_9 + " TEXT)";
+        db.execSQL(DoctorQuery);
+
+        String Doctor_AvailabilityQuery = "CREATE TABLE " +  TABLE9_NAME + " (" + T9COL_1 + " INTEGER PRIMARY KEY,"
+                + T9COL_2 + " TEXT," + T9COL_3 + " TEXT," + T9COL_4 + " TEXT," + T9COL_5 + " TEXT,"
+                 + T9COL_6 + " TEXT,"  + " FOREIGN KEY (" + T9COL_6 + ") REFERENCES " + TABLE8_NAME + " (" + T8COL_1 + "));";;
+        db.execSQL(Doctor_AvailabilityQuery);
     }
 
     @Override
@@ -170,6 +201,8 @@ Doctor_Reply_Messages(docEmail, Message ID)
         db.execSQL("DROP table if exists " + TABLE5_NAME);
         db.execSQL("DROP table if exists " + TABLE6_NAME);
         db.execSQL("DROP table if exists " + TABLE7_NAME);
+        db.execSQL("DROP table if exists " + TABLE8_NAME);
+        db.execSQL("DROP table if exists " + TABLE9_NAME);
         onCreate(db);
 
     }
@@ -311,6 +344,68 @@ Doctor_Reply_Messages(docEmail, Message ID)
             return  true;
         else
             return false;
+    }
+
+    public boolean addRecordPatientTest (){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T3COL_1,"nazanin.binesh.nb@gmail.com");
+        values.put(T3COL_2,"Nazanin");
+        values.put(T3COL_3,"Binesh");
+        values.put(T3COL_4,"1988/05/23");
+        values.put(T3COL_5,"Female");
+        values.put(T3COL_6,"160");
+        values.put(T3COL_7,"60");
+        values.put(T3COL_8,"778831111");
+        values.put(T3COL_9,"Canada");
+        values.put(T3COL_10,"BC");
+        values.put(T3COL_11,"Coquitlam");
+        values.put(T3COL_12,"Eagle mountain");
+        values.put(T3COL_13,"V3E2Z2");
+        values.put(T3COL_14,"123456");
+        values.put(T3COL_15,"");
+        values.put(T3COL_16,"");
+        values.put(T3COL_17,"");
+        values.put(T3COL_18,"");
+
+
+        long r = sqLiteDatabase.insert(TABLE3_NAME,null,values);
+        if(r>0)
+            return  true;
+        else
+            return false;
+
+    }
+
+    public boolean addRecordDocTest (){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T8COL_1,"nazanin.binesh.nb@gmail.com");
+        values.put(T3COL_2,"Nazanin");
+        values.put(T3COL_3,"Binesh");
+        values.put(T3COL_4,"1988/05/23");
+        values.put(T3COL_5,"Female");
+        values.put(T3COL_6,"160");
+        values.put(T3COL_7,"60");
+        values.put(T3COL_8,"778831111");
+        values.put(T3COL_9,"Canada");
+        values.put(T3COL_10,"BC");
+        values.put(T3COL_11,"Coquitlam");
+        values.put(T3COL_12,"Eagle mountain");
+        values.put(T3COL_13,"V3E2Z2");
+        values.put(T3COL_14,"123456");
+        values.put(T3COL_15,"");
+        values.put(T3COL_16,"");
+        values.put(T3COL_17,"");
+        values.put(T3COL_18,"");
+
+
+        long r = sqLiteDatabase.insert(TABLE3_NAME,null,values);
+        if(r>0)
+            return  true;
+        else
+            return false;
+
     }
 
 //add cursor method to view data

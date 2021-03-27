@@ -56,8 +56,12 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
         int ReceivedUserId = getIntent().getIntExtra("ReceivedUserId",0);
         Log.d("This is User id" , String.valueOf(ReceivedUserId));
 
+
+
         //add database
         databaseHelper = new DatabaseHelper(this);
+
+        databaseHelper.addRecordPatientTest();
 
         //select food items cardView
         CardView crdViewPatFoodTrackItems = findViewById(R.id.crdViewPatFoodTrack);

@@ -6,13 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".DocMessagesPg1">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewDocMsg"
-        android:layout_width="419dp"
-        android:layout_height="198dp"
-        android:layout_marginBottom="537dp"
-        android:scrollbars="vertical"
+    <TextView
+        android:id="@+id/txtMessageForDoc"
+        android:layout_width="363dp"
+        android:layout_height="364dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginLeft="176dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="235dp"
+        android:layout_marginRight="235dp"
+        android:text="@string/txtMessageForDoc"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnReplyMessageDoc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="143dp"
+        android:layout_marginLeft="143dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="180dp"
+        android:layout_marginRight="180dp"
+        android:layout_marginBottom="123dp"
+        android:text="@string/btnReplyMessageDoc"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMessageForDoc" />
+
+    <TextView
+        android:id="@+id/txtTitleNewMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginRight="95dp"
+        android:layout_marginBottom="13dp"
+        android:text="@string/txtTitleNewMessage"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtMessageForDoc"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
