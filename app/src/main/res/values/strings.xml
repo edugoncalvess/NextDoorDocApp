@@ -159,6 +159,11 @@
     <string name="btnMessageSendDoc">Send</string>
     <string name="txtTitleReplyDoc">Reply to Patient:</string>
     <string name="txtTitleNewMessage">New Message from Patient:</string>
+    <string name="txtDocShowAllAvailibility" />
+    <string name="btnDocGoHome">HOME</string>
+    <string name="btnDocAddMoreSchedule">Add More</string>
+    <string name="txtTitleDocAllSchedule">Show schedule:</string>
+    <string name="btnDocGoToShowSch">Show Schedule</string>
 
 
 </resources>

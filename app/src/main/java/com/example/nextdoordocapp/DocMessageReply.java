@@ -12,6 +12,8 @@ public class DocMessageReply extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doc_message_reply);
 
+        databaseHelper = new DatabaseHelper(this);
+        databaseHelper.addRecordDocTest();
 
     }
 }

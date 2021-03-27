@@ -32,7 +32,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
 */
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
-    final static int DATABASE_VERSION = 7;
+    final static int DATABASE_VERSION = 11;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -122,10 +122,9 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
     final static String T9COL_1 = "docAvailabiltyID";
     final static String T9COL_2 = "docDate";
-    final static String T9COL_3 = "docLName";
-    final static String T9COL_4 = "DocStime";
-    final static String T9COL_5 = "DocEtime";
-    final static String T9COL_6 = "docID";
+    final static String T9COL_3 = "docStime";
+    final static String T9COL_4 = "docEtime";
+    final static String T9COL_5 = "docID";
 
 //Database created - no need fo update here
     public DatabaseHelper(@Nullable Context context) {
@@ -188,7 +187,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
         String Doctor_AvailabilityQuery = "CREATE TABLE " +  TABLE9_NAME + " (" + T9COL_1 + " INTEGER PRIMARY KEY,"
                 + T9COL_2 + " TEXT," + T9COL_3 + " TEXT," + T9COL_4 + " TEXT," + T9COL_5 + " TEXT,"
-                 + T9COL_6 + " TEXT,"  + " FOREIGN KEY (" + T9COL_6 + ") REFERENCES " + TABLE8_NAME + " (" + T8COL_1 + "));";;
+                  + " FOREIGN KEY (" + T9COL_5 + ") REFERENCES " + TABLE8_NAME + " (" + T8COL_1 + "));";;
         db.execSQL(Doctor_AvailabilityQuery);
     }
 
@@ -346,6 +345,8 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
     }
 
+
+    //Test if data is adding to patient table
     public boolean addRecordPatientTest (){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -377,30 +378,22 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
     }
 
+
+    //Test if data is adding to doctor table
     public boolean addRecordDocTest (){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(T8COL_1,"nazanin.binesh.nb@gmail.com");
-        values.put(T3COL_2,"Nazanin");
-        values.put(T3COL_3,"Binesh");
-        values.put(T3COL_4,"1988/05/23");
-        values.put(T3COL_5,"Female");
-        values.put(T3COL_6,"160");
-        values.put(T3COL_7,"60");
-        values.put(T3COL_8,"778831111");
-        values.put(T3COL_9,"Canada");
-        values.put(T3COL_10,"BC");
-        values.put(T3COL_11,"Coquitlam");
-        values.put(T3COL_12,"Eagle mountain");
-        values.put(T3COL_13,"V3E2Z2");
-        values.put(T3COL_14,"123456");
-        values.put(T3COL_15,"");
-        values.put(T3COL_16,"");
-        values.put(T3COL_17,"");
-        values.put(T3COL_18,"");
+        values.put(T8COL_1,"1");
+        values.put(T8COL_2,"tabannik@gmail.com");
+        values.put(T8COL_3,"Taban");
+        values.put(T8COL_4,"Nikdel");
+        values.put(T8COL_5,"111111");
+        values.put(T8COL_6,"V3E2Z2");
+        values.put(T8COL_7,"6047150000");
+        values.put(T8COL_8,"2576 JadePlace");
+        values.put(T8COL_9,"Coquitlam");
 
-
-        long r = sqLiteDatabase.insert(TABLE3_NAME,null,values);
+        long r = sqLiteDatabase.insert(TABLE8_NAME,null,values);
         if(r>0)
             return  true;
         else
@@ -408,11 +401,38 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
     }
 
+
+    //Add record for doctor_Availability
+    public boolean addRecordDoctorAvailability (String DocDate,String DocStime , String DocEtime){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T9COL_2,DocDate);
+        values.put(T9COL_3,DocStime);
+        values.put(T9COL_4,DocEtime);
+
+        long r = sqLiteDatabase.insert(TABLE9_NAME,null,values);
+        if(r>0)
+            return  true;
+        else
+            return false;
+    }
+
+
+
 //add cursor method to view data
+    //View Added FoodItems
     public Cursor viewPatientAddedFoodItems(){
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         String addedFoodItemQuery = "SELECT * FROM " + TABLE2_NAME;
         Cursor c = sqLiteDatabase.rawQuery(addedFoodItemQuery,null);
+        return c;
+    }
+
+    //View Added Doctor_Availability
+    public Cursor viewDoctorAvailability (){
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String addedDoctorAvailability = "SELECT * FROM " + TABLE9_NAME;
+        Cursor c = sqLiteDatabase.rawQuery(addedDoctorAvailability,null);
         return c;
     }
 //Delete food ID from table Food Item
