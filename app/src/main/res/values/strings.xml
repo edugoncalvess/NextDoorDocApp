@@ -153,6 +153,12 @@
     <string name="btnPatSendMessageAndPay">Pay and Send Message</string>
     <string name="txtAdmRegPage2">Continue Entering the Information</string>
     <string name="txtAdmPatientAllergies">Allergies</string>
+    <string name="txtMessageForDoc" />
+    <string name="btnReplyMessageDoc">Reply</string>
+    <string name="txtReplyMessageDoc">Enter your Reply...</string>
+    <string name="btnMessageSendDoc">Send</string>
+    <string name="txtTitleReplyDoc">Reply to Patient:</string>
+    <string name="txtTitleNewMessage">New Message from Patient:</string>
 
 
 </resources>

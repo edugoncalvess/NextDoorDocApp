@@ -55,6 +55,8 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
         int patientId = getIntent().getIntExtra("patientId",0);
         Log.d("This is User id" , String.valueOf(patientId));
 
+
+
         //add database
         databaseHelper = new DatabaseHelper(this);
 
