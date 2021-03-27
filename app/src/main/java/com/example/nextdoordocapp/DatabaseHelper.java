@@ -34,7 +34,7 @@ Doctor_Check_Schedule (docEmail, Schedule ID)
 Doctor_Reply_Messages(docEmail, Message ID)
 */
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
-    final static int DATABASE_VERSION = 6;
+    final static int DATABASE_VERSION = 7;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -46,7 +46,7 @@ Doctor_Reply_Messages(docEmail, Message ID)
 
     //Patient_loginHistory table columns
     final static String T1COL_1 = "LogId";
-    final static String T1COL_2 = "Email";
+    final static String T1COL_2 = "patientId";
     final static String T1COL_3 = "loginDate";
     final static String T1COL_4 = "loginStartTime";
     final static String T1COL_5 = "loginEndTime";
@@ -57,7 +57,7 @@ Doctor_Reply_Messages(docEmail, Message ID)
     final static String T2COL_3 = "FoodName";
 
     //Patient table columns
-    final static String T3COL_0 = "UserId";
+    final static String T3COL_0 = "PatientId";
     final static String T3COL_1 = "Email";
     final static String T3COL_2 = "FirstName";
     final static String T3COL_3 = "LastName";
@@ -79,7 +79,7 @@ Doctor_Reply_Messages(docEmail, Message ID)
 
     //Payment table columns
     final static String T4COL_1 = "PaymentId";
-    final static String T4COL_2 = "Email";
+    final static String T4COL_2 = "patientId";
     final static String T4COL_3 = "PDate";
     final static String T4COL_4 = "PTime";
     final static String T4COL_5 = "Amount";
@@ -87,20 +87,20 @@ Doctor_Reply_Messages(docEmail, Message ID)
 
     //DailyCalories table columns
     final static String T5COL_1 = "DCId";
-    final static String T5COL_2 = "Email";
+    final static String T5COL_2 = "patientId";
     final static String T5COL_3 = "Amount";
     final static String T5COL_4 = "Date";
 
     //Patient_BookAppointment_Doctor table columns
-    final static String T6COL_1 = "DoctorEmail";
-    final static String T6COL_2 = "PatientEmail";
+    final static String T6COL_1 = "DoctorId";
+    final static String T6COL_2 = "patientId";
     final static String T6COL_3 = "AppointmentDate";
     final static String T6COL_4 = "AppointmentTime";
 
 
     //Patient_leaveMessage_Doctor table columns
-    final static String T7COL_1 = "Email";
-    final static String T7COL_2 = "DoctorEmail";
+    final static String T7COL_1 = "PatientId";
+    final static String T7COL_2 = "DoctorId";
     final static String T7COL_3 = "Date";
     final static String T7COL_4 = "Time";
     final static String T7COL_5 = "Message";
