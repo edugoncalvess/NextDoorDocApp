@@ -164,6 +164,12 @@
     <string name="btnDocAddMoreSchedule">Add More</string>
     <string name="txtTitleDocAllSchedule">Show schedule:</string>
     <string name="btnDocGoToShowSch">Show Schedule</string>
+    <string name="tvEmailSender">Text View</string>
+    <string name="tvEmailTitle">Text View</string>
+    <string name="tvEmailDetails">Text View</string>
+    <string name="tvEmailTime">Text View</string>
+    <string name="tvIcon">A</string>
+    <string name="btnReplyDocToMessage">Reply</string>
 
 
 </resources>
