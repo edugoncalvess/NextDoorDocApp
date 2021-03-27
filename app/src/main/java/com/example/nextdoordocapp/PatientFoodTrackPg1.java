@@ -3,6 +3,7 @@ package com.example.nextdoordocapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -180,7 +181,19 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(foodViewStatus==false){
+                Cursor c = databaseHelper.viewPatientAddedFoodItems();
+                StringBuilder str = new StringBuilder();
+                if(c.getCount()>0){
+                    while (c.moveToNext()){
+                        str.append(("ID : ") + c.getString(0));
+                        str.append(("Food Name : " + c.getString(1)));
+                        str.append(("Food Calorie :" + c.getString(2)));
+                        str.append("\n");
+
+                    }
+                    foodList.setText(str);
+                }
+                /*if(foodViewStatus==false){
 
                     try {
                         FileInputStream fin = openFileInput("foodItemFile.txt");
@@ -216,7 +229,7 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
 
 
                 }
-
+*/
             }
 
         });

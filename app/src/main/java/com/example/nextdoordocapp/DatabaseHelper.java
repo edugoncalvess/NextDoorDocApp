@@ -313,12 +313,12 @@ Doctor_Reply_Messages(docEmail, Message ID)
     }
 
 //add cursor method to view data
- /*   public Cursor viewData(){
+    public Cursor viewPatientAddedFoodItems(){
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        String query = "SELECT * FROM " + TABLE1_NAME;
-        Cursor c = sqLiteDatabase.rawQuery(query,null);
+        String addedFoodItemQuery = "SELECT * FROM " + TABLE2_NAME;
+        Cursor c = sqLiteDatabase.rawQuery(addedFoodItemQuery,null);
         return c;
-    }*/
+    }
 //Delete food ID from table Food Item
   /*  public boolean deleteRec(int id){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
