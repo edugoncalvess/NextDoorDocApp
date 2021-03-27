@@ -58,6 +58,8 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
         //add database
         databaseHelper = new DatabaseHelper(this);
 
+        databaseHelper.addRecordPatientTest();
+
         //select food items cardView
         CardView crdViewPatFoodTrackItems = findViewById(R.id.crdViewPatFoodTrack);
 

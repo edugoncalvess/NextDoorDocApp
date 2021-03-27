@@ -34,7 +34,7 @@ Doctor_Check_Schedule (docEmail, Schedule ID)
 Doctor_Reply_Messages(docEmail, Message ID)
 */
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
-    final static int DATABASE_VERSION = 7;
+    final static int DATABASE_VERSION = 8;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -319,6 +319,39 @@ Doctor_Reply_Messages(docEmail, Message ID)
         String addedFoodItemQuery = "SELECT * FROM " + TABLE2_NAME;
         Cursor c = sqLiteDatabase.rawQuery(addedFoodItemQuery,null);
         return c;
+    }
+
+
+    public boolean addRecordPatientTest () {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T3COL_0, "1");
+        values.put(T3COL_1, "nazanin.binesh.nb@gmail.com");
+        values.put(T3COL_2, "Nazanin");
+        values.put(T3COL_3, "Binesh");
+        values.put(T3COL_4, "1988/05/23");
+        values.put(T3COL_5, "Female");
+        values.put(T3COL_6, "160");
+        values.put(T3COL_7, "60");
+        values.put(T3COL_8, "778831111");
+        values.put(T3COL_9, "Canada");
+        values.put(T3COL_10, "BC");
+        values.put(T3COL_11, "Coquitlam");
+        values.put(T3COL_12, "Eagle mountain");
+        values.put(T3COL_13, "V3E2Z2");
+        values.put(T3COL_14, "123456");
+        values.put(T3COL_15, "");
+        values.put(T3COL_16, "");
+        values.put(T3COL_17, "");
+        values.put(T3COL_18, "");
+
+
+        long r = sqLiteDatabase.insert(TABLE3_NAME, null, values);
+        if (r > 0)
+            return true;
+        else
+            return false;
+
     }
 //Delete food ID from table Food Item
   /*  public boolean deleteRec(int id){
