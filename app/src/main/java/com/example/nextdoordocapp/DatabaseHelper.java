@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -33,7 +34,7 @@ Doctor_Check_Schedule (docEmail, Schedule ID)
 Doctor_Reply_Messages(docEmail, Message ID)
 */
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
-    final static int DATABASE_VERSION = 1;
+    final static int DATABASE_VERSION = 5;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -132,7 +133,7 @@ Doctor_Reply_Messages(docEmail, Message ID)
                 + T3COL_2 + " TEXT, " + T3COL_3 + " TEXT, " + T3COL_4 + " TEXT, " + T3COL_5 + " TEXT, "
                 + T3COL_6 + " TEXT, " + T3COL_7 + " TEXT, " + T3COL_8 + " TEXT, " + T3COL_9 + " TEXT, "
                 + T3COL_10 + " TEXT, " + T3COL_11 + " TEXT, " + T3COL_12 + " TEXT, " + T3COL_13 + " TEXT, "
-                + T3COL_14 + " TEXT, " + T3COL_14 + " TEXT, " + T3COL_15 + " TEXT, " + T3COL_16 + " TEXT, "
+                + T3COL_14 + " TEXT, " + T3COL_15 + " TEXT, " + T3COL_16 + " TEXT, "
                 + T3COL_17 + " TEXT, " + T3COL_18 + " TEXT)";
         db.execSQL(patientQuery);
 
@@ -200,6 +201,7 @@ Doctor_Reply_Messages(docEmail, Message ID)
         values.put(T2COL_3,fName);
 
         long r = sqLiteDatabase.insert(TABLE2_NAME,null,values);
+
         if(r>0)
             return  true;
         else
@@ -242,7 +244,6 @@ Doctor_Reply_Messages(docEmail, Message ID)
             return false;
 
     }
-
     //add record method for table patient payment
     public boolean addRecordPayment (String pEmail, String PayDate, String PayTime, String PayAmount,
                                      String Method){

@@ -132,8 +132,7 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
                 TextView txtTest = findViewById(R.id.textView5);
                 txtTest.setText(name + calorie);*/
 
-                FoodName = patientFoodName.getText().toString();
-                FoodCalorie = Integer.parseInt(patientFoodCalorie.getText().toString());
+
 
 /*
                 try {
@@ -159,11 +158,11 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }*/
+                FoodName = patientFoodName.getText().toString();
+                FoodCalorie = Integer.parseInt(patientFoodCalorie.getText().toString());
+               boolean isInserted = databaseHelper.addRecordFoodItem(patientFoodName.getText().toString(),patientFoodCalorie.getText().toString());
 
-                boolean isInserted = databaseHelper.addRecordFoodItem(patientFoodName.getText().toString(),
-                        patientFoodCalorie.getText().toString());
-
-                if (isInserted){
+                 if (isInserted){
                     Toast.makeText(PatientFoodTrackPg1.this,"added to database",Toast.LENGTH_LONG).show();
 
                 }
