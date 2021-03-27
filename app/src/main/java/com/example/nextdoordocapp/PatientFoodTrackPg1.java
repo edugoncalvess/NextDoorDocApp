@@ -3,9 +3,11 @@ package com.example.nextdoordocapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,6 +37,7 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
     int foodsTotalCalories = 0;
     String FoodName;
     int FoodCalorie;
+    int userId;
 
     Boolean foodViewStatus = false;
 
@@ -48,6 +51,10 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_food_track_pg1);
+
+        Intent foodTrackIntent = getIntent();
+        int ReceivedUserId = getIntent().getIntExtra("ReceivedUserId",0);
+        Log.d("This is User id" , String.valueOf(ReceivedUserId));
 
         //add database
         databaseHelper = new DatabaseHelper(this);

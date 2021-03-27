@@ -34,7 +34,7 @@ Doctor_Check_Schedule (docEmail, Schedule ID)
 Doctor_Reply_Messages(docEmail, Message ID)
 */
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
-    final static int DATABASE_VERSION = 5;
+    final static int DATABASE_VERSION = 6;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -57,6 +57,7 @@ Doctor_Reply_Messages(docEmail, Message ID)
     final static String T2COL_3 = "FoodName";
 
     //Patient table columns
+    final static String T3COL_0 = "UserId";
     final static String T3COL_1 = "Email";
     final static String T3COL_2 = "FirstName";
     final static String T3COL_3 = "LastName";
@@ -129,8 +130,8 @@ Doctor_Reply_Messages(docEmail, Message ID)
         db.execSQL(foodItemQuery);
 
         //Table Patient
-        String patientQuery = "CREATE TABLE " + TABLE3_NAME + " (" + T3COL_1 + " String PRIMARY KEY,"
-                + T3COL_2 + " TEXT, " + T3COL_3 + " TEXT, " + T3COL_4 + " TEXT, " + T3COL_5 + " TEXT, "
+        String patientQuery = "CREATE TABLE " + TABLE3_NAME + " (" + T3COL_0 + " INTEGER PRIMARY KEY,"
+                + T3COL_1 + " TEXT, " + T3COL_2 + " TEXT, " + T3COL_3 + " TEXT, " + T3COL_4 + " TEXT, " + T3COL_5 + " TEXT, "
                 + T3COL_6 + " TEXT, " + T3COL_7 + " TEXT, " + T3COL_8 + " TEXT, " + T3COL_9 + " TEXT, "
                 + T3COL_10 + " TEXT, " + T3COL_11 + " TEXT, " + T3COL_12 + " TEXT, " + T3COL_13 + " TEXT, "
                 + T3COL_14 + " TEXT, " + T3COL_15 + " TEXT, " + T3COL_16 + " TEXT, "
