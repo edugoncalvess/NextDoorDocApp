@@ -32,7 +32,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
 */
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
-    final static int DATABASE_VERSION = 16;
+    final static int DATABASE_VERSION = 17;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -527,7 +527,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         ContentValues values = new ContentValues();
         values.put(T7COL_6, C);
 
-        int d= sqLiteDatabase.update(TABLE7_NAME, values, "PatientId = ?", new String[]{Integer.toString(id)});
+        int d= sqLiteDatabase.update(TABLE7_NAME, values, "PatientId=?", new String[]{Integer.toString(id)});
         if (d > 0)
             return true;
         else
