@@ -56,6 +56,7 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
     String birthDate;
     Date ConvertedBirthDate;
     int age;
+    int checkedPatientId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +73,7 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
         //add database
         databaseHelper = new DatabaseHelper(this);
         //databaseHelper. addRecordPatientTest();
+
 
         // get Patient information
         Cursor patientDetailCursor = databaseHelper.getPatientWeightHeightGender(patientId);
@@ -298,6 +300,43 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
         saveFinalInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //add today Date
+                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm dd/MM/yyyy");
+                String currentDateTime = sdf.format(new Date());
+
+                Cursor patientAvailabilityCursor = databaseHelper.checkPatientHasRecord(patientId);
+
+                if(patientAvailabilityCursor.getCount()>0){
+
+                    while (patientAvailabilityCursor.moveToNext()){
+                        checkedPatientId = Integer.parseInt(patientAvailabilityCursor.getString(0));
+                    }
+                    Log.d("checkedPatientId", String.valueOf(checkedPatientId));
+
+                }
+                else{
+                    boolean isInserted = databaseHelper.addRecordDailyCalorie(patientId, Integer.parseInt(PatientFoodTotalCalorie.getText().toString()),currentDateTime);
+                    if (isInserted){
+                        Toast.makeText(PatientFoodTrackPg1.this,"Consumed daily Calorie added to database",Toast.LENGTH_LONG).show();
+
+                    }
+                    else {
+                        Toast.makeText(PatientFoodTrackPg1.this,"Consumed daily Calorie added to database not added to database",Toast.LENGTH_LONG).show();
+
+                    }
+                }
+
+                /*if(checkedPatientId == patientId){
+                    Log.d("Here","Already Exist");
+                }
+                else{
+                    Log.d("Here","Firts Time");
+
+                }*/
+
+
+
+
 
             }
         });

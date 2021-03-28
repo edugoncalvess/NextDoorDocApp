@@ -32,7 +32,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
 */
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
-    final static int DATABASE_VERSION = 19;
+    final static int DATABASE_VERSION = 20;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -198,8 +198,8 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
         //Table DailyCalories
         String DailyCaloriesQuery = "CREATE TABLE " + TABLE5_NAME + " (" + T5COL_1 + " INTEGER PRIMARY KEY,"
-                + T5COL_2 + " TEXT," + T5COL_3 + " TEXT, " + T5COL_4 + " TEXT,"
-                + " FOREIGN KEY (" + T5COL_2 + ") REFERENCES " + TABLE3_NAME + " (" + T3COL_1 + "));";
+                + T5COL_2 + " INTEGER," + T5COL_3 + " INTEGER, " + T5COL_4 + " TEXT,"
+                + " FOREIGN KEY (" + T5COL_2 + ") REFERENCES " + TABLE3_NAME + " (" + T3COL_0 + "));";
 
         db.execSQL(DailyCaloriesQuery);
 
@@ -358,10 +358,10 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     }
 
     //add record method for table DailyCalorie
-    public boolean addRecordDailyCalorie(String pEmail, String PAmount, String PDate) {
+    public boolean addRecordDailyCalorie(int patientId, int PAmount, String PDate) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(T5COL_2, pEmail);
+        values.put(T5COL_2, patientId);
         values.put(T5COL_3, PAmount);
         values.put(T5COL_4, PDate);
 
@@ -431,6 +431,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     public boolean addRecordPatientTest() {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put(T3COL_0, "1");
         values.put(T3COL_1, "nazanin.binesh.nb@gmail.com");
         values.put(T3COL_2, "Nazanin");
         values.put(T3COL_3, "Binesh");
@@ -647,6 +648,15 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         ContentValues values = new ContentValues();
         String patientInfoQuery = "SELECT " + T3COL_5 + "," + T3COL_7 + "," + T3COL_6 + "," + T3COL_4 + " FROM " + TABLE3_NAME + " Where " + T3COL_0 + " = " + id;
         Cursor c = sqLiteDatabase.rawQuery(patientInfoQuery, null);
+        return c;
+    }
+
+    //check if any record is available for this patient in daily calorie table
+    public Cursor checkPatientHasRecord(int id) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        String patientAvailabilityQuery = "SELECT " + T5COL_2 + " FROM " + TABLE5_NAME + " Where " + T5COL_2 + " = " + id;
+        Cursor c = sqLiteDatabase.rawQuery(patientAvailabilityQuery, null);
         return c;
     }
 

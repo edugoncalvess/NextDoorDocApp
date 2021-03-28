@@ -11,7 +11,7 @@ public class PatientMainActions extends AppCompatActivity {
     Button foodTrackBtn;
     Button findDoctorBtn;
 
-    int patientId = 1;
+    int patientId = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
