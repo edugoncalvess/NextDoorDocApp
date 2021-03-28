@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DocMessagesPg1 extends AppCompatActivity {
+
+    DatabaseHelper databaseHelper;
+
     List<EmailData> mEmailData = new ArrayList<>();
     RecyclerView mRecyclerView;
 
@@ -21,6 +25,8 @@ public class DocMessagesPg1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doc_messages_pg1);
+
+        databaseHelper = new DatabaseHelper(this);
 
         mRecyclerView = findViewById(R.id.recyclerView);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(DocMessagesPg1.this,
@@ -30,11 +36,29 @@ public class DocMessagesPg1 extends AppCompatActivity {
 
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
 
-        EmailData mEmail = new EmailData("Sam", "Weekend adventure",
-                "Let's go fishing with John and others. We will do some barbecue and have soo much fun",
-                "10:42am");
+        EmailData mEmail = new EmailData("Facebook", "James, you have 1 new notification",
+                "A lot has happened on Facebook since",
+                "16:04pm");
 
-        mEmailData.add(mEmail);
+        databaseHelper.viewNewMessageDoc();
+        Cursor c = databaseHelper.viewNewMessageDoc();
+        if(c.getCount()>0){
+            while (c.moveToNext()){
+                String sender = c.getString(0);
+                String title = c.getString(1);
+                String Details = c.getString(2);
+                String time = c.getString(3);
+
+                mEmail = new EmailData("Patient: " + sender, "Message/Question",
+                        Details,
+                        time);
+            }
+            mEmailData.add(mEmail);
+        }
+
+
+
+
 
         mEmail = new EmailData("Facebook", "James, you have 1 new notification",
                 "A lot has happened on Facebook since",
@@ -58,6 +82,14 @@ public class DocMessagesPg1 extends AppCompatActivity {
                 "Have you seen these Pins yet? Pinterest",
                 "09:04am");
 
+        mEmailData.add(mEmail);
+
+        mEmail = new EmailData("Josh", "Going lunch", "Don't forget our lunch at 3PM in Pizza hut",
+                "01:04am");
+        mEmailData.add(mEmail);
+
+        mEmail = new EmailData("Josh", "Going lunch", "Don't forget our lunch at 3PM in Pizza hut",
+                "01:04am");
         mEmailData.add(mEmail);
 
         mEmail = new EmailData("Josh", "Going lunch", "Don't forget our lunch at 3PM in Pizza hut",
