@@ -5,118 +5,271 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:context=".admCasRegistration">
 
         <TextView
-            android:id="@+id/txtContinue"
-            android:layout_width="361dp"
-            android:layout_height="78dp"
-            android:gravity="center"
-            android:text="@string/txtAdmRegtContinue"
+            android:id="@+id/txtCashierRegistMessage"
+            android:layout_width="336dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/txtPatientRegistMessage"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txtSIN"
-            android:layout_width="160dp"
+            android:id="@+id/lblRgstCasFirstName"
+            android:layout_width="126dp"
             android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginRight="7dp"
+            android:text="@string/lblRgstPgFirstName"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/txtRgstCasFirstName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCashierRegistMessage" />
+
+        <EditText
+            android:id="@+id/txtRgstCasFirstName"
+            android:layout_width="243dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgFirstName"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lblRgstCasFirstName"
+            app:layout_constraintTop_toBottomOf="@+id/txtCashierRegistMessage" />
+
+        <TextView
+            android:id="@+id/lblRgstCasFamilyName"
+            android:layout_width="126dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginRight="7dp"
+            android:text="@string/lblRgstPgFamilyName"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/txtRgstCasFamilyName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblRgstCasFirstName" />
+
+        <EditText
+            android:id="@+id/txtRgstCasFamilyName"
+            android:layout_width="243dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgFamilyName"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblRgstCasFamilyName"
+            app:layout_constraintTop_toBottomOf="@+id/txtRgstCasFirstName" />
+
+        <TextView
+            android:id="@+id/lblRgstCasEmail"
+            android:layout_width="126dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/lblRgstPgEmail"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/txtRgstCasEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblRgstCasFamilyName" />
+
+        <EditText
+            android:id="@+id/txtRgstCasEmail"
+            android:layout_width="243dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgEmail"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblRgstCasEmail"
+            app:layout_constraintTop_toBottomOf="@+id/txtRgstCasFamilyName" />
+
+        <TextView
+            android:id="@+id/lblRgstCasPassword"
+            android:layout_width="126dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+
+            android:text="@string/lblRgstPgPassword"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/txtRgstCasPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblRgstCasEmail" />
+
+        <EditText
+            android:id="@+id/txtRgstCasPassword"
+            android:layout_width="243dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgPassword"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblRgstCasPassword"
+            app:layout_constraintTop_toBottomOf="@+id/txtRgstCasEmail" />
+
+        <TextView
+            android:id="@+id/lblRgstCasPhone"
+            android:layout_width="126dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+
+            android:layout_marginEnd="7dp"
+            android:layout_marginRight="7dp"
+            android:text="@string/lblRgstPgPhone"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/txtRgstCasPhone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblRgstCasSIN" />
+
+
+        <EditText
+            android:id="@+id/txtRgstCasPhone"
+            android:layout_width="243dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgPhone"
+            android:importantForAutofill="no"
+            android:inputType="phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblRgstCasPhone"
+            app:layout_constraintTop_toBottomOf="@+id/txtRgstCasSIN" />
+
+        <TextView
+            android:id="@+id/lblRgstCasAddress"
+            android:layout_width="126dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+
+            android:text="@string/lblRgstPgAddress"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblRgstCasPhone" />
+
+        <EditText
+            android:id="@+id/txtRgstCasAddress"
+            android:layout_width="243dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgStreet"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblRgstCasAddress"
+            app:layout_constraintTop_toBottomOf="@+id/txtRgstCasPhone" />
+
+
+        <TextView
+            android:id="@+id/lblRgstCasSIN"
+            android:layout_width="126dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+
             android:layout_marginTop="10dp"
             android:text="@string/txtAdmSINRegistration"
-            android:gravity="center"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtContinue" />
+            app:layout_constraintTop_toBottomOf="@+id/lblRgstCasPassword" />
 
         <EditText
-            android:id="@+id/txtCashSIN"
-            android:layout_width="200dp"
+            android:id="@+id/txtRgstCasSIN"
+            android:layout_width="243dp"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
             android:ems="10"
-            android:inputType="number"
-            android:gravity="center"
-            android:textSize="20sp"
+            android:hint="@string/hintRgstPgPhone"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txtSIN"
-            app:layout_constraintTop_toBottomOf="@+id/txtContinue"
-            android:autofillHints="" />
+            app:layout_constraintStart_toEndOf="@+id/lblRgstCasSIN"
+            app:layout_constraintTop_toBottomOf="@+id/txtRgstCasPassword" />
 
         <TextView
-            android:id="@+id/txtAdmDOB"
-            android:layout_width="160dp"
+            android:id="@+id/lblRgstCasDOB"
+            android:layout_width="126dp"
             android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="10dp"
             android:text="@string/txtAdmDOB"
-            android:gravity="center"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtSIN" />
+            app:layout_constraintTop_toBottomOf="@+id/lblRgstCasAddress" />
 
         <EditText
-            android:id="@+id/txtCashDOB"
-            android:layout_width="200dp"
+            android:id="@+id/txtRgstCasDOB"
+            android:layout_width="243dp"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
             android:ems="10"
+            android:hint="@string/hintRgstPgDOB"
+            android:importantForAutofill=""
             android:inputType="date"
-            android:gravity="center"
-            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txtSIN"
-            app:layout_constraintTop_toBottomOf="@+id/txtCashSIN"
-            android:autofillHints="" />
-
-        <TextView
-            android:id="@+id/txtGender"
-            android:layout_width="160dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="@string/txtAdmGender"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtAdmDOB" />
-
-
-        <EditText
-            android:id="@+id/txtCashGender"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:ems="10"
-            android:inputType="text"
-            android:gravity="center"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txtSIN"
-            app:layout_constraintTop_toBottomOf="@+id/txtCashDOB"
-            android:autofillHints="" />
+            app:layout_constraintStart_toEndOf="@+id/lblRgstCasDOB"
+            app:layout_constraintTop_toBottomOf="@+id/txtRgstCasAddress" />
 
         <Button
-            android:id="@+id/btnRgstCashCreateProfile"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
+            android:id="@+id/btnRgstCasCreate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            android:text="@string/btnRgstPgCreateProfile"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@string/btnRgstPgCreatePatient"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtGender" />
+            app:layout_constraintTop_toBottomOf="@+id/lblRgstCasDOB" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </ScrollView>
+
+
+

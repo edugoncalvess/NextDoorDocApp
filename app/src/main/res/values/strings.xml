@@ -124,9 +124,9 @@
     <string name="lblRgstPgAddress">Address:</string>
     <string name="hintRgstPgAddress">102–300, Example Rd, Mycity, BC, Canada</string>
     <string name="lblRgstPgPCode">Postal Code:</string>
-    <string name="hintRgstPgPCode">X1X 1X1</string>
+    <string name="hintRgstPgPCode">X1X1X1</string>
     <string name="txtRgstPgDOB">Date of Birth:</string>
-    <string name="hintRgstPgDOB">1970–12–31</string>
+    <string name="hintRgstPgDOB">yyyy–mm–dd</string>
     <string name="lblRgstPgHeight">Height in meters:</string>
     <string name="hintRgstPgHeight">1.89</string>
     <string name="txtRgstPgM">m</string>
@@ -203,6 +203,13 @@
     <string name="txtViewNEwMEssagePatFromDoc">No New Message!!</string>
     <string name="txtTitlePDShowSchedule">Show Doctors availabilty</string>
     <string name="btnPatOkCheckedSchedule">Ok</string>
+
+    <string name="btnRgstPgCBackToLogin">Back to Login</string>
+    <string-array name="txtArrayGender">
+        <item>Female</item>
+        <item>Male</item>
+        <item>Other</item>
+    </string-array>
 
 
 </resources>

@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NextDoorDocApp">
-        <activity android:name=".PatientCheckDocsAvailability"></activity>
+        <activity android:name=".AdminRegistrationModule"></activity>
         <activity android:name=".PatientCheckNewMessage" />
-        <activity android:name=".AdminRegistrationModule" />
-        <activity android:name=".AdminDoctorUpdateDetails" />
+        <activity android:name=".PatientCheckDocsAvailability" />
+        <activity android:name=".AdmDocUpdateDetails" />
         <activity android:name=".AdminPatientUpdateDetails" />
+        <activity android:name=".PatientRegistrationSuccessfulPg1" />
         <activity android:name=".DocShowAvailability" />
         <activity android:name=".DocDetailViewMessage" />
         <activity android:name=".DocMessageReply" />
@@ -36,7 +37,6 @@
         <activity android:name=".AdminRegistrationPage" />
         <activity android:name=".AdmInfoRegistration" />
         <activity android:name=".AdmCasInformation" />
-        <activity android:name=".AdmPatInformation" />
         <activity android:name=".AdmDocInformation" />
         <activity android:name=".SplashActivity" />
         <activity android:name=".MainActivity">

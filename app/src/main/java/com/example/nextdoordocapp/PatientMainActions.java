@@ -50,6 +50,7 @@ public class PatientMainActions extends AppCompatActivity {
                 Intent foodTrackIntent = new Intent(PatientMainActions.this,PatientCheckNewMessage.class);
                 foodTrackIntent.putExtra("patientId",patientId);
                 startActivity(foodTrackIntent);
+
             }
         });
     }

@@ -26,6 +26,7 @@ public class PatientCheckNewMessage extends AppCompatActivity {
         TextView viewMessage = findViewById(R.id.txtViewNEwMEssagePatFromDoc);
         Button btnHome = findViewById(R.id.btnBackHomeToPatient);
 
+
         Cursor c = databaseHelper.viewNewMessagePatient();
         StringBuilder str = new StringBuilder();
         if (c.getCount() > 0) {
