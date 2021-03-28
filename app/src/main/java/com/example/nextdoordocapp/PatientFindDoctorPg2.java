@@ -51,7 +51,7 @@ public class PatientFindDoctorPg2 extends AppCompatActivity {
         btnPatDoctorCheckAvailability.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(PatientFindDoctorPg2.this,PatientCheckDocsAvailability.class));
             }
         });
 

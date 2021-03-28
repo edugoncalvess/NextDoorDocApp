@@ -30,11 +30,11 @@
         android:layout_marginRight="45dp"
         android:text="@string/btnDocGoHome"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnDocAddMoreSchedule"
+        app:layout_constraintStart_toEndOf="@+id/btnPatOkCheckedSchedule"
         app:layout_constraintTop_toBottomOf="@+id/txtDocShowAllAvailibility" />
 
     <Button
-        android:id="@+id/btnDocAddMoreSchedule"
+        android:id="@+id/btnPatOkCheckedSchedule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtDocShowAllAvailibility" />
 
     <TextView
-        android:id="@+id/txtTitleDocAllSchedule"
+        android:id="@+id/txtTitlePDShowSchedule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

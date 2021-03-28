@@ -12,18 +12,20 @@ import android.widget.Toast;
 
 public class DocMessageReply extends AppCompatActivity {
 
-
-    String reply;
     DatabaseHelper databaseHelper;
+
     EditText replyText;
     Button btnReply;
     EditText idPatient;
+    String reply;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doc_message_reply);
+
         databaseHelper = new DatabaseHelper(this);
+
         replyText = findViewById(R.id.txtReplyMessageDoc);
         btnReply = findViewById(R.id.btnMessageSendDoc);
         idPatient = findViewById(R.id.txtInsertPatIDReply);
@@ -37,7 +39,6 @@ public class DocMessageReply extends AppCompatActivity {
                     Log.d("reply", reply);
                     //Having error in here
                    // intId = Integer.parseInt(idPatient.toString());
-
 
                    // Log.d("reply", reply);
                   boolean isUpdated = databaseHelper.updateReplyFieldDoc(intId, reply);

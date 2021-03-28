@@ -201,6 +201,8 @@
     <string name="txtTitleNewMessagePat">New Message From Doc:</string>
     <string name="btnBackHomeToPatient">Back to Home</string>
     <string name="txtViewNEwMEssagePatFromDoc">No New Message!!</string>
+    <string name="txtTitlePDShowSchedule">Show Doctors availabilty</string>
+    <string name="btnPatOkCheckedSchedule">Ok</string>
 
 
 </resources>
