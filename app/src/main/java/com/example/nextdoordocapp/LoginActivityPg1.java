@@ -37,10 +37,10 @@ public class LoginActivityPg1 extends AppCompatActivity {
 
                 if (valEmailPassword == true) {
 
-                    Toast.makeText(LoginActivityPg1.this, "Login succesful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivityPg1.this, "Login succesful", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(LoginActivityPg1.this, MainActivity.class));
                 } else {
-                    Toast.makeText(LoginActivityPg1.this, "Wrong Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivityPg1.this, "Wrong Password or Email", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -65,20 +65,3 @@ public class LoginActivityPg1 extends AppCompatActivity {
     }
 }
 
- /*
-                if(!txtLoginUsername.equals("")){
-                    if (!txtLoginPassword.equals("")){
-                        // check if the login and password match.
-                        // If so, check Patient, Doctor, Admin, and Cashier tables and "intend" to their respective homepage
-
-
-                        // check if the password matches
-
-                    }
-                    else {
-                        Toast.makeText(LoginActivityPg1.this,"Please insert Password",Toast.LENGTH_LONG).show();
-                    }
-                }
-                else {
-                    Toast.makeText(LoginActivityPg1.this,"Please insert Username",Toast.LENGTH_LONG).show();
-                } */

@@ -148,6 +148,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     final static String T11COL_9 = "casDOB";
 
     //Admin table columns
+
     final static String T12COL_1 = "admID";
     final static String T12COL_2 = "admEmail";
     final static String T12COL_3 = "admFName";
@@ -408,20 +409,20 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
     }
 
-    public boolean addRecordPatient_leaveMessage_DoctorTest (){
+    public boolean addRecordPatient_leaveMessage_DoctorTest() {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(T7COL_1,1);
-        values.put(T7COL_2,1);
-        values.put(T7COL_3,1);
-        values.put(T7COL_4,"2:30");
-        values.put(T7COL_5,"Hello Doc I have a problem");
-        values.put(T7COL_6,"Ok");
-        values.put(T7COL_7,"");
+        values.put(T7COL_1, 1);
+        values.put(T7COL_2, 1);
+        values.put(T7COL_3, 1);
+        values.put(T7COL_4, "2:30");
+        values.put(T7COL_5, "Hello Doc I have a problem");
+        values.put(T7COL_6, "Ok");
+        values.put(T7COL_7, "");
 
-        long r = sqLiteDatabase.insert(TABLE7_NAME,null,values);
-        if(r>0)
-            return  true;
+        long r = sqLiteDatabase.insert(TABLE7_NAME, null, values);
+        if (r > 0)
+            return true;
         else
             return false;
     }
@@ -511,28 +512,70 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     }
 
     ////    Registering new user Doctor
-    public boolean addDoctorRecords(String dMail, String dFName, String dLName,String dPassword,
-                                    String dPostalCode,String dPhone, String daddress,String dCity){
-        SQLiteDatabase sqLiteDatabase=this.getReadableDatabase();
-        ContentValues contentValues= new ContentValues();
-        contentValues.put(T8COL_2,dMail);
-        contentValues.put(T8COL_3,dFName);
-        contentValues.put(T8COL_4,dLName);
-        contentValues.put(T8COL_5,dPassword);
-        contentValues.put(T8COL_6,dPostalCode);
-        contentValues.put(T8COL_7,dPhone);
-        contentValues.put(T8COL_8,daddress);
-        contentValues.put(T8COL_9,dCity);
+    public boolean addDoctorRecords(String dMail, String dFName, String dLName, String dPassword,
+                                    String dPostalCode, String dPhone, String daddress, String dCity) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(T8COL_2, dMail);
+        contentValues.put(T8COL_3, dFName);
+        contentValues.put(T8COL_4, dLName);
+        contentValues.put(T8COL_5, dPassword);
+        contentValues.put(T8COL_6, dPostalCode);
+        contentValues.put(T8COL_7, dPhone);
+        contentValues.put(T8COL_8, daddress);
+        contentValues.put(T8COL_9, dCity);
 
-        long r= sqLiteDatabase.insert(TABLE8_NAME,null,contentValues);
+        long r = sqLiteDatabase.insert(TABLE8_NAME, null, contentValues);
         if (r > 0)
             return true;
         else
             return false;
 
     }
+
     ////    Registering new user Cashier
+    public boolean addCashierRecords(String cMail, String cFName, String cLName, String cPassword,
+                                     String cSIN, String cPhone, String cAddress, String cDOB) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(T11COL_2, cMail);
+        contentValues.put(T11COL_3, cFName);
+        contentValues.put(T11COL_4, cLName);
+        contentValues.put(T11COL_5, cPassword);
+        contentValues.put(T11COL_6, cSIN);
+        contentValues.put(T11COL_7, cPhone);
+        contentValues.put(T11COL_8, cAddress);
+        contentValues.put(T11COL_9, cDOB);
+
+        long r = sqLiteDatabase.insert(TABLE11_NAME, null, contentValues);
+        if (r > 0)
+            return true;
+        else
+            return false;
+
+    }
+
     ////    Registering new user Admin
+    public boolean addAdminRecords(String aMail, String aFName, String aLName, String aPassword,
+                                   String aSIN, String aPhone, String aAddress, String aDOB) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(T12COL_2, aMail);
+        contentValues.put(T12COL_3, aFName);
+        contentValues.put(T12COL_4, aLName);
+        contentValues.put(T12COL_5, aPassword);
+        contentValues.put(T12COL_6, aSIN);
+        contentValues.put(T12COL_7, aPhone);
+        contentValues.put(T12COL_8, aAddress);
+        contentValues.put(T12COL_9, aDOB);
+
+        long r = sqLiteDatabase.insert(TABLE12_NAME, null, contentValues);
+        if (r > 0)
+            return true;
+        else
+            return false;
+
+    }
     //add cursor method to view data
     //View Added FoodItems
 
@@ -576,34 +619,34 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     }
 
 
-
     //Doc view the message patient sent
-    public Cursor viewNewMessageDoc(){
+    public Cursor viewNewMessageDoc() {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         String addedDoctorAvailability = "SELECT PatientId,date,message,time FROM " + TABLE7_NAME;
-        Cursor c = sqLiteDatabase.rawQuery(addedDoctorAvailability,null);
+        Cursor c = sqLiteDatabase.rawQuery(addedDoctorAvailability, null);
         return c;
 
     }
 
     //Updating the reply in table in the DocReplyMessage page
-    public boolean updateReplyFieldDoc(int id,String C) {
+    public boolean updateReplyFieldDoc(int id, String C) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(T7COL_6, C);
 
-        int d= sqLiteDatabase.update(TABLE7_NAME, values, "PatientId=?", new String[]{Integer.toString(id)});
+        int d = sqLiteDatabase.update(TABLE7_NAME, values, "PatientId=?", new String[]{Integer.toString(id)});
         if (d > 0)
             return true;
         else
             return false;
     }
+
     //get patient height and weight and gender and age
     public Cursor getPatientWeightHeightGender(int id) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        String patientInfoQuery = "SELECT " +  T3COL_5 + "," + T3COL_7 + "," + T3COL_6 + "," + T3COL_4 + " FROM " + TABLE3_NAME + " Where " + T3COL_0 + " = " + id;
-        Cursor c = sqLiteDatabase.rawQuery(patientInfoQuery,null);
+        String patientInfoQuery = "SELECT " + T3COL_5 + "," + T3COL_7 + "," + T3COL_6 + "," + T3COL_4 + " FROM " + TABLE3_NAME + " Where " + T3COL_0 + " = " + id;
+        Cursor c = sqLiteDatabase.rawQuery(patientInfoQuery, null);
         return c;
     }
 

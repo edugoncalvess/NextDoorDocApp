@@ -2,57 +2,109 @@ package com.example.nextdoordocapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class PatientRegistrationPg1 extends AppCompatActivity {
+
     DatabaseHelper databaseHelper;
+
+    String patientGender = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_registration_pg1);
 
-        EditText txtRgstPgEmail = findViewById(R.id.txtRgstPgEmail);
-        EditText txtRgstPgPassword = findViewById(R.id.txtRgstPgPassword);
-
-        Button btnRgstPgCreateProfile = findViewById(R.id.btnRgstPgCreateProfile);
         databaseHelper = new DatabaseHelper(this);
-        btnRgstPgCreateProfile.setOnClickListener(new View.OnClickListener() {
+
+
+        EditText patientFirstName = findViewById(R.id.txtRgstPgFirstName);
+        EditText patientLastName = findViewById(R.id.txtRgstPgFamilyName);
+        EditText patientEmail = findViewById(R.id.txtRgstPgEmail);
+        EditText patientPassword = findViewById(R.id.txtRgstPgPassword);
+        EditText patientPhone = findViewById(R.id.txtRgstPgPhone);
+        EditText patientDOB = findViewById(R.id.txtRgstPgDOB);
+        EditText patientHeight = findViewById(R.id.txtRgstPgHeight);
+        EditText patientWeight = findViewById(R.id.txtRgstPgWeight);
+        EditText patientAllergies = findViewById(R.id.txtRgstPgAllergies);
+        EditText patientDisease = findViewById(R.id.txtRgstPgDisease);
+        EditText patientMedicine = findViewById(R.id.txtRgstPgMedicine);
+        EditText patientInsuranceNumber = findViewById(R.id.txtRgstPgInsuranceNumber);
+        EditText patientStreet = findViewById(R.id.txtRgstPgStreet);
+        EditText patientCity = findViewById(R.id.txtRgstPgCity);
+        EditText patientState = findViewById(R.id.txtRgstPgState);
+        EditText patientCountry = findViewById(R.id.txtRgstPgCountry);
+        EditText patientPostalCode = findViewById(R.id.txtRgstPgPCode);
+
+
+//        Spinner patientGenderSelection = (Spinner) findViewById(R.id.sprGender);
+        Spinner patientGenderSelection = findViewById(R.id.sprGender);
+
+        Button btnRegisterPatient = findViewById(R.id.btnRgstPgCreatePatient);
+
+        int spinner_pos = patientGenderSelection.getSelectedItemPosition();
+        Log.d("SnrPos", "The selected position was " + spinner_pos);
+
+        patientGender = patientGenderSelection.getSelectedItem().toString();
+
+        Log.d("SpinnerGenderSelection", patientGenderSelection.getSelectedItem().toString());
+
+
+        btnRegisterPatient.setOnClickListener(new View.OnClickListener() {
+            boolean isInserted;
+
             @Override
             public void onClick(View v) {
+                String emailId = patientEmail.getText().toString();
+                String password = patientPassword.getText().toString();
 
-//              Creating SignUp Modules
-
-                String email, password;
-                email = txtRgstPgEmail.getText().toString();
-                password = txtRgstPgPassword.getText().toString();
-
-                if (email.equals("") || password.equals("")) {
-                    Toast.makeText(PatientRegistrationPg1.this, "Necessary fields are empty",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Boolean chkEmail = databaseHelper.valEmail(email);
-                    if (chkEmail == true) {
-                        Boolean i = databaseHelper.insert(email, password);
-                        if (i == true) {
-                            Toast.makeText(PatientRegistrationPg1.this, "Registration was successful",
-                                    Toast.LENGTH_LONG).show();
-                        }
-                    } else {
-                        Toast.makeText(PatientRegistrationPg1.this, "Email ID exists in the database",
-                                Toast.LENGTH_LONG).show();
+                Boolean chkEmail = databaseHelper.valEmail(emailId);
+                if (chkEmail == true) {
+                    Boolean i = databaseHelper.insert(emailId, password);
+                    if (i == true) {
+                        isInserted = databaseHelper.addRecordPatient(patientEmail.getText().toString(),
+                                patientFirstName.getText().toString(),
+                                patientLastName.getText().toString(),
+                                patientDOB.getText().toString(),
+                                patientGender,
+                                patientHeight.getText().toString(),
+                                patientWeight.getText().toString(),
+                                patientPhone.getText().toString(),
+                                patientCountry.getText().toString(),
+                                patientState.getText().toString(),
+                                patientCity.getText().toString(),
+                                patientStreet.getText().toString(),
+                                patientPostalCode.getText().toString(),
+                                patientPassword.getText().toString(),
+                                patientInsuranceNumber.getText().toString(),
+                                patientDisease.getText().toString(),
+                                patientAllergies.getText().toString(),
+                                patientMedicine.getText().toString());
                     }
+                }
 
+                if (isInserted) {
+                    //Toast.makeText(PatientRegistrationPg1.this,"Data added",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(PatientRegistrationPg1.this, PatientRegistrationSuccessfulPg1.class));
+                } else {
+                    Toast.makeText(PatientRegistrationPg1.this, "Data not added. Please check the data.", Toast.LENGTH_LONG).show();
                 }
 
 
             }
+
         });
+
 
     }
 }
