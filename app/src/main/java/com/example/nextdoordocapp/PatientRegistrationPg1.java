@@ -28,7 +28,6 @@ public class PatientRegistrationPg1 extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this);
 
 
-
         EditText patientFirstName = findViewById(R.id.txtRgstPgFirstName);
         EditText patientLastName = findViewById(R.id.txtRgstPgFamilyName);
         EditText patientEmail = findViewById(R.id.txtRgstPgEmail);
@@ -54,7 +53,7 @@ public class PatientRegistrationPg1 extends AppCompatActivity {
         Button btnRegisterPatient = findViewById(R.id.btnRgstPgCreatePatient);
 
         int spinner_pos = patientGenderSelection.getSelectedItemPosition();
-        Log.d("SnrPos","The selected position was " + spinner_pos);
+        Log.d("SnrPos", "The selected position was " + spinner_pos);
 
         patientGender = patientGenderSelection.getSelectedItem().toString();
 
@@ -63,45 +62,48 @@ public class PatientRegistrationPg1 extends AppCompatActivity {
 
         btnRegisterPatient.setOnClickListener(new View.OnClickListener() {
             boolean isInserted;
+
             @Override
             public void onClick(View v) {
-                isInserted =  databaseHelper.addRecordPatient(patientEmail.getText().toString(),
-                        patientFirstName.getText().toString(),
-                        patientLastName.getText().toString(),
-                        patientDOB.getText().toString(),
-                        patientGender,
-                        patientHeight.getText().toString(),
-                        patientWeight.getText().toString(),
-                        patientPhone.getText().toString(),
-                        patientCountry.getText().toString(),
-                        patientState.getText().toString(),
-                        patientCity.getText().toString(),
-                        patientStreet.getText().toString(),
-                        patientPostalCode.getText().toString(),
-                        patientPassword.getText().toString(),
-                        patientInsuranceNumber.getText().toString(),
-                        patientDisease.getText().toString(),
-                        patientAllergies.getText().toString(),
-                        patientMedicine.getText().toString());
+                String emailId = patientEmail.getText().toString();
+                String password = patientPassword.getText().toString();
 
-                if(isInserted) {
-                    //Toast.makeText(PatientRegistrationPg1.this,"Data added",Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(PatientRegistrationPg1.this,PatientRegistrationSuccessfulPg1.class));
+                Boolean chkEmail = databaseHelper.valEmail(emailId);
+                if (chkEmail == true) {
+                    Boolean i = databaseHelper.insert(emailId, password);
+                    if (i == true) {
+                        isInserted = databaseHelper.addRecordPatient(patientEmail.getText().toString(),
+                                patientFirstName.getText().toString(),
+                                patientLastName.getText().toString(),
+                                patientDOB.getText().toString(),
+                                patientGender,
+                                patientHeight.getText().toString(),
+                                patientWeight.getText().toString(),
+                                patientPhone.getText().toString(),
+                                patientCountry.getText().toString(),
+                                patientState.getText().toString(),
+                                patientCity.getText().toString(),
+                                patientStreet.getText().toString(),
+                                patientPostalCode.getText().toString(),
+                                patientPassword.getText().toString(),
+                                patientInsuranceNumber.getText().toString(),
+                                patientDisease.getText().toString(),
+                                patientAllergies.getText().toString(),
+                                patientMedicine.getText().toString());
+                    }
                 }
-                else {
-                    Toast.makeText(PatientRegistrationPg1.this,"Data not added. Please check the data.",Toast.LENGTH_LONG).show();
+
+                if (isInserted) {
+                    //Toast.makeText(PatientRegistrationPg1.this,"Data added",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(PatientRegistrationPg1.this, PatientRegistrationSuccessfulPg1.class));
+                } else {
+                    Toast.makeText(PatientRegistrationPg1.this, "Data not added. Please check the data.", Toast.LENGTH_LONG).show();
                 }
 
 
             }
 
         });
-
-
-
-
-
-
 
 
     }

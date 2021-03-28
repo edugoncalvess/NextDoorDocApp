@@ -5,118 +5,271 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:context=".admDocRegistration">
 
         <TextView
-            android:id="@+id/txtContinue"
-            android:layout_width="361dp"
-            android:layout_height="78dp"
-            android:gravity="center"
-            android:text="@string/txtAdmRegtContinue"
+            android:id="@+id/txtDoctorRegistMessage"
+            android:layout_width="336dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/txtPatientRegistMessage"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txtSIN"
-            android:layout_width="160dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/txtAdmSINRegistration"
-            android:gravity="center"
+            android:id="@+id/lblRgstDocFirstName"
+            android:layout_width="126dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginRight="7dp"
+            android:text="@string/lblRgstPgFirstName"
             android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/txtRgstDocFirstName"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtContinue" />
+            app:layout_constraintTop_toBottomOf="@+id/txtDoctorRegistMessage" />
 
         <EditText
-            android:id="@+id/txtCashSIN"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
+            android:id="@+id/txtRgstDocFirstName"
+            android:layout_width="243dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
             android:ems="10"
-            android:inputType="number"
-            android:gravity="center"
-            android:textSize="20sp"
+            android:hint="@string/hintRgstPgFirstName"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txtSIN"
-            app:layout_constraintTop_toBottomOf="@+id/txtContinue"
-            android:autofillHints="" />
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lblRgstDocFirstName"
+            app:layout_constraintTop_toBottomOf="@+id/txtDoctorRegistMessage" />
 
         <TextView
-            android:id="@+id/txtAdmDOB"
-            android:layout_width="160dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/txtAdmDOB"
-            android:gravity="center"
+            android:id="@+id/lblRgstDocFamilyName"
+            android:layout_width="126dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginRight="7dp"
+            android:text="@string/lblRgstPgFamilyName"
             android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/txtRgstDocFamilyName"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtSIN" />
+            app:layout_constraintTop_toBottomOf="@+id/lblRgstDocFirstName" />
 
         <EditText
-            android:id="@+id/txtCashDOB"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
+            android:id="@+id/txtRgstDocFamilyName"
+            android:layout_width="243dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
             android:ems="10"
-            android:inputType="date"
-            android:gravity="center"
-            android:textSize="20sp"
+            android:hint="@string/hintRgstPgFamilyName"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txtSIN"
-            app:layout_constraintTop_toBottomOf="@+id/txtCashSIN"
-            android:autofillHints="" />
+            app:layout_constraintStart_toEndOf="@+id/lblRgstDocFamilyName"
+            app:layout_constraintTop_toBottomOf="@+id/txtRgstDocFirstName" />
 
         <TextView
-            android:id="@+id/txtGender"
-            android:layout_width="160dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="@string/txtAdmGender"
+            android:id="@+id/lblRgstDocEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="72dp"
+            android:layout_marginRight="72dp"
+            android:text="@string/lblRgstPgEmail"
             android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/txtRgstDocEmail"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtAdmDOB" />
-
+            app:layout_constraintTop_toBottomOf="@+id/lblRgstDocFamilyName" />
 
         <EditText
-            android:id="@+id/txtCashGender"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
+            android:id="@+id/txtRgstDocEmail"
+            android:layout_width="243dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
             android:ems="10"
-            android:inputType="text"
-            android:gravity="center"
-            android:textSize="20sp"
+            android:hint="@string/hintRgstPgEmail"
+            android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txtSIN"
-            app:layout_constraintTop_toBottomOf="@+id/txtCashDOB"
-            android:autofillHints="" />
+            app:layout_constraintStart_toEndOf="@+id/lblRgstDocEmail"
+            app:layout_constraintTop_toBottomOf="@+id/txtRgstDocFamilyName"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:id="@+id/lblRgstDocPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="39dp"
+            android:layout_marginRight="39dp"
+            android:text="@string/lblRgstPgPassword"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/txtRgstDocPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblRgstDocEmail" />
+
+        <EditText
+            android:id="@+id/txtRgstDocPassword"
+            android:layout_width="243dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgPassword"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblRgstDocPassword"
+            app:layout_constraintTop_toBottomOf="@+id/txtRgstDocEmail" />
+
+        <TextView
+            android:id="@+id/lblRgstDocPhone"
+            android:layout_width="126dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginRight="7dp"
+            android:text="@string/lblRgstPgPhone"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/txtRgstDocPhone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblRgstDocPassword" />
+
+        <EditText
+            android:id="@+id/txtRgstDocPhone"
+            android:layout_width="243dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgPhone"
+            android:importantForAutofill="no"
+            android:inputType="phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblRgstDocPhone"
+            app:layout_constraintTop_toBottomOf="@+id/txtRgstDocPassword" />
+
+
+        <TextView
+            android:id="@+id/lblRgstDocStreet"
+            android:layout_width="122dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="6dp"
+            android:text="@string/lblRgstPgAddress"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblRgstDocPhone" />
+
+        <EditText
+            android:id="@+id/txtRgstDocAddress"
+            android:layout_width="245dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgStreet"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblRgstDocStreet"
+            app:layout_constraintTop_toBottomOf="@+id/txtRgstDocPhone" />
+
+
+        <TextView
+            android:id="@+id/lblRgstDocCity"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/lblRgstPgCity"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblRgstDocStreet" />
+
+        <EditText
+            android:id="@+id/txtRgstDocCity"
+            android:layout_width="244dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgCity"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblRgstDocCity"
+            app:layout_constraintTop_toBottomOf="@+id/txtRgstDocAddress" />
+
+        <TextView
+            android:id="@+id/lblRgstDocPCode"
+            android:layout_width="117dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="6dp"
+            android:text="@string/lblRgstPgPCode"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblRgstDocCity" />
+
+        <EditText
+            android:id="@+id/txtRgstDocPCode"
+            android:layout_width="246dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgPCode"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblRgstDocPCode"
+            app:layout_constraintTop_toBottomOf="@+id/txtRgstDocCity" />
 
         <Button
-            android:id="@+id/btnRgstCashCreateProfile"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            android:text="@string/btnRgstPgCreateProfile"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/btnRgstDocCreate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="@string/btnRgstPgCreatePatient"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtGender" />
+            app:layout_constraintTop_toBottomOf="@+id/txtRgstDocPCode" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </ScrollView>
+
+
+

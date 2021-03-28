@@ -37,10 +37,10 @@ public class LoginActivityPg1 extends AppCompatActivity {
 
                 if (valEmailPassword == true) {
 
-                    Toast.makeText(LoginActivityPg1.this, "Login succesful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivityPg1.this, "Login succesful", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(LoginActivityPg1.this, MainActivity.class));
                 } else {
-                    Toast.makeText(LoginActivityPg1.this, "Wrong Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivityPg1.this, "Wrong Password or Email", Toast.LENGTH_LONG).show();
                 }
 
             }

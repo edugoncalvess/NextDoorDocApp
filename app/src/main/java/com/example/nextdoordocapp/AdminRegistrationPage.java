@@ -61,7 +61,7 @@ public class AdminRegistrationPage extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
 
                         if (spnAdmRoleSel.getSelectedItem().toString().equals("Patient")) {
-                            startActivity(new Intent(AdminRegistrationPage.this, AdmPatInformation.class));
+                      //      startActivity(new Intent(AdminRegistrationPage.this, AdmPatInformation.class));
 
                         } else if (spnAdmRoleSel.getSelectedItem().toString().equals("Doctor")) {
                             startActivity(new Intent(AdminRegistrationPage.this, AdmDocInformation.class));
