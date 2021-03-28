@@ -13,6 +13,7 @@
         <activity android:name=".AdminDoctorUpdateDetails" />
         <activity android:name=".AdminPatientUpdateDetails" />
         <activity android:name=".DocShowAvailability" />
+        <activity android:name=".DocDetailViewMessage" />
         <activity android:name=".DocMessageReply" />
         <activity android:name=".PatientSendMessageToDoctorPg1" />
         <activity android:name=".ContactSupportPg1" />

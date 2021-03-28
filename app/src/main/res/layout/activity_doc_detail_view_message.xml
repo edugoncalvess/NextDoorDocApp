@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DocDetailViewMessage">
+
+    <TextView
+        android:id="@+id/tvEmailTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:ems="12"
+        android:text="@string/tvEmailTitle"
+        android:textSize="20sp" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/tvEmailTitle"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="#D3D3D3" />
+
+    <TextView
+        android:id="@+id/tvIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/line"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_drawable"
+        android:gravity="center"
+        android:text="@string/tvIcon"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvEmailSender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tvIcon"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@+id/tvIcon"
+        android:layout_toRightOf="@+id/tvIcon"
+        android:text="@string/tvEmailSender"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvEmailTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvEmailSender"
+        android:layout_alignStart="@+id/tvEmailSender"
+        android:layout_alignLeft="@+id/tvEmailSender"
+        android:text="@string/tvEmailTime" />
+
+    <TextView
+        android:id="@+id/tvEmailDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvIcon"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/tvEmailDetails" />
+
+    <Button
+        android:id="@+id/btnReplyDocToMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvEmailDetails"
+        android:layout_marginTop="30dp"
+        android:text="@string/btnReplyDocToMessage" />
+
+</RelativeLayout>

@@ -189,6 +189,13 @@
     <string name="btnAdmin">Admin</string>
     <string name="btnCashier">Cashier</string>
 
+    <string name="tvEmailSender">Text View</string>
+    <string name="tvEmailTitle">Text View</string>
+    <string name="tvEmailDetails">Text View</string>
+    <string name="tvEmailTime">Text View</string>
+    <string name="tvIcon">A</string>
+    <string name="btnReplyDocToMessage">Reply</string>
+    <string name="txtInsertReplytoID1">Patient ID</string>
 
 
 </resources>

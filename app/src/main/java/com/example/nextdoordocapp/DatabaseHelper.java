@@ -32,7 +32,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
 */
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
-    final static int DATABASE_VERSION = 11;
+    final static int DATABASE_VERSION = 16;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -103,6 +103,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
 
     //Patient_leaveMessage_Doctor table columns
+    final static String T7COL_0 = "MessageId";
     final static String T7COL_1 = "PatientId";
     final static String T7COL_2 = "DoctorId";
     final static String T7COL_3 = "Date";
@@ -207,8 +208,9 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         db.execSQL(Patient_BookAppointment_DoctorQuery);
 
         //Table Patient_leaveMessage_Doctor
-        String Patient_leaveMessage_DoctorQuery = "CREATE TABLE " + TABLE7_NAME + " (" + T7COL_1 + " TEXT,"
-                + T7COL_2 + " TEXT," + T7COL_3 + " TEXT, " + T7COL_4 + " TEXT, " + T7COL_5 + " TEXT, "
+        String Patient_leaveMessage_DoctorQuery = "CREATE TABLE " + TABLE7_NAME + " (" + T7COL_0 + " INTEGER PRIMARY KEY,"
+                + T7COL_1 + " INTEGER,"
+                + T7COL_2 + " INTEGER," + T7COL_3 + " TEXT, " + T7COL_4 + " TEXT, " + T7COL_5 + " TEXT, "
                 + T7COL_6 + " TEXT, " + T7COL_7 + " TEXT)";
         db.execSQL(Patient_leaveMessage_DoctorQuery);
 
@@ -406,6 +408,23 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
     }
 
+    public boolean addRecordPatient_leaveMessage_DoctorTest (){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T7COL_1,1);
+        values.put(T7COL_2,1);
+        values.put(T7COL_3,1);
+        values.put(T7COL_4,"2:30");
+        values.put(T7COL_5,"Hello Doc I have a problem");
+        values.put(T7COL_6,"Ok");
+        values.put(T7COL_7,"");
+
+        long r = sqLiteDatabase.insert(TABLE7_NAME,null,values);
+        if(r>0)
+            return  true;
+        else
+            return false;
+    }
 
     //Test if data is adding to patient table
     public boolean addRecordPatientTest() {
@@ -557,6 +576,29 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     }
 
 
+
+    //Doc view the message patient sent
+    public Cursor viewNewMessageDoc(){
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String addedDoctorAvailability = "SELECT PatientId,date,message,time FROM " + TABLE7_NAME;
+        Cursor c = sqLiteDatabase.rawQuery(addedDoctorAvailability,null);
+        return c;
+
+    }
+
+    //Updating the reply in table in the DocReplyMessage page
+    public boolean updateReplyFieldDoc(int id,String C) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T7COL_6, C);
+
+        int d= sqLiteDatabase.update(TABLE7_NAME, values, "PatientId = ?", new String[]{Integer.toString(id)});
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }
+
 //Delete food ID from table Food Item
   /*  public boolean deleteRec(int id){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
@@ -567,9 +609,17 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
     }*/
 
-/*    public boolean updateRec(int id,String C) {
+/*       public boolean updateRec(int id,String C) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put(T1COL_4, C);
+
+        int d= sqLiteDatabase.update(TABLE1_NAME, values, "id=?", new String[]{Integer.toString(id)});
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }
 
 
     }*/
