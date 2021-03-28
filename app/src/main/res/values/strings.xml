@@ -196,6 +196,7 @@
     <string name="tvIcon">A</string>
     <string name="btnReplyDocToMessage">Reply</string>
     <string name="txtInsertPatIDReply">Patenit ID</string>
+    <string name="btnPatFinalSaveInfo">Save Your Daily Information</string>
 
 
 </resources>

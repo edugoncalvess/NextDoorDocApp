@@ -29,6 +29,7 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
 
     Button addButton;
     Button viewFoodList;
+    Button saveFinalInfo;
     TextView patientGoalCalorie;
     TextView patientFoodConsumedCalories;
     TextView patientRemainingCalorie;
@@ -70,7 +71,7 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
 
         //add database
         databaseHelper = new DatabaseHelper(this);
-        //databaseHelper. addRecordPatientTest();
+        databaseHelper. addRecordPatientTest();
 
         // get Patient information
         Cursor patientDetailCursor = databaseHelper.getPatientWeightHeightGender(patientId);
@@ -84,13 +85,14 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
                     //chnage Birthdate format
                     ConvertedBirthDate =new SimpleDateFormat("yyyy/MM/dd").parse(birthDate);
 
-                    //change Birthdaye to age
+                    //read Year from String
                     String firstFourChars = "";
                     firstFourChars = birthDate.substring(0, 4);
-                    System.out.println(firstFourChars);
 
                     //Find this year
                     int year = Calendar.getInstance().get(Calendar.YEAR);
+
+                    //change Birthdaye to age
                      age = year - Integer.parseInt(firstFourChars);
 
 
@@ -249,37 +251,36 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
                 if(c.getCount()>0){
                     while (c.moveToNext()){
                         str.append(("ID : ") + c.getString(0));
+                        str.append("\n");
                         str.append(("Food Name : " + c.getString(1)));
+                        str.append("\n");
                         str.append(("Food Calorie :" + c.getString(2)));
+                        str.append("\n");
+                        str.append("------------------");
                         str.append("\n");
 
                     }
-                    foodList.setText(str);
+
                 }
-                /*if(foodViewStatus==false){
+                if(foodViewStatus==false){
 
-                    try {
-                        FileInputStream fin = openFileInput("foodItemFile.txt");
-                        int read = -1;
-                        StringBuffer buffer = new StringBuffer();
-                        while((read =fin.read())!= -1){
-                            buffer.append((char)read);
-                        }
-                        //Log.d("Code", buffer.toString());
-                        //SimpleDateFormat sdf = new SimpleDateFormat("HH:mm dd/MM/yyyy");
-                        //String currentDateandTime = sdf.format(new Date());
+                    /*FileInputStream fin = openFileInput("foodItemFile.txt");
+                    int read = -1;
+                    StringBuffer buffer = new StringBuffer();
+                    while((read =fin.read())!= -1){
+                        buffer.append((char)read);
+                    }*/
+                    //Log.d("Code", buffer.toString());
+                    //SimpleDateFormat sdf = new SimpleDateFormat("HH:mm dd/MM/yyyy");
+                    //String currentDateandTime = sdf.format(new Date());
 
-                        String bname = buffer.substring(0,buffer.indexOf(" "));
+                       /* String bname = buffer.substring(0,buffer.indexOf(" "));
                         String bcal = buffer.substring(buffer.indexOf(" ")+1);
-                        foodList.setText(bname + bcal);
+                        foodList.setText(bname + bcal);*/
 
-                        foodList.setVisibility(View.VISIBLE);
-                        foodList.setText(bname + bcal);
-                        fin.close();
-                    }
-                    catch(IOException e) {
-                        e.printStackTrace();
-                    }
+                    foodList.setVisibility(View.VISIBLE);
+                    foodList.setText(str);
+                    //fin.close();
                     foodViewStatus =true;
                     viewFoodList.setText(R.string.txtPatCloseView);
 
@@ -292,9 +293,17 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
 
 
                 }
-*/
             }
 
+        });
+
+        //define  save final daily  calorie button
+        saveFinalInfo = findViewById(R.id.btnPatFinalSaveInfo);
+        saveFinalInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
         });
 
     }
