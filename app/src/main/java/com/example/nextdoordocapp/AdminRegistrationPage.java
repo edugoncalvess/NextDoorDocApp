@@ -12,17 +12,19 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class AdminRegistrationPage extends AppCompatActivity {
+    DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_registration_page);
-
+        databaseHelper = new DatabaseHelper(this);
         EditText inputAdmFName = findViewById(R.id.inputAdmFName);
         EditText inputAdmLName = findViewById(R.id.inputAdmLName);
         EditText inputAdmCellNum = findViewById(R.id.inputAdmCellNum);
         EditText inputAdmAddress = findViewById(R.id.inputAdmAddress);
         EditText inputAdmEmail = findViewById(R.id.inputAdmEmail);
+        EditText inputAdmPassword = findViewById(R.id.txtRgstPgPassword2);
         Spinner spnAdmRoleSel = findViewById(R.id.spnAdmRoleSel);
 
         Button btnAdmNext = findViewById(R.id.btnAdmNext);
@@ -36,6 +38,7 @@ public class AdminRegistrationPage extends AppCompatActivity {
                 inputAdmCellNum.setText("");
                 inputAdmAddress.setText("");
                 inputAdmEmail.setText("");
+                inputAdmPassword.setText("");
                 spnAdmRoleSel.setSelection(0);
             }
         });
@@ -43,22 +46,42 @@ public class AdminRegistrationPage extends AppCompatActivity {
         btnAdmNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (spnAdmRoleSel.getSelectedItem().toString().equals("Patient")) {
-                    startActivity(new Intent(AdminRegistrationPage.this, AdmPatInformation.class));
+//convertign to the next page checking for null values and registering the user from Admin side
+//                if (inputAdmFName.equals("") || inputAdmLName.equals("") || inputAdmCellNum.equals("") ||
+//                        inputAdmAddress.equals("") || inputAdmFName.equals("") || inputAdmEmail.equals("") || inputAdmPassword.equals("")) {
 
-                } else if (spnAdmRoleSel.getSelectedItem().toString().equals("Doctor")) {
-                    startActivity(new Intent(AdminRegistrationPage.this, AdmDocInformation.class));
+                String emailId = inputAdmEmail.getText().toString();
+                String password = inputAdmPassword.getText().toString();
 
-                }
-                if (spnAdmRoleSel.getSelectedItem().toString().equals("Cashier")) {
-                    startActivity(new Intent(AdminRegistrationPage.this, AdmCasInformation.class));
-                }
-                if (spnAdmRoleSel.getSelectedItem().toString().equals("Admin")) {
-                    startActivity(new Intent(AdminRegistrationPage.this, AdmInfoRegistration.class));
+                Boolean chkEmail = databaseHelper.valEmail(emailId);
+                if (chkEmail == true) {
+                    Boolean i = databaseHelper.insert(emailId, password);
+                    if (i == true) {
+                        Toast.makeText(AdminRegistrationPage.this, "Registration was successful",
+                                Toast.LENGTH_LONG).show();
+
+                        if (spnAdmRoleSel.getSelectedItem().toString().equals("Patient")) {
+                            startActivity(new Intent(AdminRegistrationPage.this, AdmPatInformation.class));
+
+                        } else if (spnAdmRoleSel.getSelectedItem().toString().equals("Doctor")) {
+                            startActivity(new Intent(AdminRegistrationPage.this, AdmDocInformation.class));
+
+                        }
+                        if (spnAdmRoleSel.getSelectedItem().toString().equals("Cashier")) {
+                            startActivity(new Intent(AdminRegistrationPage.this, AdmCasInformation.class));
+                        }
+                        if (spnAdmRoleSel.getSelectedItem().toString().equals("Admin")) {
+                            startActivity(new Intent(AdminRegistrationPage.this, AdmInfoRegistration.class));
+
+                        }
+
+                    } else {
+                        Toast.makeText(AdminRegistrationPage.this, "Email ID already exists", Toast.LENGTH_SHORT).show();
+                    }
+
 
                 }
             }
         });
-
     }
 }
