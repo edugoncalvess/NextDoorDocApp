@@ -12,6 +12,7 @@
         <activity android:name=".AdminRegistrationModule"></activity>
         <activity android:name=".AdminDoctorUpdateDetails" />
         <activity android:name=".AdminPatientUpdateDetails" />
+        <activity android:name=".PatientRegistrationSuccessfulPg1" />
         <activity android:name=".DocShowAvailability" />
         <activity android:name=".DocDetailViewMessage" />
         <activity android:name=".DocMessageReply" />
