@@ -2,6 +2,7 @@ package com.example.nextdoordocapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +25,7 @@ public class AdmDocInformation extends AppCompatActivity {
         EditText txtDocCity = findViewById(R.id.txtRgstDocCity);
         EditText txtDocPCode = findViewById(R.id.txtRgstDocPCode);
 
-        Button createDocProf = findViewById(R.id.btnRgstDocCreate);
+        Button createDocProf = findViewById(R.id.btnRgstCasCreate);
 
         createDocProf.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +48,7 @@ public class AdmDocInformation extends AppCompatActivity {
                         databaseHelper.addDoctorRecords(dEmail, dFName, dLName,
                                 dPassword, dPCode, dPhone, dAddress, dCity);
                         Toast.makeText(AdmDocInformation.this, "Profile Created", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(AdmDocInformation.this,MainActivity.class));
                     }
                 }else {
                     Toast.makeText(AdmDocInformation.this, "Email ID already exist in the database", Toast.LENGTH_LONG).show();

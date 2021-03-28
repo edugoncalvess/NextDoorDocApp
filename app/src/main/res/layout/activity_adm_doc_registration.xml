@@ -256,7 +256,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txtRgstDocCity" />
 
         <Button
-            android:id="@+id/btnRgstDocCreate"
+            android:id="@+id/btnRgstCasCreate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
