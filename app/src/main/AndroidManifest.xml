@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NextDoorDocApp">
-        <activity android:name=".DocShowAvailability"></activity>
+        <activity android:name=".DocDetailViewMessage"></activity>
+        <activity android:name=".DocShowAvailability" />
         <activity android:name=".DocMessageReply" />
         <activity android:name=".PatientSendMessageToDoctorPg1" />
         <activity android:name=".ContactSupportPg1" />
