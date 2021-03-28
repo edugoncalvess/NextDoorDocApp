@@ -96,10 +96,13 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     final static String T5COL_4 = "Date";
 
     //Patient_BookAppointment_Doctor table columns
+    final static String T6COL_0 = "BookAppointmentId";
     final static String T6COL_1 = "DoctorId";
     final static String T6COL_2 = "patientId";
     final static String T6COL_3 = "AppointmentDate";
     final static String T6COL_4 = "AppointmentTime";
+    final static String T6COL_5 = "isInsuranceCovered";
+ //   final static String T6COL_6 = "Pending";
 
 
     //Patient_leaveMessage_Doctor table columns
@@ -203,10 +206,17 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         db.execSQL(DailyCaloriesQuery);
 
         //Table Patient_BookAppointment_Doctor
-        String Patient_BookAppointment_DoctorQuery = "CREATE TABLE " + TABLE6_NAME + " (" + T6COL_1 + " TEXT,"
-                + T6COL_2 + " TEXT," + T6COL_3 + " TEXT, " + T6COL_4 + " TEXT)";
+        String Patient_BookAppointment_DoctorQuery = "CREATE TABLE " + TABLE6_NAME + " (" + T6COL_0 + " INTEGER PRIMARY KEY,"
+                + T6COL_1 + " TEXT,"
+                + T6COL_2 + " TEXT," + T6COL_3 + " TEXT, " + T6COL_4 + " TEXT, " + T6COL_5 + " TEXT)";
         db.execSQL(Patient_BookAppointment_DoctorQuery);
 
+        /*final static String T6COL_0 = "BookAppointmentId";
+    final static String T6COL_1 = "DoctorId";
+    final static String T6COL_2 = "patientId";
+    final static String T6COL_3 = "AppointmentDate";
+    final static String T6COL_4 = "AppointmentTime";
+    final static String T6COL_5 = "isInsuranceCovered";*/
         //Table Patient_leaveMessage_Doctor
         String Patient_leaveMessage_DoctorQuery = "CREATE TABLE " + TABLE7_NAME + " (" + T7COL_0 + " INTEGER PRIMARY KEY,"
                 + T7COL_1 + " INTEGER,"
@@ -372,14 +382,18 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     }
 
     //add record method for table Patient_BookAppointment_Doctor
-    public boolean addRecordPatient_BookAppointment_Doctor(String dEmail, String PEmail, String appDate,
-                                                           String appTime) {
+    public boolean addRecordPatient_BookAppointment_Doctor(String bAppId , String DoctorId, String patientId, String AppointmentDate,
+                                                           String AppointmentTime, String isInsuranceCovered) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(T6COL_1, dEmail);
-        values.put(T6COL_2, PEmail);
-        values.put(T6COL_3, appDate);
-        values.put(T6COL_4, appTime);
+
+        values.put(T6COL_0,bAppId);
+        values.put(T6COL_1, DoctorId);
+        values.put(T6COL_2, patientId);
+        values.put(T6COL_3, AppointmentDate);
+        values.put(T6COL_4, AppointmentTime);
+        values.put(T6COL_5, isInsuranceCovered);
+
 
         long r = sqLiteDatabase.insert(TABLE6_NAME, null, values);
         if (r > 0)
@@ -387,6 +401,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         else
             return false;
     }
+
 
     //add record method for table Patient_leaveMessage_Doctor
     public boolean addRecordPatient_leaveMessage_Doctor(String pEmail, String dEmail, String messageDate,
@@ -407,6 +422,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         else
             return false;
     }
+
 
     public boolean addRecordPatient_leaveMessage_DoctorTest (){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
@@ -585,6 +601,19 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         return c;
 
     }
+
+    //Pass to Patient, doc's date and time
+    public Cursor patientReadDateTimeDoc (){
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String readDoctorAvailability = "SELECT docAvailabiltyID,docDate,docStime,docEtime FROM " + TABLE9_NAME;
+        Cursor c = sqLiteDatabase.rawQuery(readDoctorAvailability,null);
+        return c;
+    }
+    /*final static String T9COL_1 = "docAvailabiltyID";
+    final static String T9COL_2 = "docDate";
+    final static String T9COL_3 = "docStime";
+    final static String T9COL_4 = "docEtime";
+    final static String T9COL_5 = "docID";*/
 
     //Updating the reply in table in the DocReplyMessage page
     public boolean updateReplyFieldDoc(int id,String C) {
