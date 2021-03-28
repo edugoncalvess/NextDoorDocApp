@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">NextDoorDocApp</string>
     <string name="textofexample">TextOfExample</string>
     <string name="testtxt">Nazanin Test</string>
@@ -63,9 +63,9 @@
         <item>Admin</item>
         <item>Cashier</item>
     </string-array>
-    <string name="txtAdmRole">Select your role :</string>
+    <string name="txtAdmRole">Select the role :</string>
     <string name="txtAdmEmail"> Email ID:</string>
-    <string name="btnAdmClear"> Clear </string>
+    <string name="btnAdmClear"> CLEAR </string>
     <string name="btnAdmNext">NEXT</string>
 
 
@@ -153,6 +153,8 @@
     <string name="btnPatSendMessageAndPay">Pay and Send Message</string>
     <string name="txtAdmRegPage2">Continue Entering the Information</string>
     <string name="txtAdmPatientAllergies">Allergies</string>
+    <string name="txtAdmPatientMedicine">Medicine</string>
+    <string name="txtAdmPatientDiseases">Diseases</string>
     <string name="txtMessageForDoc" />
     <string name="btnReplyMessageDoc">Reply</string>
     <string name="txtReplyMessageDoc">Enter your Reply...</string>

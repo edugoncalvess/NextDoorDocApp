@@ -52,7 +52,7 @@ public class AdminRegistrationPage extends AppCompatActivity {
                 }
                 if (spnAdmRoleSel.getSelectedItem().toString().equals("Cashier")) {
                     startActivity(new Intent(AdminRegistrationPage.this, AdmCasInformation.class));
-  }
+                }
                 if (spnAdmRoleSel.getSelectedItem().toString().equals("Admin")) {
                     startActivity(new Intent(AdminRegistrationPage.this, AdmInfoRegistration.class));
 

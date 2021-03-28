@@ -1,62 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AdmPatInformation">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/lblRgstPgPassword"
-        android:layout_width="106dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/lblRgstPgPassword"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblRgstPgGender" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".AdmPatInformation">
 
-    <EditText
-        android:id="@+id/txtRgstPgPassword"
-        android:layout_width="230dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:ems="10"
-        android:hint="@string/hintRgstPgPassword"
-        android:importantForAutofill="no"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/lblRgstPgPassword"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-    <TextView
+        <TextView
         android:id="@+id/lblRgstPgGender"
-        android:layout_width="87dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="31dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
+        android:gravity="center"
         android:text="@string/lblRgstPgGender"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/radioGroup"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtAdmInfo" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="243dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="31dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginRight="19dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/lblRgstPgGender"
@@ -84,42 +59,42 @@
             android:text="@string/lblRgstPgGenderOther" />
     </RadioGroup>
 
-    <TextView
-        android:id="@+id/lblRgstPgHeight"
-        android:layout_width="158dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/lblRgstPgHeight"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblRgstPgPassword" />
+        <TextView
+            android:id="@+id/lblRgstPgHeight"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/lblRgstPgHeight"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblRgstPgGender" />
 
-    <EditText
-        android:id="@+id/txtRgstPgHeight"
-        android:layout_width="180dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:ems="10"
-        android:hint="@string/hintRgstPgHeight"
-        android:importantForAutofill="no"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/lblRgstPgHeight"
-        app:layout_constraintTop_toBottomOf="@+id/txtRgstPgPassword" />
+        <EditText
+            android:id="@+id/txtRgstPgHeight"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgHeight"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblRgstPgHeight"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <TextView
         android:id="@+id/lblRgstPgWeight"
-        android:layout_width="156dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:text="@string/lblRgstPgWeight"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -127,26 +102,25 @@
 
     <TextView
         android:id="@+id/lblRgstPgInsuranceNumber"
-        android:layout_width="131dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:text="@string/lblRgstPgInsuranceNumber"
         android:textSize="19sp"
-        app:layout_constraintEnd_toStartOf="@+id/txtRgstPgInsuranceNumber"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblRgstPgWeight" />
 
     <EditText
         android:id="@+id/txtRgstPgWeight"
-        android:layout_width="180dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
         android:ems="10"
         android:hint="@string/hintRgstPgWeight"
         android:importantForAutofill="no"
@@ -157,17 +131,17 @@
 
     <EditText
         android:id="@+id/txtRgstPgInsuranceNumber"
-        android:layout_width="220dp"
-        android:layout_height="42dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginRight="19dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
         android:ems="10"
         android:hint="@string/hintRgstPgInsuranceNumber"
         android:importantForAutofill="no"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/lblRgstPgInsuranceNumber"
         app:layout_constraintTop_toBottomOf="@+id/txtRgstPgWeight" />
@@ -176,12 +150,15 @@
         android:id="@+id/btnRgstPgCreateProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="@string/btnRgstPgCreateProfile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtAllergies" />
+        app:layout_constraintTop_toBottomOf="@+id/txtAdmPatDisease" />
+
+
+
 
     <TextView
         android:id="@+id/txtAdmInfo"
@@ -197,11 +174,11 @@
 
     <TextView
         android:id="@+id/txtAllergies"
-        android:layout_width="129dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="17dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:text="@string/txtAdmPatientAllergies"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -209,15 +186,70 @@
 
     <EditText
         android:id="@+id/txtRegPatientAllergies"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="13dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtAllergies"
         app:layout_constraintTop_toBottomOf="@+id/txtRgstPgInsuranceNumber" />
 
+    <TextView
+        android:id="@+id/txtAdmPatMedicine"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/txtAdmPatientMedicine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAllergies" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/txtAdmPatDisease"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/txtAdmPatientDiseases"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAdmPatMedicine" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtAdmPatMedicine"
+        app:layout_constraintTop_toBottomOf="@+id/txtRegPatientAllergies" />
+
+    <EditText
+        android:id="@+id/txtAdmPatientDiseases"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtAdmPatDisease"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
