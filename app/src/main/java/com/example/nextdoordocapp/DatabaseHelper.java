@@ -32,7 +32,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
 */
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
-    final static int DATABASE_VERSION = 16;
+    final static int DATABASE_VERSION = 18;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -388,6 +388,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     public boolean addRecordPatientTest() {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put(T3COL_0, "1");
         values.put(T3COL_1, "nazanin.binesh.nb@gmail.com");
         values.put(T3COL_2, "Nazanin");
         values.put(T3COL_3, "Binesh");
@@ -532,6 +533,15 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return true;
         else
             return false;
+    }
+
+    //get patient height and weight and gender and age
+    public Cursor getPatientWeightHeightGender(int id) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        String patientInfoQuery = "SELECT " +  T3COL_5 + "," + T3COL_7 + "," + T3COL_6 + "," + T3COL_4 + " FROM " + TABLE3_NAME + " Where " + T3COL_0 + " = " + id;
+        Cursor c = sqLiteDatabase.rawQuery(patientInfoQuery,null);
+        return c;
     }
 
 //Delete food ID from table Food Item

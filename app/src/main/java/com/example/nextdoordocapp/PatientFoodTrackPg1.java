@@ -18,6 +18,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class PatientFoodTrackPg1 extends AppCompatActivity {
 
@@ -40,10 +44,17 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
 
     Boolean foodViewStatus = false;
 
-    int goalCalorie = 2000;
+    int goalCalorie = 0;
     int foodConsumedCalories = 0;
     int currentFoodConsumedCalories = 0;
-    int remainedCalorie;
+    double remainedCalorie;
+
+    String gender;
+    int height;
+    int weight;
+    String birthDate;
+    Date ConvertedBirthDate;
+    int age;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +70,46 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
 
         //add database
         databaseHelper = new DatabaseHelper(this);
+        //databaseHelper. addRecordPatientTest();
+
+        // get Patient information
+        Cursor patientDetailCursor = databaseHelper.getPatientWeightHeightGender(patientId);
+        if(patientDetailCursor.getCount()>0){
+            while (patientDetailCursor.moveToNext()){
+                gender = patientDetailCursor.getString(0);
+                weight = Integer.parseInt(patientDetailCursor.getString(1));
+                height = Integer.parseInt(patientDetailCursor.getString(2));
+                birthDate = patientDetailCursor.getString(3);
+                try {
+                    //chnage Birthdate format
+                    ConvertedBirthDate =new SimpleDateFormat("yyyy/MM/dd").parse(birthDate);
+
+                    //change Birthdaye to age
+                    String firstFourChars = "";
+                    firstFourChars = birthDate.substring(0, 4);
+                    System.out.println(firstFourChars);
+
+                    //Find this year
+                    int year = Calendar.getInstance().get(Calendar.YEAR);
+                     age = year - Integer.parseInt(firstFourChars);
+
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            //Calculate Goal Calorie for Patient
+           if(gender.equals("Female")){
+               double FBMR= 655 + (4.3 * (weight * 2.205)) + (4.7 * (height / 2.54)) - (4.7 * age);
+               goalCalorie = (int)(FBMR * 1.55);
+           }
+           else{
+               double MBMR =  66 + (6.3 * (weight * 2.205)) + (12.9 * (height / 2.54)) - (6.8 * age);
+               goalCalorie = (int)(MBMR * 1.55);
+           }
+
+        }
 
         //databaseHelper.addRecordPatientTest();
        /* Cursor check =  databaseHelper.viewCheckPatientId();
