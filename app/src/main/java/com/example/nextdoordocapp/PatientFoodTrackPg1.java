@@ -71,7 +71,7 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
 
         //add database
         databaseHelper = new DatabaseHelper(this);
-        databaseHelper. addRecordPatientTest();
+        //databaseHelper. addRecordPatientTest();
 
         // get Patient information
         Cursor patientDetailCursor = databaseHelper.getPatientWeightHeightGender(patientId);
@@ -112,10 +112,6 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
            }
 
         }
-
-        //databaseHelper.addRecordPatientTest();
-       /* Cursor check =  databaseHelper.viewCheckPatientId();
-        Log.d("This is User id" , String.valueOf(patientId));*/
 
         //select food items cardView
         CardView crdViewPatFoodTrackItems = findViewById(R.id.crdViewPatFoodTrack);
