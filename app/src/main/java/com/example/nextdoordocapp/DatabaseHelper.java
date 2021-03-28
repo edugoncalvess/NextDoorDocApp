@@ -32,7 +32,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
 */
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
-    final static int DATABASE_VERSION = 8;
+    final static int DATABASE_VERSION = 9;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -346,68 +346,6 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
     }
 
-    public boolean addRecordPatientTest (){
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(T3COL_1,"nazanin.binesh.nb@gmail.com");
-        values.put(T3COL_2,"Nazanin");
-        values.put(T3COL_3,"Binesh");
-        values.put(T3COL_4,"1988/05/23");
-        values.put(T3COL_5,"Female");
-        values.put(T3COL_6,"160");
-        values.put(T3COL_7,"60");
-        values.put(T3COL_8,"778831111");
-        values.put(T3COL_9,"Canada");
-        values.put(T3COL_10,"BC");
-        values.put(T3COL_11,"Coquitlam");
-        values.put(T3COL_12,"Eagle mountain");
-        values.put(T3COL_13,"V3E2Z2");
-        values.put(T3COL_14,"123456");
-        values.put(T3COL_15,"");
-        values.put(T3COL_16,"");
-        values.put(T3COL_17,"");
-        values.put(T3COL_18,"");
-
-
-        long r = sqLiteDatabase.insert(TABLE3_NAME,null,values);
-        if(r>0)
-            return  true;
-        else
-            return false;
-
-    }
-
-    public boolean addRecordDocTest (){
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(T8COL_1,"nazanin.binesh.nb@gmail.com");
-        values.put(T3COL_2,"Nazanin");
-        values.put(T3COL_3,"Binesh");
-        values.put(T3COL_4,"1988/05/23");
-        values.put(T3COL_5,"Female");
-        values.put(T3COL_6,"160");
-        values.put(T3COL_7,"60");
-        values.put(T3COL_8,"778831111");
-        values.put(T3COL_9,"Canada");
-        values.put(T3COL_10,"BC");
-        values.put(T3COL_11,"Coquitlam");
-        values.put(T3COL_12,"Eagle mountain");
-        values.put(T3COL_13,"V3E2Z2");
-        values.put(T3COL_14,"123456");
-        values.put(T3COL_15,"");
-        values.put(T3COL_16,"");
-        values.put(T3COL_17,"");
-        values.put(T3COL_18,"");
-
-
-        long r = sqLiteDatabase.insert(TABLE3_NAME,null,values);
-        if(r>0)
-            return  true;
-        else
-            return false;
-
-    }
-
 //add cursor method to view data
     public Cursor viewPatientAddedFoodItems(){
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
@@ -415,6 +353,12 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         Cursor c = sqLiteDatabase.rawQuery(addedFoodItemQuery,null);
         return c;
     }
+    /*public Cursor viewCheckPatientId(){
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String checkPatientIdQuery = "SELECT "  + T3COL_0 +" FROM " + TABLE3_NAME ;
+        Cursor c = sqLiteDatabase.rawQuery(checkPatientIdQuery,null);
+        return c;
+    }*/
 
 
     public boolean addRecordPatientTest () {
