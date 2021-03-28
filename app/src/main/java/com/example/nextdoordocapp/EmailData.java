@@ -1,13 +1,19 @@
 package com.example.nextdoordocapp;
 
+import android.content.Context;
+
 public class EmailData {
+
 
     private String mSender;
     private String mTitle;
     private String mDetails;
     private String mTime;
 
+
+
     public EmailData(String mSender, String mTitle, String mDetails, String mTime) {
+
         this.mSender = mSender;
         this.mTitle = mTitle;
         this.mDetails = mDetails;
