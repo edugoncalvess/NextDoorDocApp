@@ -32,7 +32,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
 */
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
-    final static int DATABASE_VERSION = 19;
+    final static int DATABASE_VERSION = 21;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -607,6 +607,15 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         return c;
     }
 
+
+    //Show new message for patient from doc
+    //should change to PatientId after we have the real ids
+    public Cursor viewNewMessagePatient(){
+            SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+            String addedNewMessagePatient = "SELECT " + T7COL_6 +  " FROM " + TABLE7_NAME + " WHERE MessageId=1 ";
+            Cursor c = sqLiteDatabase.rawQuery(addedNewMessagePatient,null);
+            return c;
+    }
 //Delete food ID from table Food Item
   /*  public boolean deleteRec(int id){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
