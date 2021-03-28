@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NextDoorDocApp">
-        <activity android:name=".DocMessageReply"></activity>
+        <activity android:name=".DocShowAvailability"></activity>
+        <activity android:name=".DocMessageReply" />
         <activity android:name=".PatientSendMessageToDoctorPg1" />
         <activity android:name=".ContactSupportPg1" />
         <activity android:name=".PatientRegistrationPg1" />
@@ -31,6 +32,7 @@
         <activity android:name=".AdmCasInformation" />
         <activity android:name=".AdmPatInformation" />
         <activity android:name=".AdmDocInformation" />
+        <activity android:name=".SplashActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
