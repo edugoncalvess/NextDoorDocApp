@@ -21,7 +21,7 @@ public class AdmWelcPage extends AppCompatActivity {
         btnAdmReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AdmWelcPage.this,AdminRegistrationPage.class));
+                startActivity(new Intent(AdmWelcPage.this,AdminRegistrationModule.class));
 
             }
         });
@@ -30,6 +30,7 @@ public class AdmWelcPage extends AppCompatActivity {
         btnAdmUpdateDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(AdmWelcPage.this,AdminPatientUpdateDetails.class));
 
             }
         });

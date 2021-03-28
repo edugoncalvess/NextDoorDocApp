@@ -32,7 +32,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
 */
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
-    final static int DATABASE_VERSION = 18;
+    final static int DATABASE_VERSION = 17;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -43,7 +43,10 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
     final static String TABLE8_NAME = "Doctor";
     final static String TABLE9_NAME = "Doctor_Availability";
+
     final static String TABLE10_NAME = "Login_Table";
+    final static String TABLE11_NAME = "Cashier";
+    final static String TABLE12_NAME = "Admin";
 
     //Patient_loginHistory table columns
     final static String T1COL_1 = "LogId";
@@ -133,6 +136,28 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     final static String T10COL_2 = "emailID";
     final static String T10COL_3 = "password";
 
+    //Cashier table columns
+    final static String T11COL_1 = "casID";
+    final static String T11COL_2 = "casEmail";
+    final static String T11COL_3 = "casFName";
+    final static String T11COL_4 = "casLName";
+    final static String T11COL_5 = "casPassword";
+    final static String T11COL_6 = "SIN";
+    final static String T11COL_7 = "casPhoneNumber";
+    final static String T11COL_8 = "casAddress";
+    final static String T11COL_9 = "casDOB";
+
+    //Admin table columns
+    final static String T12COL_1 = "admID";
+    final static String T12COL_2 = "admEmail";
+    final static String T12COL_3 = "admFName";
+    final static String T12COL_4 = "admLName";
+    final static String T12COL_5 = "admPassword";
+    final static String T12COL_6 = "SIN";
+    final static String T12COL_7 = "admPhoneNumber";
+    final static String T12COL_8 = "admAddress";
+    final static String T12COL_9 = "admDOB";
+
 
     //Database created - no need fo update here
     public DatabaseHelper(@Nullable Context context) {
@@ -203,9 +228,24 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
 //   Table for LOgin
         String Login_Table = "CREATE TABLE " + TABLE10_NAME + " (" + T10COL_1 + " INTEGER PRIMARY KEY,"
-                + T10COL_2 + " TEXT,"+ T10COL_3 + " TEXT)";;
+                + T10COL_2 + " TEXT," + T10COL_3 + " TEXT)";
+        ;
 
         db.execSQL(Login_Table);
+
+        //   Table for Cashier
+        String CashierQuery = "CREATE TABLE " + TABLE11_NAME + " (" + T11COL_1 + " INTEGER PRIMARY KEY,"
+                + T11COL_2 + " TEXT," + T11COL_3 + " TEXT," + T11COL_4 + " TEXT," + T11COL_5 + " TEXT,"
+                + T11COL_6 + " TEXT," + T11COL_7 + " TEXT," + T11COL_8 + " TEXT," + T11COL_9 + " TEXT)";
+
+        db.execSQL(CashierQuery);
+
+        //   Table for Admin
+        String AdminQuery = "CREATE TABLE " + TABLE12_NAME + " (" + T12COL_1 + " INTEGER PRIMARY KEY,"
+                + T12COL_2 + " TEXT," + T12COL_3 + " TEXT," + T12COL_4 + " TEXT," + T12COL_5 + " TEXT,"
+                + T12COL_6 + " TEXT," + T12COL_7 + " TEXT," + T12COL_8 + " TEXT," + T12COL_9 + " TEXT)";
+
+        db.execSQL(AdminQuery);
     }
 
     @Override
@@ -220,6 +260,8 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         db.execSQL("DROP table if exists " + TABLE8_NAME);
         db.execSQL("DROP table if exists " + TABLE9_NAME);
         db.execSQL("DROP table if exists " + TABLE10_NAME);
+        db.execSQL("DROP table if exists " + TABLE11_NAME);
+        db.execSQL("DROP table if exists " + TABLE12_NAME);
         onCreate(db);
 
     }
@@ -388,7 +430,6 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     public boolean addRecordPatientTest() {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(T3COL_0, "1");
         values.put(T3COL_1, "nazanin.binesh.nb@gmail.com");
         values.put(T3COL_2, "Nazanin");
         values.put(T3COL_3, "Binesh");
@@ -462,15 +503,36 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         ContentValues contentValues = new ContentValues();
         contentValues.put(T10COL_2, email);
         contentValues.put(T10COL_3, password);
-//       contentValues.put(T10COL_1, "LoginID");
-//       contentValues.put(T10COL_2, "NextDoorDoc");
         long r = db.insert("Login_Table", null, contentValues);
-        if(r==-1)
+        if (r == -1)
             return false;
         else
             return true;
     }
 
+    ////    Registering new user Doctor
+    public boolean addDoctorRecords(String dMail, String dFName, String dLName,String dPassword,
+                                    String dPostalCode,String dPhone, String daddress,String dCity){
+        SQLiteDatabase sqLiteDatabase=this.getReadableDatabase();
+        ContentValues contentValues= new ContentValues();
+        contentValues.put(T8COL_2,dMail);
+        contentValues.put(T8COL_3,dFName);
+        contentValues.put(T8COL_4,dLName);
+        contentValues.put(T8COL_5,dPassword);
+        contentValues.put(T8COL_6,dPostalCode);
+        contentValues.put(T8COL_7,dPhone);
+        contentValues.put(T8COL_8,daddress);
+        contentValues.put(T8COL_9,dCity);
+
+        long r= sqLiteDatabase.insert(TABLE8_NAME,null,contentValues);
+        if (r > 0)
+            return true;
+        else
+            return false;
+
+    }
+    ////    Registering new user Cashier
+    ////    Registering new user Admin
     //add cursor method to view data
     //View Added FoodItems
 
@@ -493,7 +555,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     //checking for the email if that exists
     public Boolean valEmail(String email) {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE10_NAME+" where emailID=?",
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE10_NAME + " where emailID=?",
                 new String[]{email});
         if (cursor.getCount() > 0)
             return false;
@@ -505,13 +567,15 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
     public boolean valEmailPassword(String email, String password) {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE10_NAME+ " where emailID=? and password=?",
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE10_NAME + " where emailID=? and password=?",
                 new String[]{email, password});
         if (cursor.getCount() > 0)
             return true;
         else
             return false;
     }
+
+
 
     //Doc view the message patient sent
     public Cursor viewNewMessageDoc(){
@@ -528,20 +592,11 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         ContentValues values = new ContentValues();
         values.put(T7COL_6, C);
 
-        int d= sqLiteDatabase.update(TABLE7_NAME, values, "PatientId = ?", new String[]{Integer.toString(id)});
+        int d= sqLiteDatabase.update(TABLE7_NAME, values, "PatientId=?", new String[]{Integer.toString(id)});
         if (d > 0)
             return true;
         else
             return false;
-    }
-
-    //get patient height and weight and gender and age
-    public Cursor getPatientWeightHeightGender(int id) {
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        String patientInfoQuery = "SELECT " +  T3COL_5 + "," + T3COL_7 + "," + T3COL_6 + "," + T3COL_4 + " FROM " + TABLE3_NAME + " Where " + T3COL_0 + " = " + id;
-        Cursor c = sqLiteDatabase.rawQuery(patientInfoQuery,null);
-        return c;
     }
 
 //Delete food ID from table Food Item

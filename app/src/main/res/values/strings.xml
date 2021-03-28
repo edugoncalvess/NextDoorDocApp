@@ -83,8 +83,6 @@
     <string name="txtPatAppointmentDocDays">Day</string>
     <string name="txtPatAppointmentDocTimes">Time</string>
     <string name="txtPatAppointmentDocRegister">Register</string>
-
-
     <string name="txtPatAddFoodToList">Add Food Item</string>
     <string name="titleDocTime">Enter the time:</string>
     <string name="txtDocTimeAvRange2">Time</string>
@@ -92,8 +90,6 @@
     <string name="txtDocTimeAvRange">Time</string>
     <string name="dataView" />
     <string name="btnDocSetDT">SAVE SCHEDULE</string>
-
-
     <string name="btnSplashPage">Splash Page</string>
     <string name="btnLoginPage">Login Page</string>
     <string name="txtLoginWelcome">Welcome to the NextDoorDoc App</string>
@@ -155,6 +151,12 @@
     <string name="txtAdmPatientAllergies">Allergies</string>
     <string name="txtAdmPatientMedicine">Medicine</string>
     <string name="txtAdmPatientDiseases">Diseases</string>
+    <string name="txtAdmSINRegistration">SIN</string>
+    <string name="txtAdmDOB">Date of Birth</string>
+    <string name="txtAdmGender">Gender</string>
+    <string name="txtAdmDocOfficeInfoCity">City</string>
+    <string name="txtAdmDocOfficeInfoPCode">Postal Code</string>
+    <string name="txtAdmRegtContinue">Continue Filling out the following</string>
     <string name="txtMessageForDoc" />
     <string name="btnReplyMessageDoc">Reply</string>
     <string name="txtReplyMessageDoc">Enter your Reply...</string>
@@ -166,13 +168,34 @@
     <string name="btnDocAddMoreSchedule">Add More</string>
     <string name="txtTitleDocAllSchedule">Show schedule:</string>
     <string name="btnDocGoToShowSch">Show Schedule</string>
+    <string name="lblRgstPgDOB">Date of Birth:</string>
+    <string name="lblRgstPgAllergies">Allergies:</string>
+    <string name="hintRgstPgAllergies">Allergies</string>
+    <string name="lblRgstPgDisease">Diseases:</string>
+    <string name="hintRgstPgDisease">Diseases</string>
+    <string name="lblRgstPgMedicine">Medicines:</string>
+    <string name="hintRgstPgMedicine">Medicines</string>
+    <string name="lblRgstPgStreet">Street:</string>
+    <string name="hintRgstPgStreet">Example Rd</string>
+    <string name="lblRgstPgCity">City:</string>
+    <string name="hintRgstPgCity">City</string>
+    <string name="lblRgstPgState">Province:</string>
+    <string name="hintRgstPgState">Province</string>
+    <string name="lblRgstPgCountry">Country:</string>
+    <string name="hintRgstPgCountry">Country</string>
+    <string name="btnRgstPgCreatePatient">Create Profile</string>
+    <string name="btnPatient">Patient</string>
+    <string name="btnDoctor">Doctor</string>
+    <string name="btnAdmin">Admin</string>
+    <string name="btnCashier">Cashier</string>
+
     <string name="tvEmailSender">Text View</string>
     <string name="tvEmailTitle">Text View</string>
     <string name="tvEmailDetails">Text View</string>
     <string name="tvEmailTime">Text View</string>
     <string name="tvIcon">A</string>
     <string name="btnReplyDocToMessage">Reply</string>
-    <string name="txtInsertReplytoID1">Patient ID</string>
+    <string name="txtInsertPatIDReply">Patenit ID</string>
 
 
 </resources>

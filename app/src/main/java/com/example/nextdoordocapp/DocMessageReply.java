@@ -10,7 +10,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class DocMessageReply extends AppCompatActivity {
-
+    int intId;
+    String reply;
     DatabaseHelper databaseHelper;
     EditText replyText;
     Button btnReply;
@@ -20,34 +21,34 @@ public class DocMessageReply extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doc_message_reply);
-
         databaseHelper = new DatabaseHelper(this);
         replyText = findViewById(R.id.txtReplyMessageDoc);
         btnReply = findViewById(R.id.btnMessageSendDoc);
-        idPatient = findViewById(R.id.txtInsertReplytoID1);
+        idPatient = findViewById(R.id.txtInsertPatIDReply);
+
 
         btnReply.setOnClickListener(new View.OnClickListener() {
-            int intId;
-            String reply;
+
             @Override
             public void onClick(View v) {
-              try {
-                  intId = Integer.parseInt(idPatient.toString());
-                  reply = btnReply.getText().toString();
+                    //Having error in here
+                    //intId = Integer.parseInt(idPatient.toString());
+                    reply = replyText.getText().toString();
 
-                  boolean isUpdated = databaseHelper.updateReplyFieldDoc(intId, reply);
+                    Log.d("reply", reply);
+                   // Log.d("reply", reply);
+             /*     boolean isUpdated = databaseHelper.updateReplyFieldDoc(intId, reply);
                   if (isUpdated) {
                       Toast.makeText(DocMessageReply.this, "Sent", Toast.LENGTH_LONG).show();
                   } else
                       Toast.makeText(DocMessageReply.this, "not sent", Toast.LENGTH_LONG).show();
 
-              }
-            catch(Exception ex) {
-                Log.d("add", "Not added");
-            }
+              }*/
+
+
+
             }
         });
 
-
+        }
     }
-}
