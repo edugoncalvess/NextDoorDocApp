@@ -9,22 +9,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class DocShowAvailability extends AppCompatActivity {
+public class PatientCheckDocsAvailability extends AppCompatActivity {
 
     DatabaseHelper databaseHelper;
+
     TextView showAllSchedule;
-    Button homeButton;
-    Button addMoreButton;
+    Button okBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doc_show_availability);
+        setContentView(R.layout.activity_patient_check_docs_availability);
+
 
         databaseHelper = new DatabaseHelper(this);
 
-        homeButton = findViewById(R.id.btnDocGoHome);
-        addMoreButton = findViewById(R.id.btnPatOkCheckedSchedule);
+        okBtn = findViewById(R.id.btnPatOkCheckedSchedule);
         showAllSchedule = findViewById(R.id.txtDocShowAllAvailibility);
 
 
@@ -42,20 +42,12 @@ public class DocShowAvailability extends AppCompatActivity {
             showAllSchedule.setText(str);
         }
 
-        homeButton.setOnClickListener(new View.OnClickListener() {
+        okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DocShowAvailability.this,DoctorHelloPg1.class));
+                startActivity(new Intent(PatientCheckDocsAvailability.this,PatientFindDoctorPg2.class));
             }
         });
-
-        addMoreButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DocShowAvailability.this,DocSchedulePg1.class));
-            }
-        });
-
 
     }
 }

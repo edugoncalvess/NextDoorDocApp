@@ -32,7 +32,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
 */
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
-    final static int DATABASE_VERSION = 20;
+    final static int DATABASE_VERSION = 19;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -96,10 +96,12 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     final static String T5COL_4 = "Date";
 
     //Patient_BookAppointment_Doctor table columns
+    final static String T6COL_0 = "BookAppointmentId";
     final static String T6COL_1 = "DoctorId";
     final static String T6COL_2 = "patientId";
     final static String T6COL_3 = "AppointmentDate";
     final static String T6COL_4 = "AppointmentTime";
+    final static String T6COL_5 = "isInsuranceAdded";
 
 
     //Patient_leaveMessage_Doctor table columns
@@ -204,8 +206,9 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         db.execSQL(DailyCaloriesQuery);
 
         //Table Patient_BookAppointment_Doctor
-        String Patient_BookAppointment_DoctorQuery = "CREATE TABLE " + TABLE6_NAME + " (" + T6COL_1 + " TEXT,"
-                + T6COL_2 + " TEXT," + T6COL_3 + " TEXT, " + T6COL_4 + " TEXT)";
+        String Patient_BookAppointment_DoctorQuery = "CREATE TABLE " + TABLE6_NAME + " (" +T6COL_0 + " INTEGER PRIMARY KEY,"
+                + T6COL_1 + " TEXT,"
+                + T6COL_2 + " TEXT," + T6COL_3 + " TEXT, "+ T6COL_4 + " TEXT, " + T6COL_5 + " TEXT)";
         db.execSQL(Patient_BookAppointment_DoctorQuery);
 
         //Table Patient_leaveMessage_Doctor
@@ -373,14 +376,17 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     }
 
     //add record method for table Patient_BookAppointment_Doctor
-    public boolean addRecordPatient_BookAppointment_Doctor(String dEmail, String PEmail, String appDate,
-                                                           String appTime) {
+    public boolean addRecordPatient_BookAppointment_Doctor(String bookApId, String docId, String patId, String appDate,
+                                                           String appTime, String insuarnce) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(T6COL_1, dEmail);
-        values.put(T6COL_2, PEmail);
+        values.put(T6COL_0, bookApId);
+        values.put(T6COL_1, docId);
+        values.put(T6COL_2, patId);
         values.put(T6COL_3, appDate);
         values.put(T6COL_4, appTime);
+        values.put(T6COL_5, insuarnce);
+
 
         long r = sqLiteDatabase.insert(TABLE6_NAME, null, values);
         if (r > 0)
@@ -660,6 +666,12 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         return c;
     }
 
+    public Cursor viewNewMessagePatient(){
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String addedNewMessagePatient = "SELECT " + T7COL_6 +  " FROM " + TABLE7_NAME + " WHERE MessageId=1 ";
+        Cursor c = sqLiteDatabase.rawQuery(addedNewMessagePatient,null);
+        return c;
+    }
 //Delete food ID from table Food Item
   /*  public boolean deleteRec(int id){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();

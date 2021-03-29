@@ -20,7 +20,7 @@ public class PatientMainActions extends AppCompatActivity {
 
         foodTrackBtn = findViewById(R.id.btnPatFoodTrack);
         findDoctorBtn = findViewById(R.id.btnPatFindDoctor);
-
+        Button checkMessage = findViewById(R.id.btnPatientCheckMessage);
 
         foodTrackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +41,16 @@ public class PatientMainActions extends AppCompatActivity {
                 Intent findDoctorPg1Intent = new Intent(PatientMainActions.this,PatientFindDoctorPg1.class);
                 findDoctorPg1Intent.putExtra("patientId",patientId);
                 startActivity(findDoctorPg1Intent);
+            }
+        });
+
+        checkMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent foodTrackIntent = new Intent(PatientMainActions.this,PatientCheckNewMessage.class);
+                foodTrackIntent.putExtra("patientId",patientId);
+                startActivity(foodTrackIntent);
+
             }
         });
     }

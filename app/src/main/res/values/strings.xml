@@ -197,6 +197,12 @@
     <string name="btnReplyDocToMessage">Reply</string>
     <string name="txtInsertPatIDReply">Patenit ID</string>
     <string name="btnPatFinalSaveInfo">Save Your Daily Information</string>
+    <string name="btnPatientCheckMessage">Check Messages</string>
+    <string name="txtTitleNewMessagePat">New Message From Doc:</string>
+    <string name="btnBackHomeToPatient">Back to Home</string>
+    <string name="txtViewNEwMEssagePatFromDoc">No New Message!!</string>
+    <string name="txtTitlePDShowSchedule">Show Doctors availabilty</string>
+    <string name="btnPatOkCheckedSchedule">Ok</string>
 
     <string name="btnRgstPgCBackToLogin">Back to Login</string>
     <string-array name="txtArrayGender">
