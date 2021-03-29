@@ -83,7 +83,7 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
                     message.setText("Please Enter Address or Postal code");
                 }
 
-                //startActivity(new Intent(PatientFindDoctorPg1.this,PatientFindDoctorPg2.class));
+                startActivity(new Intent(PatientFindDoctorPg1.this,PatientFindDoctorPg2.class));
             }
         });
 

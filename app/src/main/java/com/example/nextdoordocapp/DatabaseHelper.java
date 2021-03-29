@@ -34,7 +34,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 */
     Boolean userAvailable;
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
-    final static int DATABASE_VERSION = 21;
+    final static int DATABASE_VERSION = 1;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -806,7 +806,7 @@ public Cursor getIDPatient(String email, String password) {
         ContentValues values = new ContentValues();
         values.put(T6COL_3, date);
         values.put(T6COL_4, time);
-        int d = sqLiteDatabase.update(TABLE6_NAME, values, "BookAppointmentId=1" , new String[]{time,date});
+        int d = sqLiteDatabase.update(TABLE6_NAME, values, "BookAppointmentId=?" , new String[]{time,date});
         if (d > 0)
             return true;
         else
