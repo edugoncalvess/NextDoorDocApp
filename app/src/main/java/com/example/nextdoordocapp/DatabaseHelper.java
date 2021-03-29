@@ -456,7 +456,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     }*/
 
     //Test if data is adding to patient table
-  /*  public boolean addRecordPatientTest() {
+    public boolean addRecordPatientTest() {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(T3COL_0, "1");
@@ -487,10 +487,9 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
 
     }
-*/
 
     //Test if data is adding to doctor table
-    /*public boolean addRecordDocTest() {
+    public boolean addRecordDocTest() {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(T8COL_1, "1001");
@@ -509,7 +508,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         else
             return false;
 
-    }*/
+    }
 
 
     //Add record for doctor_Availability
@@ -801,12 +800,12 @@ public Cursor getIDPatient(String email, String password) {
         return c;
     }
 
-    public boolean upDateApptWithAvb(String time, String date){
+    public boolean upDateApptWithAvb(int id,String time, String date){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(T6COL_3, date);
         values.put(T6COL_4, time);
-        int d = sqLiteDatabase.update(TABLE6_NAME, values, "BookAppointmentId=?" , new String[]{time,date});
+        int d = sqLiteDatabase.update(TABLE6_NAME, values, "BookAppointmentId=?" , new String[]{Integer.toString(id)});
         if (d > 0)
             return true;
         else

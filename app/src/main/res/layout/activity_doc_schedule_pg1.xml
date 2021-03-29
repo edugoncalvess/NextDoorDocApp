@@ -25,8 +25,8 @@
         android:id="@+id/titleDocTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="29dp"
         android:text="@string/titleDocTime"
@@ -39,8 +39,8 @@
         android:id="@+id/txtDocTimeAvRange"
         android:layout_width="105dp"
         android:layout_height="47dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
         android:layout_marginTop="10dp"
         android:autofillHints=""
         android:ems="10"
@@ -62,18 +62,19 @@
 
     <EditText
         android:id="@+id/txtDocTimeAvRange2"
-        android:layout_width="107dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="69dp"
-        android:layout_marginRight="69dp"
+        android:layout_width="105dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/txtDocTimeAvRange2"
         android:inputType="time"
         app:layout_constraintBottom_toTopOf="@+id/dateView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleDocTime" />
+        app:layout_constraintTop_toBottomOf="@+id/titleDocTime"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/txtToTimeDoc"
@@ -81,12 +82,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="18dp"
         android:layout_marginRight="18dp"
         android:text="@string/txtToTimeDoc"
         app:layout_constraintEnd_toStartOf="@+id/txtDocTimeAvRange2"
-        app:layout_constraintHorizontal_bias="0.619"
+        app:layout_constraintHorizontal_bias="0.628"
         app:layout_constraintStart_toEndOf="@+id/txtDocTimeAvRange"
         app:layout_constraintTop_toBottomOf="@+id/titleDocTime" />
 
@@ -96,12 +97,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginBottom="37dp"
+        android:layout_marginBottom="87dp"
         android:text="@string/btnDocSetDT"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateView"
-        app:layout_constraintVertical_bias="0.522" />
+        app:layout_constraintVertical_bias="0.963" />
 
     <Button
         android:id="@+id/btnDocGoToShowSch"
@@ -115,7 +116,7 @@
         android:text="@string/btnDocGoToShowSch"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/btnDocSetDT"
         app:layout_constraintTop_toBottomOf="@+id/dateView"
         app:layout_constraintVertical_bias="1.0" />

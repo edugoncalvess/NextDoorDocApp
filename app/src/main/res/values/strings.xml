@@ -84,7 +84,7 @@
     <string name="txtPatAppointmentDocTimes">Time</string>
     <string name="txtPatAppointmentDocRegister">Register</string>
     <string name="txtPatAddFoodToList">Add Food Item</string>
-    <string name="titleDocTime">Enter the time:</string>
+    <string name="titleDocTime">Enter the time (in 24hour format):</string>
     <string name="txtDocTimeAvRange2">Time</string>
     <string name="txtToTimeDoc">To</string>
     <string name="txtDocTimeAvRange">Time</string>

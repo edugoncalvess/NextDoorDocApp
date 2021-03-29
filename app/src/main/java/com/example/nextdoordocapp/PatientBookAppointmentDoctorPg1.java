@@ -60,7 +60,7 @@ public class PatientBookAppointmentDoctorPg1 extends AppCompatActivity {
                         else
                             Toast.makeText(PatientBookAppointmentDoctorPg1.this, "Please chose in the range", Toast.LENGTH_LONG).show();
                     }
-                        boolean isUpdate = databaseHelper.upDateApptWithAvb(date,startTime);
+                        boolean isUpdate = databaseHelper.upDateApptWithAvb(1,date,startTime);
                         if(isUpdate) {
                         Toast.makeText(PatientBookAppointmentDoctorPg1.this, "Appointment Saved", Toast.LENGTH_LONG).show();
                          }
