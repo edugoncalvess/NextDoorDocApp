@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class AdmWelcPage extends AppCompatActivity {
+public class AdmWelcomePage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class AdmWelcPage extends AppCompatActivity {
         btnAdmReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AdmWelcPage.this,AdminRegistrationModule.class));
+                startActivity(new Intent(AdmWelcomePage.this,AdminRegistrationModule.class));
 
             }
         });
@@ -30,7 +30,7 @@ public class AdmWelcPage extends AppCompatActivity {
         btnAdmUpdateDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AdmWelcPage.this, AdminUpdatesDetails.class));
+                startActivity(new Intent(AdmWelcomePage.this, AdminUpdatesDetails.class));
 
             }
         });

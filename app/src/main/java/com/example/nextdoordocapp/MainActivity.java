@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         btnAdmWel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,AdmWelcPage.class));
+                startActivity(new Intent(MainActivity.this, AdmWelcomePage.class));
             }
         });
 

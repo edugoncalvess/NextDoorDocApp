@@ -210,9 +210,9 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         db.execSQL(DailyCaloriesQuery);
 
         //Table Patient_BookAppointment_Doctor
-        String Patient_BookAppointment_DoctorQuery = "CREATE TABLE " + TABLE6_NAME + " (" +T6COL_0 + " INTEGER PRIMARY KEY,"
+        String Patient_BookAppointment_DoctorQuery = "CREATE TABLE " + TABLE6_NAME + " (" + T6COL_0 + " INTEGER PRIMARY KEY,"
                 + T6COL_1 + " TEXT,"
-                + T6COL_2 + " TEXT," + T6COL_3 + " TEXT, "+ T6COL_4 + " TEXT, " + T6COL_5 + " TEXT)";
+                + T6COL_2 + " TEXT," + T6COL_3 + " TEXT, " + T6COL_4 + " TEXT, " + T6COL_5 + " TEXT)";
         db.execSQL(Patient_BookAppointment_DoctorQuery);
 
         //Table Patient_leaveMessage_Doctor
@@ -630,22 +630,83 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
     }
 
-//    find if role exists
-public Cursor roleLoginTableExists(String email, String password) {
-    SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-    Cursor cursor = sqLiteDatabase.rawQuery("SELECT role FROM " + TABLE10_NAME + " where emailID=? and password=?",
-            new String[]{email, password});
-   return cursor;
-}
+    //    find if role exists
+    public Cursor roleLoginTableExists(String email, String password) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT role FROM " + TABLE10_NAME + " where emailID=? and password=?",
+                new String[]{email, password});
+        return cursor;
+    }
 
-//find the role
-public Cursor getIDPatient(String email, String password) {
-    SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-    Cursor cursor = sqLiteDatabase.rawQuery("SELECT PatientId FROM " + TABLE3_NAME + " where Email=? and Password=?",
-            new String[]{email, password});
+    //find the patient id
+    public Cursor getIDPatient(String email, String password) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT PatientId FROM " + TABLE3_NAME + " where Email=? and Password=?",
+                new String[]{email, password});
 
-    return cursor;
-}
+        return cursor;
+    }
+    //finds the patient name
+    public Cursor getNamePatient(String email, String password) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT FirstName FROM " + TABLE3_NAME + " where Email=? and Password=?",
+                new String[]{email, password});
+
+        return cursor;
+    }
+
+
+    //find the Doctor  id
+    public Cursor getIDDoctor(String email, String password) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT docID FROM " + TABLE8_NAME + " where docEmail=? and docPassword=?",
+                new String[]{email, password});
+
+        return cursor;
+    }
+    //finds the Doctor name
+    public Cursor getNameDoctor(String email, String password) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT docFName FROM " + TABLE8_NAME + " where docEmail=? and docPassword=?",
+                new String[]{email, password});
+
+        return cursor;
+    }
+
+    //find the cashier  id
+    public Cursor getIDCashier(String email, String password) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT casID FROM " + TABLE11_NAME + " where casEmail=? and casPassword=?",
+                new String[]{email, password});
+
+        return cursor;
+    }
+    //find the admin  id
+    public Cursor getIDAdmin(String email, String password) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT admID FROM " + TABLE12_NAME + " where admEmail=? and admPassword=?",
+                new String[]{email, password});
+
+        return cursor;
+    }
+//    finds cashier name
+    public Cursor getNameCashier(String email, String password) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT casFName FROM " + TABLE11_NAME + " where casEmail=? and casPassword=?",
+                new String[]{email, password});
+
+        return cursor;
+    }
+    //find the admin  id
+    public Cursor getNameAdmin(String email, String password) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT admFName FROM " + TABLE12_NAME + " where admEmail=? and admPassword=?",
+                new String[]{email, password});
+
+        return cursor;
+    }
+
+
 
     //Doc view the message patient sent
     public Cursor viewNewMessageDoc() {
@@ -681,10 +742,10 @@ public Cursor getIDPatient(String email, String password) {
 
     //  updates patient table
     public boolean updatePatientInformation(String old_email, String pFName, String pLName, String pBD, String pGender,
-                                        String pHeight, String pWeight, String pPhone, String pCountry, String pState,
-                                        String pCity, String pStreet, String pPostalCode, String pPassword,
-                                        String pInsuranceNumber, String pDiseaseName, String pAllergyName,
-                                        String pMedicineName) {
+                                            String pHeight, String pWeight, String pPhone, String pCountry, String pState,
+                                            String pCity, String pStreet, String pPostalCode, String pPassword,
+                                            String pInsuranceNumber, String pDiseaseName, String pAllergyName,
+                                            String pMedicineName) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
@@ -724,29 +785,30 @@ public Cursor getIDPatient(String email, String password) {
         String patientAvailabilityQuery = "SELECT " + T5COL_2 + " FROM " + TABLE5_NAME + " Where " + T5COL_2 + " = " + id + " AND "
                 + T5COL_4 + "='" + date + "'";
         Cursor c = sqLiteDatabase.rawQuery(patientAvailabilityQuery, null);
-        if (c.getCount() >0 ){
+        if (c.getCount() > 0) {
 
-            Log.d("!","true");
+            Log.d("!", "true");
             return userAvailable = true;
-        }
-        else{
-            Log.d("!","false");
-            return userAvailable =false;
+        } else {
+            Log.d("!", "false");
+            return userAvailable = false;
         }
 
     }
+
     //Check if record is available for patient in Daily Calorie table
-    public boolean updateRecDailyCalorie(int id,int amount) {
+    public boolean updateRecDailyCalorie(int id, int amount) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(T5COL_3, amount);
-        int d= sqLiteDatabase.update(TABLE5_NAME, values, "patientId=?", new String[]{Integer.toString(id)});
+        int d = sqLiteDatabase.update(TABLE5_NAME, values, "patientId=?", new String[]{Integer.toString(id)});
         Log.d("Update", String.valueOf(d));
         if (d > 0)
             return true;
         else
             return false;
     }
+
     //get patient Calorie amount from Daily Calorie table
     public Cursor getPatientDailyCalorieAmount(int id, String today) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
@@ -756,6 +818,7 @@ public Cursor getIDPatient(String email, String password) {
         Cursor c = sqLiteDatabase.rawQuery(patientInfoQuery, null);
         return c;
     }
+
     //get Doctor by address
     public Cursor getDoctorByAddress(String address) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
@@ -764,22 +827,23 @@ public Cursor getIDPatient(String email, String password) {
         Cursor c = sqLiteDatabase.rawQuery(patientInfoQuery, null);
         return c;
     }
+
     //get Doctor by address
     public Cursor getDoctorByPostalCode(String postalCode) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         String findDoctorByPostalCodeQuery = "SELECT " + T8COL_3 + "," + T8COL_4 + "," + T8COL_8 + " FROM " + TABLE8_NAME + " Where "
-                + T8COL_6 + " LIKE " + "'" + postalCode+"'+% +";
-        Log.d("Here",findDoctorByPostalCodeQuery);
+                + T8COL_6 + " LIKE " + "'" + postalCode + "'+% +";
+        Log.d("Here", findDoctorByPostalCodeQuery);
         Cursor c = sqLiteDatabase.rawQuery(findDoctorByPostalCodeQuery, null);
         return c;
     }
 
 
-    public Cursor viewNewMessagePatient(){
+    public Cursor viewNewMessagePatient() {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        String addedNewMessagePatient = "SELECT " + T7COL_6 +  " FROM " + TABLE7_NAME + " WHERE MessageId=1 ";
-        Cursor c = sqLiteDatabase.rawQuery(addedNewMessagePatient,null);
+        String addedNewMessagePatient = "SELECT " + T7COL_6 + " FROM " + TABLE7_NAME + " WHERE MessageId=1 ";
+        Cursor c = sqLiteDatabase.rawQuery(addedNewMessagePatient, null);
         return c;
     }
 //Delete food ID from table Food Item

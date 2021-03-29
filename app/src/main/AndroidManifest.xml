@@ -33,7 +33,7 @@
         <activity android:name=".PatientFindDoctorPg1" />
         <activity android:name=".PatientMainActions" />
         <activity android:name=".CashierPmtCheckPg1" />
-        <activity android:name=".AdmWelcPage" />
+        <activity android:name=".AdmWelcomePage" />
         <activity android:name=".DocSchedulePg1" />
         <activity android:name=".DocMessagesPg1" />
         <activity android:name=".DoctorHelloPg1" />

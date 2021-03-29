@@ -49,7 +49,7 @@ public class AdmCasInformation extends AppCompatActivity {
                         databaseHelper.addCashierRecords(cEmail, cFName, cLName,
                                 cPassword, cSIN, cPhone, cAddress, cDOB);
                         Toast.makeText(AdmCasInformation.this, "Profile Created", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(AdmCasInformation.this,MainActivity.class));
+                        startActivity(new Intent(AdmCasInformation.this,LoginActivityPg1.class));
                     }
                 }else {
                     Toast.makeText(AdmCasInformation.this, "Email ID already exist in the database", Toast.LENGTH_LONG).show();
