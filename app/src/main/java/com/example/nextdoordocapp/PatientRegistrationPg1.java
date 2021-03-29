@@ -45,7 +45,7 @@ public class PatientRegistrationPg1 extends AppCompatActivity {
         EditText patientState = findViewById(R.id.txtRgstPgState);
         EditText patientCountry = findViewById(R.id.txtRgstPgCountry);
         EditText patientPostalCode = findViewById(R.id.txtRgstPgPCode);
-
+        String role = "patient";
 
 //        Spinner patientGenderSelection = (Spinner) findViewById(R.id.sprGender);
         Spinner patientGenderSelection = findViewById(R.id.sprGender);
@@ -70,7 +70,7 @@ public class PatientRegistrationPg1 extends AppCompatActivity {
 
                 Boolean chkEmail = databaseHelper.valEmail(emailId);
                 if (chkEmail == true) {
-                    Boolean i = databaseHelper.insert(emailId, password);
+                    Boolean i = databaseHelper.insert(emailId, password, role);
                     if (i == true) {
                         isInserted = databaseHelper.addRecordPatient(patientEmail.getText().toString(),
                                 patientFirstName.getText().toString(),

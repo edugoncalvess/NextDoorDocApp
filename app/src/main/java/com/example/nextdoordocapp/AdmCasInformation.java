@@ -24,6 +24,7 @@ public class AdmCasInformation extends AppCompatActivity {
         EditText txtCasAddress = findViewById(R.id.txtRgstCasAddress);
         EditText txtCasSIN = findViewById(R.id.txtRgstCasSIN);
         EditText txtCasDOB = findViewById(R.id.txtRgstCasDOB);
+        String role = "cashier";
 
         Button createCasProf = findViewById(R.id.btnRgstCasCreate);
 
@@ -43,7 +44,7 @@ public class AdmCasInformation extends AppCompatActivity {
 
                 Boolean chkEmail = databaseHelper.valEmail(cEmail);
                 if (chkEmail == true) {
-                    Boolean i = databaseHelper.insert(cEmail, cPassword);
+                    Boolean i = databaseHelper.insert(cEmail, cPassword,role);
                     if (i == true) {
                         databaseHelper.addCashierRecords(cEmail, cFName, cLName,
                                 cPassword, cSIN, cPhone, cAddress, cDOB);

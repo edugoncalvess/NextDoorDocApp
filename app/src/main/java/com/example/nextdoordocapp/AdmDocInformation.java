@@ -24,6 +24,7 @@ public class AdmDocInformation extends AppCompatActivity {
         EditText txtDocAddress = findViewById(R.id.txtRgstDocAddress);
         EditText txtDocCity = findViewById(R.id.txtRgstDocCity);
         EditText txtDocPCode = findViewById(R.id.txtRgstDocPCode);
+        String role = "doctor";
 
         Button createDocProf = findViewById(R.id.btnRgstCasCreate);
 
@@ -43,7 +44,7 @@ public class AdmDocInformation extends AppCompatActivity {
 
                 Boolean chkEmail = databaseHelper.valEmail(dEmail);
                 if (chkEmail == true) {
-                    Boolean i = databaseHelper.insert(dEmail, dPassword);
+                    Boolean i = databaseHelper.insert(dEmail, dPassword,role);
                     if (i == true) {
                         databaseHelper.addDoctorRecords(dEmail, dFName, dLName,
                                 dPassword, dPCode, dPhone, dAddress, dCity);
