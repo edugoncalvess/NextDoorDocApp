@@ -57,6 +57,7 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
     Date ConvertedBirthDate;
     int age;
     int checkedPatientId;
+    String checkedDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,11 +70,19 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
         Log.d("This is User id" , String.valueOf(patientId));
 
 
+        //add today Date
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String currentDateTime = sdf.format(new Date());
 
         //add database
         databaseHelper = new DatabaseHelper(this);
         //databaseHelper. addRecordPatientTest();
 
+        PatientFoodTotalCalorie = findViewById(R.id.txtPatFoodCalculated);
+
+        /*set value to Food Consumed Calorie label*/
+       // patientFoodConsumedCalories = findViewById(R.id.txtPatFoodCalculated);
+        //patientFoodConsumedCalories.setText(String.valueOf(foodConsumedCalories));
 
         // get Patient information
         Cursor patientDetailCursor = databaseHelper.getPatientWeightHeightGender(patientId);
@@ -115,6 +124,14 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
 
         }
 
+        Cursor patientDailyCalorieAmount = databaseHelper.getPatientDailyCalorieAmount(patientId,currentDateTime);
+        if(patientDailyCalorieAmount.getCount() > 0){
+            while (patientDailyCalorieAmount.moveToNext()){
+                PatientFoodTotalCalorie.setText(patientDailyCalorieAmount.getString(0));
+            }
+        }
+
+
         //select food items cardView
         CardView crdViewPatFoodTrackItems = findViewById(R.id.crdViewPatFoodTrack);
 
@@ -125,9 +142,7 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
         patientGoalCalorie = findViewById(R.id.txtPatGoalCaloryCalculated);
         patientGoalCalorie.setText(String.valueOf(goalCalorie));
 
-        /*set value to Food Consumed Calorie label*/
-        patientFoodConsumedCalories = findViewById(R.id.txtPatFoodCalculated);
-        patientFoodConsumedCalories.setText(String.valueOf(foodConsumedCalories));
+
 
         /*set value to Remaining Calorie label and check the consumed balance*/
         patientRemainingCalorie = findViewById(R.id.txtPatRemainingCalculated);
@@ -141,19 +156,29 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
 
 
         //set value for total food calories
-        PatientFoodTotalCalorie = findViewById(R.id.txtPatFoodCalculated);
-        PatientFoodTotalCalorie.setText("0");
+
+        //PatientFoodTotalCalorie.setText("0");
 
         //set calculated food calorie -total
         PatientFoodTotal2Calorie = findViewById(R.id.txtPatFoodCaloryCalculated);
         PatientFoodTotal2Calorie.setText("0");
+
+
+        remainedCalorie = goalCalorie - Integer.parseInt(PatientFoodTotalCalorie.getText().toString());
+        patientRemainingCalorie.setText(String.valueOf(remainedCalorie));
+        if (remainedCalorie > 0) {
+            patientRemainingCalorie.setTextColor(Color.parseColor("#009F21"));
+        } else {
+            patientRemainingCalorie.setTextColor(Color.parseColor("#DC0000"));
+            PatientCalorieAlarm.setText("Be Careful you passed your Goal!!");
+        }
 
         addButton = findViewById(R.id.btnPatAddFoodToList);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                foodsTotalCalories = foodsTotalCalories + Integer.parseInt(String.valueOf(patientFoodCalorie.getText()));
+                foodsTotalCalories = Integer.parseInt(PatientFoodTotalCalorie.getText().toString()) + Integer.parseInt(String.valueOf(patientFoodCalorie.getText()));
                 PatientFoodTotalCalorie.setText(String.valueOf(foodsTotalCalories));
                 PatientFoodTotal2Calorie.setText(String.valueOf(foodsTotalCalories));
                 currentFoodConsumedCalories = foodsTotalCalories;
@@ -300,21 +325,16 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
         saveFinalInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //add today Date
-                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm dd/MM/yyyy");
-                String currentDateTime = sdf.format(new Date());
 
-                Cursor patientAvailabilityCursor = databaseHelper.checkPatientHasRecord(patientId);
 
-                if(patientAvailabilityCursor.getCount()>0){
+                //check patient Id and date in daily Calorie table
+                Boolean patientAvailabilityCursor = databaseHelper.checkPatientHasRecord(patientId, currentDateTime);
 
-                    while (patientAvailabilityCursor.moveToNext()){
-                        checkedPatientId = Integer.parseInt(patientAvailabilityCursor.getString(0));
-                    }
-                    Log.d("checkedPatientId", String.valueOf(checkedPatientId));
-
+                //if patient already exist
+                if(patientAvailabilityCursor){
+                     databaseHelper.updateRecDailyCalorie(patientId,Integer.parseInt(PatientFoodTotalCalorie.getText().toString()));
                 }
-                else{
+                else {
                     boolean isInserted = databaseHelper.addRecordDailyCalorie(patientId, Integer.parseInt(PatientFoodTotalCalorie.getText().toString()),currentDateTime);
                     if (isInserted){
                         Toast.makeText(PatientFoodTrackPg1.this,"Consumed daily Calorie added to database",Toast.LENGTH_LONG).show();
@@ -325,18 +345,6 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
 
                     }
                 }
-
-                /*if(checkedPatientId == patientId){
-                    Log.d("Here","Already Exist");
-                }
-                else{
-                    Log.d("Here","Firts Time");
-
-                }*/
-
-
-
-
 
             }
         });

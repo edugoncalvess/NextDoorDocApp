@@ -8,8 +8,8 @@
 
     <EditText
         android:id="@+id/inptPatAddress"
-        android:layout_width="298dp"
-        android:layout_height="74dp"
+        android:layout_width="331dp"
+        android:layout_height="70dp"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="20dp"
@@ -26,8 +26,8 @@
 
     <EditText
         android:id="@+id/inptPatPostalCode"
-        android:layout_width="298dp"
-        android:layout_height="74dp"
+        android:layout_width="332dp"
+        android:layout_height="72dp"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="192dp"
@@ -45,8 +45,8 @@
 
     <Button
         android:id="@+id/btnPatDoctorFind"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
+        android:layout_width="336dp"
+        android:layout_height="77dp"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="30dp"
@@ -73,5 +73,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inptPatAddress" />
+
+    <TextView
+        android:id="@+id/txtPatFindDoctorMessageLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:textColor="#C30616"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnPatDoctorFind" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
