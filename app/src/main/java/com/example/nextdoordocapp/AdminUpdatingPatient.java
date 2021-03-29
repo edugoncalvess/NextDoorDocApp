@@ -70,8 +70,8 @@ public class AdminUpdatingPatient extends AppCompatActivity {
         btnUpdateDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(adminPatientUpdate, "accepted", Toast.LENGTH_SHORT).show();
-                //updateInformation(v);
+                Toast.makeText(AdminUpdatingPatient.this, "accepted", Toast.LENGTH_SHORT).show();
+//                updateInformation(v);
             }
 
 
