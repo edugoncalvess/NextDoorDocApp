@@ -4,12 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.widget.Toast;
 
 public class PatientBookAppointmentDoctorPg1 extends AppCompatActivity {
 
@@ -18,6 +17,9 @@ public class PatientBookAppointmentDoctorPg1 extends AppCompatActivity {
     Spinner spinnerPatAppointmentDocDays;
     Spinner spinnerPatAppointmentDocTime;
     Button btnPatAppointmentDocRegister;
+    String spinnerChoiceDate;
+    String spinnerChoiceTime;
+    int timeRange;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,39 +30,48 @@ public class PatientBookAppointmentDoctorPg1 extends AppCompatActivity {
 
         // Spinner spinnerPatAppointmentDocDays
         spinnerPatAppointmentDocDays = findViewById(R.id.spinnerPatAppointmentDocDays);
-
         // Spinner spinnerPatAppointmentDocDays
-        spinnerPatAppointmentDocTime = findViewById(R.id.spinnerPatAppointmentDocTime);
-
+        spinnerPatAppointmentDocTime = findViewById(R.id.spinnerPatAppointmentDocTime2);
         // Button Register
         btnPatAppointmentDocRegister = findViewById(R.id.btnPatAppointmentDocRegister);
 
-
-
-
-/* Cursor c = databaseHelper.viewNewMessageDoc();
-        if(c.getCount()>0){
-            while (c.moveToNext()){
-                String sender = c.getString(0);
-                String title = c.getString(1);
-                String Details = c.getString(2);
-                String time = c.getString(3);
-
-                mEmail = new EmailData("Patient: " + sender, "Message/Question",
-                        Details,
-                        time);
-            }
-            mEmailData.add(mEmail);
-        }*/
-
-
+        spinnerChoiceDate = spinnerPatAppointmentDocDays.getSelectedItem().toString();
+        spinnerChoiceTime =spinnerPatAppointmentDocTime.getSelectedItem().toString();
+        timeRange = spinnerPatAppointmentDocTime.getSelectedItemPosition() + 9;
 
         btnPatAppointmentDocRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                Cursor c = databaseHelper.viewDoctorAvailability();
+                if(c.getCount()>0){
+                    while (c.moveToNext()){
+                        String date = c.getString(1);
+                        String startTime = c.getString(2);
+                        String endTime = c.getString(3);
+                        Log.d("date",date);
+                        if(spinnerChoiceDate.equals(date) && timeRange >= Integer.parseInt(startTime) && timeRange <= Integer.parseInt(endTime))
+                        {
+                            Log.d("ifStatement","Ok!");
+                            boolean isUpdate = databaseHelper.upDateApptWithAvb(date,startTime);
+                            if(isUpdate) {
+                                Toast.makeText(PatientBookAppointmentDoctorPg1.this, "Appointment Saved", Toast.LENGTH_LONG).show();
+                            }
+                            else
+                                Toast.makeText(PatientBookAppointmentDoctorPg1.this, "Appointment not Saved", Toast.LENGTH_LONG).show();
+                        }
+                        else
+                            Toast.makeText(PatientBookAppointmentDoctorPg1.this, "Please chose in the range", Toast.LENGTH_LONG).show();
+                    }
+
+                }
+
+
+
             }
         });
 
     }
+
+
 }

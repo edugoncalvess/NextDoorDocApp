@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NextDoorDocApp">
-        <activity android:name=".AdminRegistrationModule"></activity>
+        <activity android:name=".AdminRegistrationModule" />
         <activity android:name=".PatientCheckNewMessage" />
         <activity android:name=".PatientCheckDocsAvailability" />
         <activity android:name=".AdmDocUpdateDetails" />

@@ -32,7 +32,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
 */
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
-    final static int DATABASE_VERSION = 21;
+    final static int DATABASE_VERSION = 1;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -415,7 +415,8 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
     }
 
-    public boolean addRecordPatient_leaveMessage_DoctorTest() {
+    //test for leave message Doctor
+  /*  public boolean addRecordPatient_leaveMessage_DoctorTest() {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(T7COL_1, 1);
@@ -431,12 +432,13 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return true;
         else
             return false;
-    }
+    }*/
 
     //Test if data is adding to patient table
-    public boolean addRecordPatientTest() {
+  /*  public boolean addRecordPatientTest() {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put(T3COL_0, "1");
         values.put(T3COL_1, "nazanin.binesh.nb@gmail.com");
         values.put(T3COL_2, "Nazanin");
         values.put(T3COL_3, "Binesh");
@@ -464,10 +466,10 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
 
     }
-
+*/
 
     //Test if data is adding to doctor table
-    public boolean addRecordDocTest() {
+    /*public boolean addRecordDocTest() {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(T8COL_1, "1");
@@ -486,7 +488,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         else
             return false;
 
-    }
+    }*/
 
 
     //Add record for doctor_Availability
@@ -662,6 +664,21 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         Cursor c = sqLiteDatabase.rawQuery(addedNewMessagePatient,null);
         return c;
     }
+
+    public boolean upDateApptWithAvb(String time, String date){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T6COL_3, date);
+        values.put(T6COL_4, time);
+        int d = sqLiteDatabase.update(TABLE6_NAME, values, ""+ T6COL_0 + " = ?", new String[]{time,date});
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }
+
+/*   final static String T6COL_3 = "AppointmentDate";
+    final static String T6COL_4 = "AppointmentTime";*/
 //Delete food ID from table Food Item
   /*  public boolean deleteRec(int id){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
@@ -672,18 +689,4 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
     }*/
 
-/*       public boolean updateRec(int id,String C) {
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(T1COL_4, C);
-
-        int d= sqLiteDatabase.update(TABLE1_NAME, values, "id=?", new String[]{Integer.toString(id)});
-        if (d > 0)
-            return true;
-        else
-            return false;
-    }
-
-
-    }*/
 }

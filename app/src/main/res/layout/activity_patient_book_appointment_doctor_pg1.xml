@@ -49,12 +49,15 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
+        android:entries="@array/txtArraySelectDate"
+        android:prompt="@string/spinnerPatAppointmentDocDays"
+        android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtPatAppointmentDocDays"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/spinnerPatAppointmentDocTime"
+        android:id="@+id/spinnerPatAppointmentDocTime2"
         android:layout_width="285dp"
         android:layout_height="52dp"
         android:layout_marginStart="18dp"
@@ -62,6 +65,9 @@
         android:layout_marginTop="100dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
+        android:entries="@array/txtArraySelectTime"
+        android:prompt="@string/spinnerPatAppointmentDocTime2"
+        android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toEndOf="@+id/txtPatAppointmentDocDays"

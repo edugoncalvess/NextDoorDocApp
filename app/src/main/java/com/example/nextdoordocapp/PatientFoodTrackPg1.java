@@ -71,7 +71,7 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
 
         //add database
         databaseHelper = new DatabaseHelper(this);
-        databaseHelper. addRecordPatientTest();
+     //   databaseHelper. addRecordPatientTest();
 
         // get Patient information
         Cursor patientDetailCursor = databaseHelper.getPatientWeightHeightGender(patientId);

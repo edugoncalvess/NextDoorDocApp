@@ -14,7 +14,7 @@ public class PatientSendMessageToDoctorPg1 extends AppCompatActivity {
         setContentView(R.layout.activity_patient_send_message_to_doctor_pg1);
 
         //---------------------Checked to see if data is adding to database------------------
-        databaseHelper = new DatabaseHelper(this);
+ /*       databaseHelper = new DatabaseHelper(this);
 
         databaseHelper.addRecordPatient_leaveMessage_DoctorTest();
         boolean isInserted = databaseHelper.addRecordPatient_leaveMessage_DoctorTest();
@@ -25,7 +25,7 @@ public class PatientSendMessageToDoctorPg1 extends AppCompatActivity {
         else {
             Toast.makeText(PatientSendMessageToDoctorPg1.this,"not added",Toast.LENGTH_LONG).show();
 
-        }
+        }*/
         //------------------------------------------------------------------
     }
 }
