@@ -20,6 +20,9 @@ public class PatientBookAppointmentDoctorPg1 extends AppCompatActivity {
     String spinnerChoiceDate;
     String spinnerChoiceTime;
     int timeRange;
+    String date;
+    String startTime;
+    String endTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,29 +49,29 @@ public class PatientBookAppointmentDoctorPg1 extends AppCompatActivity {
                 Cursor c = databaseHelper.viewDoctorAvailability();
                 if(c.getCount()>0){
                     while (c.moveToNext()){
-                        String date = c.getString(1);
-                        String startTime = c.getString(2);
-                        String endTime = c.getString(3);
+                        date = c.getString(1);
+                        startTime = c.getString(2);
+                        endTime = c.getString(3);
                         Log.d("date",date);
-                        if(spinnerChoiceDate.equals(date) && timeRange >= Integer.parseInt(startTime) && timeRange <= Integer.parseInt(endTime))
-                        {
-                            Log.d("ifStatement","Ok!");
-                            boolean isUpdate = databaseHelper.upDateApptWithAvb(date,startTime);
-                            if(isUpdate) {
-                                Toast.makeText(PatientBookAppointmentDoctorPg1.this, "Appointment Saved", Toast.LENGTH_LONG).show();
-                            }
-                            else
-                                Toast.makeText(PatientBookAppointmentDoctorPg1.this, "Appointment not Saved", Toast.LENGTH_LONG).show();
+                        if(spinnerChoiceDate.equals(date) && timeRange >= Integer.parseInt(startTime) && timeRange <= Integer.parseInt(endTime)) {
+                            Log.d("ifStatement", "Ok!");
+                            break;
                         }
                         else
                             Toast.makeText(PatientBookAppointmentDoctorPg1.this, "Please chose in the range", Toast.LENGTH_LONG).show();
                     }
-
+                        boolean isUpdate = databaseHelper.upDateApptWithAvb(date,startTime);
+                        if(isUpdate) {
+                        Toast.makeText(PatientBookAppointmentDoctorPg1.this, "Appointment Saved", Toast.LENGTH_LONG).show();
+                         }
+                        else
+                        Toast.makeText(PatientBookAppointmentDoctorPg1.this, "Appointment not Saved", Toast.LENGTH_LONG).show();
+                     }
                 }
 
 
 
-            }
+
         });
 
     }

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class PatientMainActions extends AppCompatActivity {
+
     Button foodTrackBtn;
     Button findDoctorBtn;
 
@@ -21,6 +22,8 @@ public class PatientMainActions extends AppCompatActivity {
         foodTrackBtn = findViewById(R.id.btnPatFoodTrack);
         findDoctorBtn = findViewById(R.id.btnPatFindDoctor);
         Button checkMessage = findViewById(R.id.btnPatientCheckMessage);
+
+
 
         foodTrackBtn.setOnClickListener(new View.OnClickListener() {
             @Override

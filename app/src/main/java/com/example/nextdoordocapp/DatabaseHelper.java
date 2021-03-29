@@ -394,6 +394,24 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         else
             return false;
     }
+    //Test if appointment is working
+    public boolean upDateApptWithAvbTest() {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T6COL_0, "1");
+        values.put(T6COL_1, "1");
+        values.put(T6COL_2, "1");
+        values.put(T6COL_3, "");
+        values.put(T6COL_4, "");
+        values.put(T6COL_5, "");
+
+        long r = sqLiteDatabase.insert(TABLE6_NAME, null, values);
+        if (r > 0)
+            return true;
+        else
+            return false;
+
+    }
 
     //add record method for table Patient_leaveMessage_Doctor
     public boolean addRecordPatient_leaveMessage_Doctor(String pEmail, String dEmail, String messageDate,
@@ -670,7 +688,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         ContentValues values = new ContentValues();
         values.put(T6COL_3, date);
         values.put(T6COL_4, time);
-        int d = sqLiteDatabase.update(TABLE6_NAME, values, ""+ T6COL_0 + " = ?", new String[]{time,date});
+        int d = sqLiteDatabase.update(TABLE6_NAME, values, "BookAppointmentId=1" , new String[]{time,date});
         if (d > 0)
             return true;
         else
