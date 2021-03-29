@@ -697,6 +697,25 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         Cursor c = sqLiteDatabase.rawQuery(patientInfoQuery, null);
         return c;
     }
+    //get Doctor by address
+    public Cursor getDoctorByAddress(String address) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        String patientInfoQuery = "SELECT " + T8COL_3 + "," + T8COL_4 + "," + T8COL_8 + " FROM " + TABLE8_NAME + " Where " + T8COL_9 + " ='" + address + "'";
+        Cursor c = sqLiteDatabase.rawQuery(patientInfoQuery, null);
+        return c;
+    }
+    //get Doctor by address
+    public Cursor getDoctorByPostalCode(String postalCode) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        String findDoctorByPostalCodeQuery = "SELECT " + T8COL_3 + "," + T8COL_4 + "," + T8COL_8 + " FROM " + TABLE8_NAME + " Where "
+                + T8COL_6 + " LIKE " + "'" + postalCode+"'+% +";
+        Log.d("Here",findDoctorByPostalCodeQuery);
+        Cursor c = sqLiteDatabase.rawQuery(findDoctorByPostalCodeQuery, null);
+        return c;
+    }
+
 
     public Cursor viewNewMessagePatient(){
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
