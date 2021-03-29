@@ -25,6 +25,7 @@ public class AdmInfoRegistration extends AppCompatActivity {
         EditText txtAdmAddress = findViewById(R.id.txtRgstAdmAddress);
         EditText txtAdmSIN = findViewById(R.id.txtRgstAdmSIN);
         EditText txtAdmDOB = findViewById(R.id.txtRgstAdmDOB);
+        String role = "admin";
 
         Button createAdmProf = findViewById(R.id.btnRgstAdmCreate);
 
@@ -44,7 +45,7 @@ public class AdmInfoRegistration extends AppCompatActivity {
 
                 Boolean chkEmail = databaseHelper.valEmail(aEmail);
                 if (chkEmail == true) {
-                    Boolean i = databaseHelper.insert(aEmail, aPassword);
+                    Boolean i = databaseHelper.insert(aEmail, aPassword,role);
                     if (i == true) {
                         databaseHelper.addAdminRecords(aEmail, aFName, aLName,
                                 aPassword, aSIN, aPhone, aAddress, aDOB);

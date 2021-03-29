@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 
@@ -32,7 +33,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
 */
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
-    final static int DATABASE_VERSION = 19;
+    final static int DATABASE_VERSION = 20;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -137,6 +138,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     final static String T10COL_1 = "loginId";
     final static String T10COL_2 = "emailID";
     final static String T10COL_3 = "password";
+    final static String T10COL_4 = "role";
 
     //Cashier table columns
     final static String T11COL_1 = "casID";
@@ -232,7 +234,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
 //   Table for LOgin
         String Login_Table = "CREATE TABLE " + TABLE10_NAME + " (" + T10COL_1 + " INTEGER PRIMARY KEY,"
-                + T10COL_2 + " TEXT," + T10COL_3 + " TEXT)";
+                + T10COL_2 + " TEXT," + T10COL_3 + " TEXT," + T10COL_4 + " TEXT)";
         ;
 
         db.execSQL(Login_Table);
@@ -506,11 +508,12 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     }
 
     //    inserting the login table into the database
-    public boolean insert(String email, String password) {
+    public boolean insert(String email, String password, String role) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(T10COL_2, email);
         contentValues.put(T10COL_3, password);
+        contentValues.put(T10COL_4, role);
         long r = db.insert("Login_Table", null, contentValues);
         if (r == -1)
             return false;
@@ -625,6 +628,22 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
     }
 
+//    find if role exists
+public Cursor roleLoginTableExists(String email, String password) {
+    SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+    Cursor cursor = sqLiteDatabase.rawQuery("SELECT role FROM " + TABLE10_NAME + " where emailID=? and password=?",
+            new String[]{email, password});
+   return cursor;
+}
+
+//find the role
+public Cursor getIDPatient(String email, String password) {
+    SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+    Cursor cursor = sqLiteDatabase.rawQuery("SELECT PatientId FROM " + TABLE3_NAME + " where Email=? and Password=?",
+            new String[]{email, password});
+
+    return cursor;
+}
 
     //Doc view the message patient sent
     public Cursor viewNewMessageDoc() {
@@ -656,6 +675,45 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         Cursor c = sqLiteDatabase.rawQuery(patientInfoQuery, null);
         return c;
     }
+
+
+    //  updates patient table
+    public boolean updatePatientInformation(String old_email, String pFName, String pLName, String pBD, String pGender,
+                                        String pHeight, String pWeight, String pPhone, String pCountry, String pState,
+                                        String pCity, String pStreet, String pPostalCode, String pPassword,
+                                        String pInsuranceNumber, String pDiseaseName, String pAllergyName,
+                                        String pMedicineName) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(T3COL_2, pFName);
+        values.put(T3COL_3, pLName);
+        values.put(T3COL_4, pBD);
+        values.put(T3COL_5, pGender);
+        values.put(T3COL_6, pHeight);
+        values.put(T3COL_7, pWeight);
+        values.put(T3COL_8, pPhone);
+        values.put(T3COL_9, pCountry);
+        values.put(T3COL_10, pState);
+        values.put(T3COL_11, pCity);
+        values.put(T3COL_12, pStreet);
+        values.put(T3COL_13, pPostalCode);
+        values.put(T3COL_14, pPassword);
+        values.put(T3COL_15, pInsuranceNumber);
+        values.put(T3COL_16, pDiseaseName);
+        values.put(T3COL_17, pAllergyName);
+        values.put(T3COL_18, pMedicineName);
+
+//        String updateInfoPatient = T3COL_1 + "  Email=?";
+        String[] update_args = {old_email};
+
+        int d = sqLiteDatabase.update(TABLE3_NAME, values, "Email=?", update_args);
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }
+
 
     //check if any record is available for this patient in daily calorie table
     public Cursor checkPatientHasRecord(int id) {

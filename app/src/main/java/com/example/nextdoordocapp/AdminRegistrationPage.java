@@ -55,7 +55,7 @@ public class AdminRegistrationPage extends AppCompatActivity {
 
                 Boolean chkEmail = databaseHelper.valEmail(emailId);
                 if (chkEmail == true) {
-                    Boolean i = databaseHelper.insert(emailId, password);
+                    Boolean i = databaseHelper.insert(emailId, password,"patient");
                     if (i == true) {
                         Toast.makeText(AdminRegistrationPage.this, "Registration was successful",
                                 Toast.LENGTH_LONG).show();
