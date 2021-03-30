@@ -36,7 +36,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     Boolean userAvailable;
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
 
-    final static int DATABASE_VERSION = 29;
+    final static int DATABASE_VERSION = 1;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";

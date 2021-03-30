@@ -16,17 +16,11 @@ public class DoctorHelloPg1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_hello_pg1);
 
+        Intent docMessagesIntent = getIntent();
+        int docID = getIntent().getIntExtra("docID",0);
+
         databaseHelper = new DatabaseHelper(this);
 
-        Boolean isInserted = databaseHelper.upDateApptWithAvbTest();
-        if (isInserted){
-            Toast.makeText(DoctorHelloPg1.this,"added",Toast.LENGTH_LONG).show();
-
-        }
-        else {
-            Toast.makeText(DoctorHelloPg1.this,"not added",Toast.LENGTH_LONG).show();
-
-        }
 
         Button btnDocShowMessages = findViewById(R.id.btnDocShowMessages);
         Button btnDocSHowSchedule = findViewById(R.id.btnDocShowSchedule);
@@ -34,15 +28,23 @@ public class DoctorHelloPg1 extends AppCompatActivity {
         btnDocShowMessages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DoctorHelloPg1.this,ShowDocsList.class));
-/*startActivity(new Intent(DoctorHelloPg1.this,DocMessagesPg1.class));*/
+            //    startActivity(new Intent(DoctorHelloPg1.this,ShowDocsList.class));
+                Intent docMessagesIntent = new Intent(DoctorHelloPg1.this, DocMessagesPg1.class);
+                docMessagesIntent.putExtra("docId", docID);
+                startActivity(docMessagesIntent);
+
+              //  startActivity(new Intent(DoctorHelloPg1.this,DocMessagesPg1.class));
             }
         });
 
         btnDocSHowSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DoctorHelloPg1.this,DocSchedulePg1.class));
+             //   startActivity(new Intent(DoctorHelloPg1.this,DocSchedulePg1.class));
+                Intent docScheduleIntent = new Intent(DoctorHelloPg1.this, DocSchedulePg1.class);
+                docScheduleIntent.putExtra("docId", docID);
+                startActivity(docScheduleIntent);
+
             }
         });
     }
