@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".admDocRegistration">
+
+
+        <TextView
+            android:id="@+id/lblUpdateInfo"
+            android:layout_width="403dp"
+            android:layout_height="105dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@string/txtUpdateInfo"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/txtEmailUpdate"
+            android:layout_width="346dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="23dp"
+            android:ems="10"
+            android:hint="@string/hintUpdateEmail"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblUpdateInfo" />
+
+        <Button
+            android:id="@+id/btnSearchPatient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/btnSearchUpdatePatient"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtEmailUpdate" />
+
+        <Button
+            android:id="@+id/btnUpdateDoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/btnSearchUpdateDoctor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnSearchPatient"
+            app:layout_constraintTop_toBottomOf="@+id/txtEmailUpdate" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

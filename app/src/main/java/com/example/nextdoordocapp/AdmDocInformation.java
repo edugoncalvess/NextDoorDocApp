@@ -24,6 +24,7 @@ public class AdmDocInformation extends AppCompatActivity {
         EditText txtDocAddress = findViewById(R.id.txtRgstDocAddress);
         EditText txtDocCity = findViewById(R.id.txtRgstDocCity);
         EditText txtDocPCode = findViewById(R.id.txtRgstDocPCode);
+        String role = "doctor";
 
         Button createDocProf = findViewById(R.id.btnRgstCasCreate);
 
@@ -43,12 +44,12 @@ public class AdmDocInformation extends AppCompatActivity {
 
                 Boolean chkEmail = databaseHelper.valEmail(dEmail);
                 if (chkEmail == true) {
-                    Boolean i = databaseHelper.insert(dEmail, dPassword);
+                    Boolean i = databaseHelper.insert(dEmail, dPassword,role);
                     if (i == true) {
                         databaseHelper.addDoctorRecords(dEmail, dFName, dLName,
                                 dPassword, dPCode, dPhone, dAddress, dCity);
                         Toast.makeText(AdmDocInformation.this, "Profile Created", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(AdmDocInformation.this,MainActivity.class));
+                        startActivity(new Intent(AdmDocInformation.this,LoginActivityPg1.class));
                     }
                 }else {
                     Toast.makeText(AdmDocInformation.this, "Email ID already exist in the database", Toast.LENGTH_LONG).show();

@@ -8,8 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -45,10 +43,10 @@ public class PatientRegistrationPg1 extends AppCompatActivity {
         EditText patientState = findViewById(R.id.txtRgstPgState);
         EditText patientCountry = findViewById(R.id.txtRgstPgCountry);
         EditText patientPostalCode = findViewById(R.id.txtRgstPgPCode);
-
+        String role = "patient";
 
 //        Spinner patientGenderSelection = (Spinner) findViewById(R.id.sprGender);
-        Spinner patientGenderSelection = findViewById(R.id.sprGender);
+        Spinner patientGenderSelection = findViewById(R.id.sprUpdateGender);
 
         Button btnRegisterPatient = findViewById(R.id.btnRgstPgCreatePatient);
 
@@ -70,7 +68,7 @@ public class PatientRegistrationPg1 extends AppCompatActivity {
 
                 Boolean chkEmail = databaseHelper.valEmail(emailId);
                 if (chkEmail == true) {
-                    Boolean i = databaseHelper.insert(emailId, password);
+                    Boolean i = databaseHelper.insert(emailId, password, role);
                     if (i == true) {
                         isInserted = databaseHelper.addRecordPatient(patientEmail.getText().toString(),
                                 patientFirstName.getText().toString(),

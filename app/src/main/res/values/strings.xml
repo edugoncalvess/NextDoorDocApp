@@ -211,5 +211,19 @@
         <item>Other</item>
     </string-array>
 
+    <string name="txtUpdateInfo">Enter the EmailID of the patient/ Doctor to update their information</string>
+    <string name="btnSearchUpdatePatient">SEARCH PATIENT</string>
+    <string name="btnSearchUpdateDoctor">SEARCH DOCTOR</string>
+    <string name="btnUpdate">UPDATE</string>
+    <string name="lblUpdateString">Enter the following information to Update</string>
+    <string name="hintUpdateEmail">xyz@gmail.com</string>
+    <string name="btnAppContactSupport">Contact support</string>
+    <string name="btnAppResetPassword">Reset Password/ Delete User</string>
+    <string name="btnAppHome">Go To Home Page</string>
+    <string name="btnAppReset">Reset Password</string>
+    <string name="btnAppDelete">Delete User</string>
+
+    <string name="lblAppDeleteResetUser">Enter the EmailID to delete the user or to reset password</string>
+
 
 </resources>

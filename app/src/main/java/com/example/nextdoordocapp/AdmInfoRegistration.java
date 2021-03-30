@@ -1,13 +1,13 @@
 package com.example.nextdoordocapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class AdmInfoRegistration extends AppCompatActivity {
 
@@ -25,6 +25,7 @@ public class AdmInfoRegistration extends AppCompatActivity {
         EditText txtAdmAddress = findViewById(R.id.txtRgstAdmAddress);
         EditText txtAdmSIN = findViewById(R.id.txtRgstAdmSIN);
         EditText txtAdmDOB = findViewById(R.id.txtRgstAdmDOB);
+        String role = "admin";
 
         Button createAdmProf = findViewById(R.id.btnRgstAdmCreate);
 
@@ -44,12 +45,12 @@ public class AdmInfoRegistration extends AppCompatActivity {
 
                 Boolean chkEmail = databaseHelper.valEmail(aEmail);
                 if (chkEmail == true) {
-                    Boolean i = databaseHelper.insert(aEmail, aPassword);
+                    Boolean i = databaseHelper.insert(aEmail, aPassword,role);
                     if (i == true) {
                         databaseHelper.addAdminRecords(aEmail, aFName, aLName,
                                 aPassword, aSIN, aPhone, aAddress, aDOB);
                         Toast.makeText(AdmInfoRegistration.this, "Profile Created", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(AdmInfoRegistration.this, MainActivity.class));
+                        startActivity(new Intent(AdmInfoRegistration.this, LoginActivityPg1.class));
                     }
                 } else {
                     Toast.makeText(AdmInfoRegistration.this, "Email ID already exist in the database", Toast.LENGTH_LONG).show();
