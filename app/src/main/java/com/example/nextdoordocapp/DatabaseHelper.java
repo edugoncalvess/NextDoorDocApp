@@ -969,12 +969,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         return c;
     }
 
-    public Cursor viewNewMessageforDoctor(){
-        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        String addedNewMessagePatient = "SELECT " + T7COL_5 +  " FROM " + TABLE7_NAME + " WHERE MessageId=1 ";
-        Cursor c = sqLiteDatabase.rawQuery(addedNewMessagePatient,null);
-        return c;
-    }
+
 
     public boolean updateMessagePatientTable(int msgId, String newMessage){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();

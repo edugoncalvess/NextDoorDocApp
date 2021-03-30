@@ -82,6 +82,9 @@ public class PatientBookAppointmentDoctorPg1 extends AppCompatActivity {
                         check =1;
                     }
                 }
+                else
+                    Toast.makeText(PatientBookAppointmentDoctorPg1.this,
+                            "Please chose according to availability", Toast.LENGTH_LONG).show();
 
                 }
 
