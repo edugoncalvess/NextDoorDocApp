@@ -38,7 +38,7 @@ public class AdmWelcomePage extends AppCompatActivity {
         btnAdmMaintenance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+startActivity(new Intent(AdmWelcomePage.this,AdmApplicationMaintenance.class));
             }
         });
 

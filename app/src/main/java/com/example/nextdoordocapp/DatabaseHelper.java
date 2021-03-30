@@ -642,11 +642,30 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
     }
 
+    //    finds if the emailid exists for admin
+    public boolean valAdminEmailPassword(String email) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE10_NAME + " where emailID=?",
+                new String[]{email});
+        if (cursor.getCount() > 0)
+            return true;
+        else
+            return false;
+    }
+
     //    find if role exists
     public Cursor roleLoginTableExists(String email, String password) {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT role FROM " + TABLE10_NAME + " where emailID=? and password=?",
                 new String[]{email, password});
+        return cursor;
+    }
+
+    //    find if role exists for admin
+    public Cursor roleAdminLoginTableExists(String email) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT role FROM " + TABLE10_NAME + " where emailID=?",
+                new String[]{email});
         return cursor;
     }
 
@@ -806,24 +825,60 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
     }
 
-//    Updating the doctor's table
-    public boolean updateDoctorInformation(String email,String fName,String lName,
-                                           String password,String pCode,String phone,
-                                           String address,String city){
+    //    Updating the doctor's table
+    public boolean updateDoctorInformation(String email, String fName, String lName,
+                                           String password, String pCode, String phone,
+                                           String address, String city) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(T8COL_3,fName);
-        values.put(T8COL_4,lName);
-        values.put(T8COL_5,password);
-        values.put(T8COL_6,pCode);
-        values.put(T8COL_7,phone);
-        values.put(T8COL_8,address);
-        values.put(T8COL_9,city);
+        values.put(T8COL_3, fName);
+        values.put(T8COL_4, lName);
+        values.put(T8COL_5, password);
+        values.put(T8COL_6, pCode);
+        values.put(T8COL_7, phone);
+        values.put(T8COL_8, address);
+        values.put(T8COL_9, city);
 
-        int d = sqLiteDatabase.update(TABLE8_NAME,values,"docEmail=?", new String[]{email});
-        return (d>0);
+        int d = sqLiteDatabase.update(TABLE8_NAME, values, "docEmail=?", new String[]{email});
+        return (d > 0);
     }
 
+    //Reset password at login table
+    public boolean resetPasswordLogin(String email, String password) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T10COL_3, password);
+
+        int d = sqLiteDatabase.update(TABLE10_NAME, values, "emailID=?", new String[]{email});
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }
+    //Reset password at Patient table
+    public boolean resetPasswordPatient(String email, String password) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T3COL_14, password);
+
+        int d = sqLiteDatabase.update(TABLE3_NAME, values, "emailID=?", new String[]{email});
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }
+    //Reset password at Doctor table
+    public boolean resetPasswordDoctor(String email, String password) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T8COL_5, password);
+
+        int d = sqLiteDatabase.update(TABLE8_NAME, values, "emailID=?", new String[]{email});
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }
     //check if any record is available for this patient in daily calorie table
     public Boolean checkPatientHasRecord(int id, String date) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
