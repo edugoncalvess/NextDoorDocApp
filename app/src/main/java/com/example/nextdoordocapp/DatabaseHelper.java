@@ -35,7 +35,8 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 */
     Boolean userAvailable;
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
-    final static int DATABASE_VERSION = 1;
+
+    final static int DATABASE_VERSION = 29;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -504,18 +505,19 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
     }
 
+
     //Test if data is adding to doctor table
     public boolean addRecordDocTest() {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(T8COL_1, "1001");
-        values.put(T8COL_2, "tabannik@gmail.com");
-        values.put(T8COL_3, "Taban");
-        values.put(T8COL_4, "Nikdel");
-        values.put(T8COL_5, "111111");
-        values.put(T8COL_6, "V3E2Z2");
-        values.put(T8COL_7, "6047150000");
-        values.put(T8COL_8, "2576 JadePlace");
+        values.put(T8COL_1, "1003");
+        values.put(T8COL_2, "dr@gmail.com");
+        values.put(T8COL_3, "Kim");
+        values.put(T8COL_4, "Bin");
+        values.put(T8COL_5, "222");
+        values.put(T8COL_6, "V3E1234");
+        values.put(T8COL_7, "91978765433");
+        values.put(T8COL_8, "2244 TestAded");
         values.put(T8COL_9, "Coquitlam");
 
         long r = sqLiteDatabase.insert(TABLE8_NAME, null, values);
@@ -549,7 +551,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         contentValues.put(T10COL_2, email);
         contentValues.put(T10COL_3, password);
         contentValues.put(T10COL_4, role);
-        long r = db.insert("Login_Table", null, contentValues);
+        long r = db.insert(TABLE10_NAME, null, contentValues);
         if (r == -1)
             return false;
         else
@@ -950,12 +952,12 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         return c;
     }
 
-    //get Doctor by address
+    //get Doctor by Postal Code
     public Cursor getDoctorByPostalCode(String postalCode) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         String findDoctorByPostalCodeQuery = "SELECT " + T8COL_3 + "," + T8COL_4 + "," + T8COL_8 + " FROM " + TABLE8_NAME + " Where "
-                + T8COL_6 + " LIKE " + "'" + postalCode + "'+% +";
+                + T8COL_6 + " LIKE " +"'" + postalCode+"'% '"+ "'";
         Log.d("Here", findDoctorByPostalCodeQuery);
         Cursor c = sqLiteDatabase.rawQuery(findDoctorByPostalCodeQuery, null);
         return c;
