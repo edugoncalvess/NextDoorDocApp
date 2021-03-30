@@ -52,6 +52,7 @@ public class PatientRegistrationPg1 extends AppCompatActivity {
 
 
 
+
         btnRegisterPatient.setOnClickListener(new View.OnClickListener() {
             boolean isInserted;
 

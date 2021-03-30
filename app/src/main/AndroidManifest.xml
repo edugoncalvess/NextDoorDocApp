@@ -13,6 +13,9 @@
         <activity android:name=".ShowDocsList" />
         <activity android:name=".AdminRegistrationModule" />
         <activity android:name=".AdminResetsDeletesUser" />
+        android:theme="@style/Theme.NextDoorDocApp">
+        <activity android:name=".CashierListOfPayments"></activity>
+        <activity android:name=".AdminResetsDeletesUser" />
         <activity android:name=".AdmApplicationMaintenance" />
         <activity android:name=".AdminUpdatingDoctor" />
         <activity android:name=".PatientCheckNewMessage" />

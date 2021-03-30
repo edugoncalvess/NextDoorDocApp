@@ -1018,10 +1018,10 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     public boolean addRecordPaymentTest() {
     SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
     ContentValues values = new ContentValues();
-    values.put(T4COL_2, "1");
+    values.put(T4COL_2, "2");
     values.put(T4COL_3, "2021/04/01");
     values.put(T4COL_4, "");
-    values.put(T4COL_5, "63.90");
+    values.put(T4COL_5, "73.90");
     values.put(T4COL_6, "");
     values.put(T4COL_7, "Pending");
 
@@ -1058,6 +1058,17 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     }
 
 
+
+    // Selecting all pending payments
+    public Cursor listAllPendingPayments() {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        String checkAllPendingPayments = "SELECT " + TABLE4_NAME + "." + T4COL_1 + ", " + TABLE3_NAME + "." + T3COL_0 + ", " + TABLE3_NAME + "." + T3COL_2 + ", " + TABLE3_NAME + "." + T3COL_3 + ", " + TABLE4_NAME + "." + T4COL_5 +
+                " FROM " + TABLE4_NAME + " INNER JOIN " + TABLE3_NAME + " ON " + TABLE4_NAME + "." + T4COL_2 + " = " + TABLE3_NAME + "." + T3COL_0 +
+                " Where " + TABLE4_NAME + "." + T4COL_7 + " = 'Pending'";
+        Cursor c = sqLiteDatabase.rawQuery(checkAllPendingPayments, null);
+        return c;
+    }
 }
 
 
