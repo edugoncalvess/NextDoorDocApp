@@ -78,11 +78,15 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this);
         //databaseHelper. addRecordPatientTest();
 
+        //set value for total food calories
         PatientFoodTotalCalorie = findViewById(R.id.txtPatFoodCalculated);
+        PatientFoodTotalCalorie.setText("0");
+
 
         /*set value to Food Consumed Calorie label*/
        // patientFoodConsumedCalories = findViewById(R.id.txtPatFoodCalculated);
         //patientFoodConsumedCalories.setText(String.valueOf(foodConsumedCalories));
+
 
         // get Patient information
         Cursor patientDetailCursor = databaseHelper.getPatientWeightHeightGender(patientId);
@@ -155,14 +159,9 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
         patientFoodCalorie = findViewById(R.id.inptPatFoodCalorie);
 
 
-        //set value for total food calories
-
-        //PatientFoodTotalCalorie.setText("0");
-
         //set calculated food calorie -total
         PatientFoodTotal2Calorie = findViewById(R.id.txtPatFoodCaloryCalculated);
         PatientFoodTotal2Calorie.setText("0");
-
 
         remainedCalorie = goalCalorie - Integer.parseInt(PatientFoodTotalCalorie.getText().toString());
         patientRemainingCalorie.setText(String.valueOf(remainedCalorie));
@@ -178,7 +177,8 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                foodsTotalCalories = Integer.parseInt(PatientFoodTotalCalorie.getText().toString()) + Integer.parseInt(String.valueOf(patientFoodCalorie.getText()));
+                foodsTotalCalories = Integer.parseInt(PatientFoodTotalCalorie.getText().toString()) + Integer.parseInt(patientFoodCalorie.getText().toString());
+                //foodsTotalCalories =0;
                 PatientFoodTotalCalorie.setText(String.valueOf(foodsTotalCalories));
                 PatientFoodTotal2Calorie.setText(String.valueOf(foodsTotalCalories));
                 currentFoodConsumedCalories = foodsTotalCalories;
@@ -194,59 +194,6 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
                     PatientCalorieAlarm.setText("Be Careful you passed your Goal!!");
                 }
 
-                //Refresh Activity
-                /*Intent i = new Intent(PatientFoodTrackPg1.this, PatientFoodTrackPg1.class);
-                finish();
-                overridePendingTransition(0, 0);
-                startActivity(i);
-                overridePendingTransition(0, 0);*//*
-
-                //patientFoodConsumedCalories.setText(String.valueOf(breakfastTotalCalories));
-
-                *//*SharedPreferences totalConsumedCaloriesPreferences = getSharedPreferences("totalConsumedCalories", MODE_PRIVATE);
-                SharedPreferences.Editor edit = totalConsumedCaloriesPreferences.edit();
-                edit.putInt("key1",currentFoodConsumedCalories);
-                edit.commit();
-                int tBreakcalorie = totalConsumedCaloriesPreferences.getInt("key1",0);
-                Log.d("tBreakcalorie", String.valueOf(tBreakcalorie));
-                //patientFoodConsumedCalories.setText(tBreakcalorie);
-                //Using Preference which is not useful here
-               /* breakfastFoodName = patientBreakfastFoodName.getText().toString();
-                SharedPreferences.Editor editor= preferences.edit();
-                editor.putString("key1",breakfastFoodName);
-                editor.putInt("key2",breakfastFoodCalorie);
-                editor.commit();
-                String name = preferences.getString("key1","");
-                int calorie = preferences.getInt("key2",0);
-                TextView txtTest = findViewById(R.id.textView5);
-                txtTest.setText(name + calorie);*/
-
-
-
-/*
-                try {
-                    FileOutputStream fout = openFileOutput("foodItemFile.txt", MODE_APPEND);
-
-                    //add today Date
-                    *//*SimpleDateFormat sdf = new SimpleDateFormat("HH:mm dd/MM/yyyy");
-                    String currentDateandTime = sdf.format(new Date());
-                    fout.write(currentDateandTime.getBytes());
-                    fout.write("\n".getBytes());*//*
-
-                    fout.write(FoodName.getBytes());
-                    fout.write(": ".getBytes());
-                    fout.write(String.valueOf(FoodCalorie).getBytes());
-                    fout.write("\n".getBytes());
-                    fout.close();
-                   *//* Toast.makeText(PatientFoodTrackPg1.this, "Saving...", Toast.LENGTH_LONG).show();*//*
-
-                    //delete file
-                    File dir = getFilesDir();
-                    File file = new File(dir, "breakfastFile.txt");
-                    boolean deleted = file.delete();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }*/
                 FoodName = patientFoodName.getText().toString();
                 FoodCalorie = Integer.parseInt(patientFoodCalorie.getText().toString());
                boolean isInserted = databaseHelper.addRecordFoodItem(patientFoodName.getText().toString(),patientFoodCalorie.getText().toString());
@@ -286,20 +233,6 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
 
                 }
                 if(foodViewStatus==false){
-
-                    /*FileInputStream fin = openFileInput("foodItemFile.txt");
-                    int read = -1;
-                    StringBuffer buffer = new StringBuffer();
-                    while((read =fin.read())!= -1){
-                        buffer.append((char)read);
-                    }*/
-                    //Log.d("Code", buffer.toString());
-                    //SimpleDateFormat sdf = new SimpleDateFormat("HH:mm dd/MM/yyyy");
-                    //String currentDateandTime = sdf.format(new Date());
-
-                       /* String bname = buffer.substring(0,buffer.indexOf(" "));
-                        String bcal = buffer.substring(buffer.indexOf(" ")+1);
-                        foodList.setText(bname + bcal);*/
 
                     foodList.setVisibility(View.VISIBLE);
                     foodList.setText(str);
