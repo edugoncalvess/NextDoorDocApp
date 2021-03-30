@@ -64,7 +64,7 @@ public class CashierListOfPayments extends AppCompatActivity {
                 }
                 else if(c.getCount() == 0)  {
                     strMsg.append("There are no pending payments"); strMsg.append("\t");
-                    Log.d("PaymentCursorCount", "The count is " + c.getCount());
+                    Log.d("PaymentCursorCount", "Query retrieving pending payments returned with 0 entries " + c.getCount());
                     txtListOfPendingPmts.setText(strMsg);
                 }
 
