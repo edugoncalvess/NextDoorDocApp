@@ -77,7 +77,7 @@ public class PatientFoodTrackPg1 extends AppCompatActivity {
         //add database
         databaseHelper = new DatabaseHelper(this);
         //databaseHelper. addRecordPatientTest();
-        //databaseHelper.addRecordDocTest();
+        //databaseHelper.addRecordDocTest2();
 
         //set value for total food calories
         PatientFoodTotalCalorie = findViewById(R.id.txtPatFoodCalculated);

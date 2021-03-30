@@ -66,6 +66,7 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
                 if(!docAddress.isEmpty() || !docPostalCode.isEmpty()){
                     if(!docAddress.isEmpty()){
                         Cursor DoctorByAddCursor = databaseHelper.getDoctorByAddress(docAddress);
+                        Log.d("Here", String.valueOf(DoctorByAddCursor.getCount()));
                         if(DoctorByAddCursor.getCount()>0){
                             while (DoctorByAddCursor.moveToNext()){
                                 doctorFName = DoctorByAddCursor.getString(0);
@@ -74,6 +75,7 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
                                 doctorsArray.add(doctorFName);
                                 doctorsArray.add(doctorLName);
                                 doctorsArray.add(doctorAdd);
+
                             }
                             Log.d("Name", String.valueOf(doctorsArray));
                             //Log.d("Last",doctorLName);
