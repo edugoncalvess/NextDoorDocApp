@@ -221,6 +221,7 @@
     <string name="btnSearchUpdateDoctor">SEARCH DOCTOR</string>
     <string name="btnUpdate">UPDATE</string>
     <string name="hintUpdateEmail">xyz@gmail.com</string>
+    <string name="txtBookedApptConfirm">No appointment yet</string>
 
     <string-array name="txtArraySelectTime">
         <item>8-9</item>

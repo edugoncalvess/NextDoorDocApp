@@ -417,12 +417,13 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     }
 
     //add record method for table Patient_leaveMessage_Doctor
-    public boolean addRecordPatient_leaveMessage_Doctor(String pEmail, String dEmail, String messageDate,
+    public boolean addRecordPatient_leaveMessage_Doctor(int msgId, int pId, int docId, String messageDate,
                                                         String messageTime, String msg, String Rpl, String msgFee) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(T7COL_1, pEmail);
-        values.put(T7COL_2, dEmail);
+        values.put(T7COL_0, msgId);
+        values.put(T7COL_1, pId);
+        values.put(T7COL_2, docId);
         values.put(T7COL_3, messageDate);
         values.put(T7COL_4, messageTime);
         values.put(T7COL_5, msg);
@@ -793,13 +794,38 @@ public Cursor getIDPatient(String email, String password) {
     }
 
 
-    public Cursor viewNewMessagePatient(){
+    public Cursor viewNewMessageforPatient(){
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         String addedNewMessagePatient = "SELECT " + T7COL_6 +  " FROM " + TABLE7_NAME + " WHERE MessageId=1 ";
         Cursor c = sqLiteDatabase.rawQuery(addedNewMessagePatient,null);
         return c;
     }
 
+    public Cursor viewNewMessageforDoctor(){
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String addedNewMessagePatient = "SELECT " + T7COL_5 +  " FROM " + TABLE7_NAME + " WHERE MessageId=1 ";
+        Cursor c = sqLiteDatabase.rawQuery(addedNewMessagePatient,null);
+        return c;
+    }
+
+    public boolean updateMessagePatientTable(int msgId, String newMessage){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T7COL_5, newMessage);
+        int d = sqLiteDatabase.update(TABLE7_NAME, values, "MessageId=?" , new String[]{Integer.toString(msgId)});
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }
+/* final static String T7COL_0 = "MessageId";
+    final static String T7COL_1 = "PatientId";
+    final static String T7COL_2 = "DoctorId";
+    final static String T7COL_3 = "Date";
+    final static String T7COL_4 = "Time";
+    final static String T7COL_5 = "Message";
+    final static String T7COL_6 = "Reply";
+    final static String T7COL_7 = "Fee";*/
     public boolean upDateApptWithAvb(int id,String time, String date){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();

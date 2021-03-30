@@ -74,14 +74,16 @@
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
         android:layout_marginTop="20dp"
-        android:text="@string/tvEmailDetails" />
+        android:text="@string/tvEmailDetails"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/btnReplyDocToMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="144dp"
+        android:layout_height="59dp"
         android:layout_below="@id/tvEmailDetails"
         android:layout_marginTop="30dp"
-        android:text="@string/btnReplyDocToMessage" />
+        android:text="@string/btnReplyDocToMessage"
+        android:textSize="18sp" />
 
 </RelativeLayout>
