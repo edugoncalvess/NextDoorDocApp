@@ -218,7 +218,7 @@
             app:layout_constraintTop_toBottomOf="@+id/lblRgstPgDOB" />
 
         <Spinner
-            android:id="@+id/sprGender"
+            android:id="@+id/sprUpdateGender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -246,7 +246,7 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/txtRgstPgHeight"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sprGender" />
+            app:layout_constraintTop_toBottomOf="@+id/sprUpdateGender" />
 
         <EditText
             android:id="@+id/txtRgstPgHeight"
@@ -261,7 +261,7 @@
             android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/lblRgstPgHeight"
-            app:layout_constraintTop_toBottomOf="@+id/sprGender" />
+            app:layout_constraintTop_toBottomOf="@+id/sprUpdateGender" />
 
         <TextView
             android:id="@+id/lblRgstPgWeight"

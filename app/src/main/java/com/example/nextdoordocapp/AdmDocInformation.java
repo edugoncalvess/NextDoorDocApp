@@ -49,7 +49,7 @@ public class AdmDocInformation extends AppCompatActivity {
                         databaseHelper.addDoctorRecords(dEmail, dFName, dLName,
                                 dPassword, dPCode, dPhone, dAddress, dCity);
                         Toast.makeText(AdmDocInformation.this, "Profile Created", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(AdmDocInformation.this,DoctorHelloPg1.class));
+                        startActivity(new Intent(AdmDocInformation.this,LoginActivityPg1.class));
                     }
                 }else {
                     Toast.makeText(AdmDocInformation.this, "Email ID already exist in the database", Toast.LENGTH_LONG).show();

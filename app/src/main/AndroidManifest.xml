@@ -10,13 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".AdminRegistrationModule" />
+        android:theme="@style/Theme.NextDoorDocApp">
+        <activity android:name=".AdminResetsDeletesUser"></activity>
+        <activity android:name=".AdmApplicationMaintenance" />
+        <activity android:name=".AdminUpdatingDoctor" />
+        <activity android:name=".AdminRegistrationModule" />
         <activity android:name=".PatientCheckNewMessage" />
         <activity android:name=".PatientCheckDocsAvailability" />
-
-        <activity android:name=".AdminUpdatingPatient"></activity>
-
-        <activity android:name=".AdminUpdatesDetails" />
-
+        <activity android:name=".AdminUpdatingPatient" />
+        <activity android:name=".AdminUpdatesFPage" />
         <activity android:name=".PatientRegistrationSuccessfulPg1" />
         <activity android:name=".DocShowAvailability" />
         <activity android:name=".DocDetailViewMessage" />
@@ -33,7 +35,7 @@
         <activity android:name=".PatientFindDoctorPg1" />
         <activity android:name=".PatientMainActions" />
         <activity android:name=".CashierPmtCheckPg1" />
-        <activity android:name=".AdmWelcPage" />
+        <activity android:name=".AdmWelcomePage" />
         <activity android:name=".DocSchedulePg1" />
         <activity android:name=".DocMessagesPg1" />
         <activity android:name=".DoctorHelloPg1" />

@@ -8,8 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -48,7 +46,7 @@ public class PatientRegistrationPg1 extends AppCompatActivity {
         String role = "patient";
 
 //        Spinner patientGenderSelection = (Spinner) findViewById(R.id.sprGender);
-        Spinner patientGenderSelection = findViewById(R.id.sprGender);
+        Spinner patientGenderSelection = findViewById(R.id.sprUpdateGender);
 
         Button btnRegisterPatient = findViewById(R.id.btnRgstPgCreatePatient);
 

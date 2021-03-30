@@ -1,115 +1,85 @@
 package com.example.nextdoordocapp;
 
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AdminUpdatingPatient extends AppCompatActivity {
+    String email, fName, lName, password, phone, dateOB,
+            height, weight, allergies, disease, medicine, insNum,
+            address, city, state, country, pCode, gender;
     DatabaseHelper databaseHelper;
-    SQLiteDatabase sqLiteDatabase;
-    Button btnUpdateDetails;
-    //    Button btnUpdateDetails;
-//    EditText txtEmailUpdate;
-
-    String emailUpdateSearch;
-
-    EditText patientFirstName;
-    EditText patientLastName;
-    //    EditText patientEmail;
-    EditText patientPassword;
-    EditText patientPhone;
-    EditText patientDOB;
-    EditText patientHeight;
-    EditText patientWeight;
-    EditText patientAllergies;
-    EditText patientDisease;
-    EditText patientMedicine;
-    EditText patientGender;
-    EditText patientInsuranceNumber;
-    EditText patientStreet;
-    EditText patientCity;
-    EditText patientState;
-    EditText patientCountry;
-    EditText patientPostalCode;
-    AdminUpdatesDetails adminPatientUpdate = new AdminUpdatesDetails();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adm_updating_patient);
 
+        databaseHelper = new DatabaseHelper(this);
+        Button btnUpdate = findViewById(R.id.btnUpdatePatient);
+        EditText txtEmail = findViewById(R.id.txtOldEmail);
+        EditText txtFName = findViewById(R.id.txtUpdatePgFirstName);
+        EditText txtLName = findViewById(R.id.txtUpdatePgFamilyName);
+        EditText txtPassword = findViewById(R.id.txtUpdatePgPassword);
+        EditText txtPhone = findViewById(R.id.txtUpdatePgPhone);
+        EditText txtDOB = findViewById(R.id.txtUpdatePgDOB);
+        EditText txtHt = findViewById(R.id.txtUpdatePgHeight);
+        EditText txtWt = findViewById(R.id.txtUpdatePgWeight);
+        Spinner spnGender = findViewById(R.id.sprUpdateGender);
+        EditText txtAllergies = findViewById(R.id.txtUpdatePgAllergies);
+        EditText txtDiseases = findViewById(R.id.txtUpdatePgDisease);
+        EditText txtMedicine = findViewById(R.id.txtUpdatePgMedicine);
+        EditText txtInsurance = findViewById(R.id.txtUpdatePgInsuranceNumber);
+        EditText txtAddress = findViewById(R.id.txtUpdatePgStreet);
+        EditText txtCity = findViewById(R.id.txtUpdatePgCity);
+        EditText txtState = findViewById(R.id.txtUpdatePgState);
+        EditText txtCountry = findViewById(R.id.txtUpdatePgCountry);
+        EditText txtPCode = findViewById(R.id.txtUpdatePgPCode);
 
-        btnUpdateDetails = findViewById(R.id.btnUpdatePatient);
-//        txtEmailUpdate = findViewById(R.id.txtEmailUpdate);
-
-        emailUpdateSearch = adminPatientUpdate.emailUpdateSearch;
-
-        patientFirstName = findViewById(R.id.txtUpdatePgFirstName);
-        patientLastName = findViewById(R.id.txtUpdatePgFamilyName);
-//        patientEmail = findViewById(R.id.txtUpdatePgEmail);
-        patientPassword = findViewById(R.id.txtUpdatePgPassword);
-        patientPhone = findViewById(R.id.txtUpdatePgPhone);
-        patientDOB = findViewById(R.id.txtUpdatePgDOB);
-        patientHeight = findViewById(R.id.txtUpdatePgHeight);
-        patientWeight = findViewById(R.id.txtUpdatePgWeight);
-        patientAllergies = findViewById(R.id.txtUpdatePgAllergies);
-        patientDisease = findViewById(R.id.txtUpdatePgDisease);
-        patientMedicine = findViewById(R.id.txtUpdatePgMedicine);
-        patientInsuranceNumber = findViewById(R.id.txtUpdatePgInsuranceNumber);
-        patientStreet = findViewById(R.id.txtUpdatePgStreet);
-        patientCity = findViewById(R.id.txtUpdatePgCity);
-        patientState = findViewById(R.id.txtUpdatePgState);
-        patientCountry = findViewById(R.id.txtUpdatePgCountry);
-        patientPostalCode = findViewById(R.id.txtUpdatePgPCode);
-
-        btnUpdateDetails.setOnClickListener(new View.OnClickListener() {
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(AdminUpdatingPatient.this, "accepted", Toast.LENGTH_SHORT).show();
-//                updateInformation(v);
+                email = txtEmail.getText().toString();
+                fName = txtFName.getText().toString();
+                lName = txtLName.getText().toString();
+                password = txtPassword.getText().toString();
+                phone = txtPhone.getText().toString();
+                dateOB = txtDOB.getText().toString();
+                height = txtHt.getText().toString();
+                weight = txtWt.getText().toString();
+                allergies = txtAllergies.getText().toString();
+                disease = txtDiseases.getText().toString();
+                medicine = txtMedicine.getText().toString();
+                insNum = txtInsurance.getText().toString();
+                address = txtAddress.getText().toString();
+                city = txtCity.getText().toString();
+                state = txtState.getText().toString();
+                country = txtCountry.getText().toString();
+                pCode = txtPCode.getText().toString();
+                gender = spnGender.getSelectedItem().toString();
+
+                boolean login = databaseHelper.updatePasswordLogin(email,password);
+                boolean update = databaseHelper.updatePatientInformation(email, fName, lName, dateOB,
+                        gender, height, weight, phone, country, state, city, address, pCode, password, insNum, disease, allergies, medicine);
+                if (update && login) {
+//                    Toast.makeText(updatePat.this, n + "  " + e + "  " + l + "updated", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdminUpdatingPatient.this, "Updated", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(AdminUpdatingPatient.this, AdmWelcomePage.class));
+                } else {
+                    Toast.makeText(AdminUpdatingPatient.this, "rejected", Toast.LENGTH_SHORT).show();
+//
+                }
             }
 
 
         });
+
     }
 
-    public void updateInformation(View view) {
-        databaseHelper = new DatabaseHelper(getApplicationContext());
-        sqLiteDatabase = databaseHelper.getWritableDatabase();
-        String pFName, pLName, pBD, pGender,
-                pHeight, pWeight, pPhone, pCountry, pState,
-                pCity, pStreet, pPostalCode, pPassword,
-                pInsuranceNumber, pDiseaseName, pAllergyName,
-                pMedicineName;
-        String old_email = adminPatientUpdate.emailUpdateSearch;
-
-        pFName = patientFirstName.getText().toString();
-        pLName = patientLastName.getText().toString();
-        pBD = patientDOB.getText().toString();
-        pGender = patientGender.getText().toString();
-        pHeight = patientHeight.getText().toString();
-        pWeight = patientWeight.getText().toString();
-        pPhone = patientPhone.getText().toString();
-        pCountry = patientCountry.getText().toString();
-        pState = patientState.getText().toString();
-        pCity = patientCity.getText().toString();
-        pStreet = patientStreet.getText().toString();
-        pPostalCode = patientPostalCode.getText().toString();
-        pPassword = patientPassword.getText().toString();
-        pInsuranceNumber = patientInsuranceNumber.getText().toString();
-        pDiseaseName = patientDisease.getText().toString();
-        pAllergyName = patientAllergies.getText().toString();
-        pMedicineName = patientMedicine.getText().toString();
-
-        databaseHelper.updatePatientInformation(old_email, pFName, pLName, pBD, pGender,
-                pHeight, pWeight, pPhone, pCountry, pState,
-                pCity, pStreet, pPostalCode, pPassword,
-                pInsuranceNumber, pDiseaseName, pAllergyName,
-                pMedicineName);
-    }
 }

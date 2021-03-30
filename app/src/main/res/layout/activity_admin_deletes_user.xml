@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminResetsDeletesUser">
+
+    <EditText
+        android:id="@+id/admSearchEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/hintRgstPgEmail"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/lblDeleteResetUser" />
+
+    <TextView
+        android:id="@+id/lblDeleteResetUser"
+        android:layout_width="344dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/lblAppDeleteResetUser"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="169dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/lblRgstPgEmail"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblDeleteResetUser" />
+
+    <Button
+        android:id="@+id/btnR"
+        android:layout_width="165dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="100dp"
+        android:text="@string/btnAppReset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <Button
+        android:id="@+id/btnDeleteAtAdminDelete"
+        android:layout_width="164dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="79dp"
+        android:text="@string/btnAppDelete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnR" />
+</androidx.constraintlayout.widget.ConstraintLayout>
