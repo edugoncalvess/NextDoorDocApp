@@ -10,14 +10,17 @@ import android.widget.Button;
 public class PatientMainActions extends AppCompatActivity {
     Button foodTrackBtn;
     Button findDoctorBtn;
+    DatabaseHelper db;
+    int patientId ;
 
-    int patientId = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_main_actions);
-
+        Intent foodTrackIntent = getIntent();
+        patientId = foodTrackIntent.getIntExtra("patientId", 0);
+        db = new DatabaseHelper(this);
         foodTrackBtn = findViewById(R.id.btnPatFoodTrack);
         findDoctorBtn = findViewById(R.id.btnPatFindDoctor);
         Button checkMessage = findViewById(R.id.btnPatientCheckMessage);
@@ -25,8 +28,9 @@ public class PatientMainActions extends AppCompatActivity {
         foodTrackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent foodTrackIntent = new Intent(PatientMainActions.this,PatientFoodTrackPg1.class);
-                foodTrackIntent.putExtra("patientId",patientId);
+
+                Intent foodTrackIntent = new Intent(PatientMainActions.this, PatientFoodTrackPg1.class);
+                foodTrackIntent.putExtra("patientId", patientId);
                 startActivity(foodTrackIntent);
 
 
@@ -38,8 +42,8 @@ public class PatientMainActions extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //startActivity(new Intent(PatientMainActions.this,PatientFindDoctorPg1.class));
-                Intent findDoctorPg1Intent = new Intent(PatientMainActions.this,PatientFindDoctorPg1.class);
-                findDoctorPg1Intent.putExtra("patientId",patientId);
+                Intent findDoctorPg1Intent = new Intent(PatientMainActions.this, PatientFindDoctorPg1.class);
+                findDoctorPg1Intent.putExtra("patientId", patientId);
                 startActivity(findDoctorPg1Intent);
             }
         });
@@ -47,8 +51,8 @@ public class PatientMainActions extends AppCompatActivity {
         checkMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent foodTrackIntent = new Intent(PatientMainActions.this,PatientCheckNewMessage.class);
-                foodTrackIntent.putExtra("patientId",patientId);
+                Intent foodTrackIntent = new Intent(PatientMainActions.this, PatientCheckNewMessage.class);
+                foodTrackIntent.putExtra("patientId", patientId);
                 startActivity(foodTrackIntent);
 
             }
