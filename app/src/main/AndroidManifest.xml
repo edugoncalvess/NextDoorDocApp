@@ -15,7 +15,6 @@
         <activity android:name=".AdminResetsDeletesUser" />
         <activity android:name=".AdmApplicationMaintenance" />
         <activity android:name=".AdminUpdatingDoctor" />
-        <activity android:name=".AdminRegistrationModule" />
         <activity android:name=".PatientCheckNewMessage" />
         <activity android:name=".PatientCheckDocsAvailability" />
         <activity android:name=".AdminUpdatingPatient" />
