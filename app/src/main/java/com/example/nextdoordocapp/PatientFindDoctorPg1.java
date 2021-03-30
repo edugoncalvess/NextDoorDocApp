@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class PatientFindDoctorPg1 extends AppCompatActivity {
@@ -60,6 +61,7 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
 
                 docAddress = inptPatAddress.getText().toString();
                 docPostalCode = inptPatPostalCode.getText().toString();
+                ArrayList<String> doctorsArray = new ArrayList<String>();
 
                 if(!docAddress.isEmpty() || !docPostalCode.isEmpty()){
                     if(!docAddress.isEmpty()){
@@ -69,10 +71,13 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
                                 doctorFName = DoctorByAddCursor.getString(0);
                                 doctorLName = DoctorByAddCursor.getString(1);
                                 doctorAdd = DoctorByAddCursor.getString(2);
+                                doctorsArray.add(doctorFName);
+                                doctorsArray.add(doctorLName);
+                                doctorsArray.add(doctorAdd);
                             }
-                            Log.d("Name",doctorFName);
-                            Log.d("Last",doctorLName);
-                            Log.d("Add",doctorAdd);
+                            Log.d("Name", String.valueOf(doctorsArray));
+                            //Log.d("Last",doctorLName);
+                            //Log.d("Add",doctorAdd);
                         }
                     }
                     else if(!docPostalCode.isEmpty()){

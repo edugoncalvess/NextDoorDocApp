@@ -487,14 +487,14 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     public boolean addRecordDocTest() {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(T8COL_1, "1001");
-        values.put(T8COL_2, "tabannik@gmail.com");
-        values.put(T8COL_3, "Taban");
-        values.put(T8COL_4, "Nikdel");
-        values.put(T8COL_5, "111111");
-        values.put(T8COL_6, "V3E2Z2");
-        values.put(T8COL_7, "6047150000");
-        values.put(T8COL_8, "2576 JadePlace");
+        values.put(T8COL_1, "1002");
+        values.put(T8COL_2, "test@gmail.com");
+        values.put(T8COL_3, "Tim");
+        values.put(T8COL_4, "Micheal");
+        values.put(T8COL_5, "222");
+        values.put(T8COL_6, "V3E1234");
+        values.put(T8COL_7, "91978765433");
+        values.put(T8COL_8, "2244 TestAded");
         values.put(T8COL_9, "Coquitlam");
 
         long r = sqLiteDatabase.insert(TABLE8_NAME, null, values);
