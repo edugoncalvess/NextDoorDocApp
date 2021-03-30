@@ -226,4 +226,9 @@
     <string name="lblAppDeleteResetUser">Enter the EmailID to delete the user or to reset password</string>
 
 
+    <string name="lblPaymentID">Payment ID</string>
+    <string name="lblPaymtPretax">Amount</string>
+    <string name="btnBackToHome">Back to Home</string>
+
+
 </resources>

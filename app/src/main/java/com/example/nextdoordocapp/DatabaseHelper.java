@@ -2,6 +2,7 @@ package com.example.nextdoordocapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -91,6 +92,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     final static String T4COL_4 = "PTime";
     final static String T4COL_5 = "Amount";
     final static String T4COL_6 = "Method";
+    final static String T4COL_7 = "PmtStatus";
 
     //DailyCalories table columns
     final static String T5COL_1 = "DCId";
@@ -199,7 +201,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         //Table Payment
         String paymentQuery = "CREATE TABLE " + TABLE4_NAME + " (" + T4COL_1 + " INTEGER PRIMARY KEY,"
                 + T4COL_2 + " TEXT," + T4COL_3 + " TEXT, " + T4COL_4 + " TEXT, " + T4COL_5 + " INTEGER, "
-                + T4COL_6 + " TEXT)";
+                + T4COL_6 + " TEXT," + T4COL_7 + " TEXT)";
         db.execSQL(paymentQuery);
 
         //Table DailyCalories
@@ -347,15 +349,16 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     }
 
     //add record method for table patient payment
-    public boolean addRecordPayment(String pEmail, String PayDate, String PayTime, String PayAmount,
-                                    String Method) {
+    public boolean addRecordPayment(String patientId, String PayDate, String PayTime, String PayAmount,
+                                    String Method, String PmtStatus) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(T4COL_2, pEmail);
+        values.put(T4COL_2, patientId);
         values.put(T4COL_3, PayDate);
         values.put(T4COL_4, PayTime);
         values.put(T4COL_5, PayAmount);
         values.put(T4COL_6, Method);
+        values.put(T4COL_7, PmtStatus);
 
         long r = sqLiteDatabase.insert(TABLE4_NAME, null, values);
         if (r > 0)
@@ -971,4 +974,49 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
 
     }*/
+public boolean addRecordPaymentTest() {
+    SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+    ContentValues values = new ContentValues();
+    values.put(T4COL_2, "1");
+    values.put(T4COL_3, "2021/04/01");
+    values.put(T4COL_4, "");
+    values.put(T4COL_5, "63.90");
+    values.put(T4COL_6, "");
+    values.put(T4COL_7, "Pending");
+
+    long r = sqLiteDatabase.insert(TABLE4_NAME, null, values);
+    if (r > 0)
+        return true;
+    else
+        return false;
 }
+
+    // Selecting pending payments
+    public Cursor checkPaymentByPatientId(int id) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        String checkPendingPayments = "SELECT * FROM " + TABLE4_NAME + " Where " + T4COL_2 + " = " + id + " AND " + T4COL_7 + " <> 'Paid'";
+        Cursor c = sqLiteDatabase.rawQuery(checkPendingPayments, null);
+        return c;
+    }
+
+    public boolean updatePaymentStatus(int pmtId, String newPDate, String newPTime, String newPValue, String newPMethod, String newStatus) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T4COL_3, newPDate);
+        values.put(T4COL_4, newPTime);
+        values.put(T4COL_5, newPValue);
+        values.put(T4COL_6, newPMethod);
+        values.put(T4COL_7, newStatus);
+
+        int d= sqLiteDatabase.update(TABLE4_NAME, values, "PaymentId=?", new String[]{Integer.toString(pmtId)});
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }
+
+
+}
+
+
