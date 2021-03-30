@@ -112,11 +112,13 @@ public class CashierPmtCheckPg1 extends AppCompatActivity {
                 }
                 else if(PMethod.equals("Paid")) {
                     PAmount = 0;
+                    txtPmtBalanceAmount.setText("$ " + format.format(PAmount));
                     txtPaymentStatus.setText("The are no pending payments fo this patient");
                     btnGoToPmtActv.setVisibility(View.INVISIBLE);
                 }
                 else if(PMethod.equals("ERROR")) {
                     PAmount = 0;
+                    txtPmtBalanceAmount.setText("$ " + format.format(PAmount));
                     txtPaymentStatus.setText("The are no pending payments fo this patient");
                     btnGoToPmtActv.setVisibility(View.INVISIBLE);
                 }

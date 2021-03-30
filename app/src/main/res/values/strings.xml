@@ -42,7 +42,7 @@
     <string name="txtBalance">Balance:</string>
     <string name="txtDescrPatientId">Enter the Patient ID</string>
     <string name="btnRegisterPatientPmt">Register Payment</string>
-    <string name="txtPmtPlusTaxes">Payment plus Taxes (GST + PST)</string>
+    <string name="txtPmtPlusTaxes">Total with Taxes</string>
     <string name="hintAmount">Amount</string>
     <string name="txtPmtMthdDeposit">Deposit or Transfer</string>
     <string name="txtPmtMthdCard">Credit or Debit Card</string>
@@ -126,7 +126,7 @@
     <string name="lblRgstPgPCode">Postal Code:</string>
     <string name="hintRgstPgPCode">X1X1X1</string>
     <string name="txtRgstPgDOB">Date of Birth:</string>
-    <string name="hintRgstPgDOB">yyyy–mm–dd</string>
+    <string name="hintRgstPgDOB">yyyy/mm/dd</string>
     <string name="lblRgstPgHeight">Height in meters:</string>
     <string name="hintRgstPgHeight">1.89</string>
     <string name="txtRgstPgM">m</string>
@@ -229,6 +229,10 @@
     <string name="lblPaymentID">Payment ID</string>
     <string name="lblPaymtPretax">Amount</string>
     <string name="btnBackToHome">Back to Home</string>
+    <string name="txtTitleListPmt">List of Pending Payments</string>
+    <string name="btnCheckPendingPaymts">Check Pending Payments</string>
+    <string name="btnCashierLogoff">Logoff</string>
+
 
 
 </resources>
