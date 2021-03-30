@@ -1,9 +1,278 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AdminUpdatingDoctor">
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".AdminUpdatingDoctor">
+
+        <TextView
+            android:id="@+id/txtDoctorUpdateMessage"
+            android:layout_width="336dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="@string/lblUpdateString"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lblUpdateDocFirstName"
+            android:layout_width="122dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginRight="7dp"
+            android:text="@string/lblRgstPgFirstName"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/txtUpdateDocFirstName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblUpdateDocEmail" />
+
+        <EditText
+            android:id="@+id/txtUpdateDocFirstName"
+            android:layout_width="243dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgFirstName"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lblUpdateDocFirstName"
+            app:layout_constraintTop_toBottomOf="@+id/txtUpdateDocEmail" />
+
+        <TextView
+            android:id="@+id/lblUpdateDocFamilyName"
+            android:layout_width="126dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginRight="7dp"
+            android:text="@string/lblRgstPgFamilyName"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/txtUpdateDocFamilyName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblUpdateDocFirstName" />
+
+        <EditText
+            android:id="@+id/txtUpdateDocFamilyName"
+            android:layout_width="243dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgFamilyName"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblUpdateDocFamilyName"
+            app:layout_constraintTop_toBottomOf="@+id/txtUpdateDocFirstName" />
+
+        <TextView
+            android:id="@+id/lblUpdateDocEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="72dp"
+            android:layout_marginRight="72dp"
+            android:text="@string/lblRgstPgEmail"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/txtUpdateDocEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDoctorUpdateMessage" />
+
+        <EditText
+            android:id="@+id/txtUpdateDocEmail"
+            android:layout_width="243dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgEmail"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblUpdateDocEmail"
+            app:layout_constraintTop_toBottomOf="@+id/txtDoctorUpdateMessage" />
+
+        <TextView
+            android:id="@+id/lblUpdateDocPassword"
+            android:layout_width="98dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="39dp"
+            android:layout_marginRight="39dp"
+            android:text="@string/lblRgstPgPassword"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/txtUpdateDocPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblUpdateDocFamilyName" />
+
+        <EditText
+            android:id="@+id/txtUpdateDocPassword"
+            android:layout_width="243dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgPassword"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblUpdateDocPassword"
+            app:layout_constraintTop_toBottomOf="@+id/txtUpdateDocFamilyName" />
+
+        <TextView
+            android:id="@+id/lblUpdateDocPhone"
+            android:layout_width="122dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginRight="7dp"
+            android:text="@string/lblRgstPgPhone"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/txtUpdateDocPhone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblUpdateDocPassword" />
+
+        <EditText
+            android:id="@+id/txtUpdateDocPhone"
+            android:layout_width="243dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgPhone"
+            android:importantForAutofill="no"
+            android:inputType="phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblUpdateDocPhone"
+            app:layout_constraintTop_toBottomOf="@+id/txtUpdateDocPassword" />
+
+
+        <TextView
+            android:id="@+id/lblUpdateDocStreet"
+            android:layout_width="122dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="6dp"
+            android:text="@string/lblRgstPgAddress"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblUpdateDocPhone" />
+
+        <EditText
+            android:id="@+id/txtUpdateDocAddress"
+            android:layout_width="245dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgStreet"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblUpdateDocStreet"
+            app:layout_constraintTop_toBottomOf="@+id/txtUpdateDocPhone" />
+
+
+        <TextView
+            android:id="@+id/lblUpdateDocCity"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/lblRgstPgCity"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblUpdateDocStreet" />
+
+        <EditText
+            android:id="@+id/txtUpdateDocCity"
+            android:layout_width="244dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgCity"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblUpdateDocCity"
+            app:layout_constraintTop_toBottomOf="@+id/txtUpdateDocAddress" />
+
+        <TextView
+            android:id="@+id/lblUpdateDocPCode"
+            android:layout_width="117dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="6dp"
+            android:text="@string/lblRgstPgPCode"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblUpdateDocCity" />
+
+        <EditText
+            android:id="@+id/txtUpdateDocPCode"
+            android:layout_width="246dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:ems="10"
+            android:hint="@string/hintRgstPgPCode"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblUpdateDocPCode"
+            app:layout_constraintTop_toBottomOf="@+id/txtUpdateDocCity" />
+
+        <Button
+            android:id="@+id/btnUpdateDoctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="@string/btnUpdate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtUpdateDocPCode" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
+
+
+
+
+

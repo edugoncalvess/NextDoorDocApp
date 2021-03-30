@@ -806,6 +806,24 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
     }
 
+//    Updating the doctor's table
+    public boolean updateDoctorInformation(String email,String fName,String lName,
+                                           String password,String pCode,String phone,
+                                           String address,String city){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T8COL_3,fName);
+        values.put(T8COL_4,lName);
+        values.put(T8COL_5,password);
+        values.put(T8COL_6,pCode);
+        values.put(T8COL_7,phone);
+        values.put(T8COL_8,address);
+        values.put(T8COL_9,city);
+
+        int d = sqLiteDatabase.update(TABLE8_NAME,values,"docEmail=?", new String[]{email});
+        return (d>0);
+    }
+
     //check if any record is available for this patient in daily calorie table
     public Boolean checkPatientHasRecord(int id, String date) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();

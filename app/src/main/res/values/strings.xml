@@ -215,6 +215,7 @@
     <string name="btnSearchUpdatePatient">SEARCH PATIENT</string>
     <string name="btnSearchUpdateDoctor">SEARCH DOCTOR</string>
     <string name="btnUpdate">UPDATE</string>
+    <string name="lblUpdateString">Enter the following information to Update</string>
     <string name="hintUpdateEmail">xyz@gmail.com</string>
 
 

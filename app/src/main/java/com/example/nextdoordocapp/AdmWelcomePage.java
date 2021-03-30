@@ -30,7 +30,7 @@ public class AdmWelcomePage extends AppCompatActivity {
         btnAdmUpdateDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AdmWelcomePage.this, AdminUpdatesDetails.class));
+                startActivity(new Intent(AdmWelcomePage.this, AdminUpdatesFPage.class));
 
             }
         });
