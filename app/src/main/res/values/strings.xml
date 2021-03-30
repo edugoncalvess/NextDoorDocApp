@@ -235,6 +235,9 @@
     <string name="lblPaymtPretax">Amount</string>
     <string name="btnBackToHome">Back to Home</string>
     <string name="txtBookedApptConfirm">No appointment yet</string>
+    <string name="rcdlAddress">Address</string>
+    <string name="rcdllastName">Last Name</string>
+    <string name="rcdlfirstName">First Name</string>
 
     <string-array name="txtArraySelectTime">
         <item>8-9</item>

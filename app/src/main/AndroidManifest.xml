@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".listDocDetail"></activity>
+        <activity android:name=".ShowDocsList" />
         <activity android:name=".AdminRegistrationModule" />
-        android:theme="@style/Theme.NextDoorDocApp">
-        <activity android:name=".AdminResetsDeletesUser"></activity>
+        <activity android:name=".AdminResetsDeletesUser" />
         <activity android:name=".AdmApplicationMaintenance" />
         <activity android:name=".AdminUpdatingDoctor" />
         <activity android:name=".AdminRegistrationModule" />

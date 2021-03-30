@@ -34,7 +34,8 @@ public class DoctorHelloPg1 extends AppCompatActivity {
         btnDocShowMessages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DoctorHelloPg1.this,DocMessagesPg1.class));
+                startActivity(new Intent(DoctorHelloPg1.this,ShowDocsList.class));
+/*startActivity(new Intent(DoctorHelloPg1.this,DocMessagesPg1.class));*/
             }
         });
 

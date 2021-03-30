@@ -55,7 +55,7 @@ public class CashierPmtCheckPg1 extends AppCompatActivity {
                 patientID = Integer.parseInt(txtPatientID.getText().toString());
 
                 // Call this method only for test, to manually create a pending payment so we have one register at least
-                // databaseHelper.addRecordPaymentTest();
+                 databaseHelper.addRecordPaymentTest();
 
 
 
