@@ -62,8 +62,9 @@ public class LoginActivityPg1 extends AppCompatActivity {
                             //creates new intent based on the patient id received
                             Toast.makeText(LoginActivityPg1.this, "Hello  "+name+ "!", Toast.LENGTH_LONG).show();
                             Intent loginNavigation = new Intent(LoginActivityPg1.this, PatientMainActions.class);
-                            loginNavigation.putExtra("patientId", id.toString());
+                            loginNavigation.putExtra("patientId", Integer.parseInt(id.toString()));
                             startActivity(loginNavigation);
+
                         }
                     } else if ("doctor".equals(role.toString())) {
 
