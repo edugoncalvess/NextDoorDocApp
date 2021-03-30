@@ -3,6 +3,7 @@ package com.example.nextdoordocapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +28,8 @@ public class AdminUpdatesDetails extends AppCompatActivity {
         btnSearchDoc = findViewById(R.id.btnUpdateDoc);
         txtEmailUpdate = findViewById(R.id.txtEmailUpdate);
         emailUpdateSearch =txtEmailUpdate.getText().toString();
+
+
 
         btnSearchPatient.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -399,6 +399,18 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
     }
 
+    public boolean upDateApptWithAvb(String time, String date) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T6COL_3, date);
+        values.put(T6COL_4, time);
+        int d = sqLiteDatabase.update(TABLE6_NAME, values, "BookAppointmentId=?", new String[]{time, date});
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }
+
     //add record method for table Patient_leaveMessage_Doctor
     public boolean addRecordPatient_leaveMessage_Doctor(String pEmail, String dEmail, String messageDate,
                                                         String messageTime, String msg, String Rpl, String msgFee) {
@@ -646,6 +658,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
         return cursor;
     }
+
     //finds the patient name
     public Cursor getNamePatient(String email, String password) {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
@@ -664,6 +677,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
         return cursor;
     }
+
     //finds the Doctor name
     public Cursor getNameDoctor(String email, String password) {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
@@ -681,6 +695,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
         return cursor;
     }
+
     //find the admin  id
     public Cursor getIDAdmin(String email, String password) {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
@@ -689,7 +704,8 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
         return cursor;
     }
-//    finds cashier name
+
+    //    finds cashier name
     public Cursor getNameCashier(String email, String password) {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT casFName FROM " + TABLE11_NAME + " where casEmail=? and casPassword=?",
@@ -697,6 +713,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
         return cursor;
     }
+
     //find the admin  id
     public Cursor getNameAdmin(String email, String password) {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
@@ -705,7 +722,6 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
         return cursor;
     }
-
 
 
     //Doc view the message patient sent
@@ -749,6 +765,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
+//        values.put(T3COL_1, new_email);
         values.put(T3COL_2, pFName);
         values.put(T3COL_3, pLName);
         values.put(T3COL_4, pBD);
@@ -767,16 +784,27 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         values.put(T3COL_17, pAllergyName);
         values.put(T3COL_18, pMedicineName);
 
-//        String updateInfoPatient = T3COL_1 + "  Email=?";
-        String[] update_args = {old_email};
 
-        int d = sqLiteDatabase.update(TABLE3_NAME, values, "Email=?", update_args);
+        int d = sqLiteDatabase.update(TABLE3_NAME, values, "Email=?", new String[]{old_email});
         if (d > 0)
             return true;
         else
             return false;
     }
 
+
+    //Updating the  password in Login table
+    public boolean updatePasswordLogin(String email, String password) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T10COL_3, password);
+
+        int d = sqLiteDatabase.update(TABLE10_NAME, values, "emailID=?", new String[]{email});
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }
 
     //check if any record is available for this patient in daily calorie table
     public Boolean checkPatientHasRecord(int id, String date) {

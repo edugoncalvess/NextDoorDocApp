@@ -24,23 +24,23 @@
         <TextView
             android:id="@+id/lblUpdatePgFirstName"
             android:layout_width="126dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="7dp"
             android:layout_marginRight="7dp"
             android:text="@string/lblRgstPgFirstName"
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/txtRgstPgFirstName"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtPatientUpdateMessage" />
+            app:layout_constraintTop_toBottomOf="@+id/lblOldEmail" />
 
         <EditText
             android:id="@+id/txtUpdatePgFirstName"
             android:layout_width="243dp"
             android:layout_height="43dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="19dp"
             android:layout_marginRight="19dp"
             android:ems="10"
@@ -50,15 +50,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/lblUpdatePgFirstName"
-            app:layout_constraintTop_toBottomOf="@+id/txtPatientUpdateMessage" />
+            app:layout_constraintTop_toBottomOf="@+id/txtOldEmail" />
 
         <TextView
             android:id="@+id/lblUpdatePgFamilyName"
             android:layout_width="126dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="23dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="7dp"
             android:layout_marginRight="7dp"
             android:text="@string/lblRgstPgFamilyName"
@@ -185,11 +185,9 @@
             app:layout_constraintTop_toBottomOf="@+id/lblUpdatePgDOB" />
 
         <Spinner
-            android:id="@+id/sprGender"
+            android:id="@+id/sprUpdateGender"
             android:layout_width="171dp"
             android:layout_height="47dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
             android:entries="@array/txtArrayGender"
             android:prompt="@string/lblRgstPgGender"
@@ -211,7 +209,7 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/txtUpdatePgHeight"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sprGender" />
+            app:layout_constraintTop_toBottomOf="@+id/sprUpdateGender" />
 
         <EditText
             android:id="@+id/txtUpdatePgHeight"
@@ -226,7 +224,7 @@
             android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/lblUpdatePgHeight"
-            app:layout_constraintTop_toBottomOf="@+id/sprGender" />
+            app:layout_constraintTop_toBottomOf="@+id/sprUpdateGender" />
 
         <TextView
             android:id="@+id/lblUpdatePgWeight"
@@ -538,6 +536,30 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtUpdatePgPCode" />
+
+        <TextView
+            android:id="@+id/lblOldEmail"
+            android:layout_width="122dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/lblRgstPgEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtPatientUpdateMessage" />
+
+        <EditText
+            android:id="@+id/txtOldEmail"
+            android:layout_width="242dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="1dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/hintRgstPgEmail"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblOldEmail"
+            app:layout_constraintTop_toBottomOf="@+id/txtPatientUpdateMessage" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
