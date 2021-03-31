@@ -52,8 +52,9 @@ public class DocMessagesPg1 extends AppCompatActivity {
                 mEmail = new EmailData("Patient: " + sender, "Message/Question",
                         Details,
                         time);
+                mEmailData.add(mEmail);
             }
-            mEmailData.add(mEmail);
+
         }
 
         mEmail = new EmailData("Patient Taban", "Please give me some pills",

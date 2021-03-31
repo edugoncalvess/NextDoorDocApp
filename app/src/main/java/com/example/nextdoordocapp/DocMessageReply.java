@@ -28,7 +28,7 @@ public class DocMessageReply extends AppCompatActivity {
 
         replyText = findViewById(R.id.txtReplyMessageDoc);
         btnReply = findViewById(R.id.btnMessageSendDoc);
-        idPatient = findViewById(R.id.txtInsertPatIDReply);
+     //   idPatient = findViewById(R.id.txtInsertPatIDReply);
 
 
         btnReply.setOnClickListener(new View.OnClickListener() {

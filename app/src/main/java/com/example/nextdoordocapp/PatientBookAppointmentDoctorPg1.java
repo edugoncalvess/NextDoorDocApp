@@ -11,6 +11,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.sql.Struct;
+
 public class PatientBookAppointmentDoctorPg1 extends AppCompatActivity {
 
     DatabaseHelper databaseHelper;
@@ -26,7 +28,6 @@ public class PatientBookAppointmentDoctorPg1 extends AppCompatActivity {
     String endTime;
     TextView txtAppointment;
     boolean isUpdate;
-    int check = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,25 +67,21 @@ public class PatientBookAppointmentDoctorPg1 extends AppCompatActivity {
 
                         if (spinnerChoiceDate.equals(date) && timeRange >= Integer.parseInt(startTime) && timeRange <= Integer.parseInt(endTime))
                             {
-                                isUpdate = databaseHelper.upDateApptWithAvb(1, spinnerChoiceDate, String.valueOf(timeRange));
+                                isUpdate = databaseHelper.addRecordPatient_BookAppointment_Doctor("", "", date, String.valueOf(timeRange),"");
                                 if (isUpdate) {
-                                    check ++;
                                     Toast.makeText(PatientBookAppointmentDoctorPg1.this, "Appointment Saved", Toast.LENGTH_LONG).show();
                                     txtAppointment.setText("You booked for " + spinnerChoiceDate + " For " + timeRange + " to " + (timeRange + 1));
                                     break;
-                            }
+                                }
+
                          }
                     }
-                    if (!isUpdate && check == 1)
-                    {
-                        Toast.makeText(PatientBookAppointmentDoctorPg1.this,
-                                "Please chose according to availability", Toast.LENGTH_LONG).show();
-                        check =1;
-                    }
+
                 }
-                else
-                    Toast.makeText(PatientBookAppointmentDoctorPg1.this,
-                            "Please chose according to availability", Toast.LENGTH_LONG).show();
+                if(c.getCount()==0)
+                    txtAppointment.setText("Please wait for doctor to set the schedule.");
+
+             // Toast.makeText(PatientBookAppointmentDoctorPg1.this,"Please chose according to availability", Toast.LENGTH_LONG).show();
 
                 }
 
