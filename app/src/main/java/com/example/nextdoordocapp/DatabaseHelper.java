@@ -35,9 +35,10 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
 */
     Boolean userAvailable;
+    Boolean PatientInsurance;
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
 
-    final static int DATABASE_VERSION = 1;
+    final static int DATABASE_VERSION = 30;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -1041,6 +1042,24 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         }
 
     }
+    public Boolean checkPatientHasInsurance(int id) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        String patientInsuranceAvailabilityQuery = "SELECT " + T3COL_0 + " FROM " + TABLE3_NAME + " Where " + T3COL_15 + "= ''";
+        Log.d("insuranceSQL",patientInsuranceAvailabilityQuery);
+        Cursor c = sqLiteDatabase.rawQuery(patientInsuranceAvailabilityQuery, null);
+        if (c.getCount() > 0) {
+            Log.d("!", "User with No Insurance");
+            return true;
+        } else {
+            Log.d("!", "has Insurance");
+            return PatientInsurance = false;
+        }
+
+    }
+
+    //check if patient has insurance
+
 
     //Check if record is available for patient in Daily Calorie table
     public boolean updateRecDailyCalorie(int id, int amount) {
@@ -1079,9 +1098,9 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         String findDoctorByPostalCodeQuery = "SELECT " + T8COL_3 + "," + T8COL_4 + "," + T8COL_8 + " FROM " + TABLE8_NAME + " Where "
-                + T8COL_6 + " LIKE " +"'" + postalCode+"'% '"+ "'";
-        Log.d("Here", findDoctorByPostalCodeQuery);
+                + T8COL_6 + " LIKE " +"'" + postalCode+"%'";
         Cursor c = sqLiteDatabase.rawQuery(findDoctorByPostalCodeQuery, null);
+        Log.d("Test", findDoctorByPostalCodeQuery);
         return c;
     }
 
@@ -1093,6 +1112,24 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         return c;
     }
 
+    //Patient add record payment
+    public boolean addRecordPatToPayment(int pId, String payDate, String pTime, int payAmount, String payMethod,String payStatus) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T4COL_2, pId);
+        values.put(T4COL_3, payDate);
+        values.put(T4COL_4, pTime);
+        values.put(T4COL_5, payAmount);
+        values.put(T4COL_6, payMethod);
+        values.put(T4COL_7, payStatus);
+
+        long r = sqLiteDatabase.insert(TABLE4_NAME, null, values);
+        if (r > 0)
+            return true;
+        else
+            return false;
+
+    }
 
 
     public boolean updateMessagePatientTable(int msgId, String newMessage){
