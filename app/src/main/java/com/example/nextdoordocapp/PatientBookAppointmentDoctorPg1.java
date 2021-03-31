@@ -29,6 +29,8 @@ public class PatientBookAppointmentDoctorPg1 extends AppCompatActivity {
     TextView txtAppointment;
     boolean isUpdate;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

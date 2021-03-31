@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+
 public class PatientSendMessageToDoctorPg1 extends AppCompatActivity {
 
 
@@ -26,6 +28,11 @@ public class PatientSendMessageToDoctorPg1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_send_message_to_doctor_pg1);
 
+        //add today Date
+     /*   SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String currentDateTime = sdf.format(new Date());*/
+
+       // SimpleDateFormat sdf = new SimpleDateFormat()
         messageToDoc = findViewById(R.id.editTextPatMessage);
         btn = findViewById(R.id.btnPatSendMessage);
         databaseHelper = new DatabaseHelper(this);

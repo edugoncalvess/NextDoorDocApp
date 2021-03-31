@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/docListLayout"
     android:layout_width="match_parent"
@@ -8,15 +9,16 @@
 
     <TextView
         android:id="@+id/rcdlfirstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="29dp"
         android:layout_marginLeft="29dp"
         android:layout_marginTop="14dp"
         android:layout_marginRight="4dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/rcdlfirstName"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/rcdllastName"
@@ -28,6 +30,7 @@
         android:layout_toEndOf="@+id/rcdlfirstName"
         android:layout_toRightOf="@+id/rcdlfirstName"
         android:text="@string/rcdllastName"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
@@ -40,6 +43,7 @@
         android:layout_toEndOf="@+id/rcdllastName"
         android:layout_toRightOf="@+id/rcdllastName"
         android:ellipsize="end"
-        android:text="@string/rcdlAddress" />
+        android:text="@string/rcdlAddress"
+        android:textSize="18sp" />
 
 </RelativeLayout>

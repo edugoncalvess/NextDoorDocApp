@@ -9,12 +9,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class PatientFindDoctorPg2 extends AppCompatActivity {
-    TextView txtPatDoctorNameResult;
-    TextView txtPatDoctorAddressResult;
-    TextView txtPatDoctorPhoneResult;
+
     Button btnPatDoctorBookAppointment;
     Button btnPatDoctorCheckAvailability;
     Button btnPatDoctorGetOnlineHelp;
+
+    TextView mFname;
+    TextView mLname;
+    TextView mAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +24,13 @@ public class PatientFindDoctorPg2 extends AppCompatActivity {
         setContentView(R.layout.activity_patient_find_doctor_pg2);
 
         // DoctorNameResult
-        txtPatDoctorNameResult = findViewById(R.id.txtPatDoctorNameResult);
+        mFname = findViewById(R.id.txtPatDoctorNameResult);
 
         // DoctorAddressResult
-        txtPatDoctorAddressResult = findViewById(R.id.txtPatDoctorAddressResult);
+        mLname = findViewById(R.id.txtPatDoctorAddressResult);
 
         // DoctorPhoneResult
-        txtPatDoctorPhoneResult = findViewById(R.id.txtPatDoctorPhoneResult);
+        mAddress = findViewById(R.id.txtPatDoctorLastNameResult);
 
         //BookAppointment Button
         btnPatDoctorBookAppointment = findViewById(R.id.btnPatDoctorBookAppointment);
@@ -38,6 +40,15 @@ public class PatientFindDoctorPg2 extends AppCompatActivity {
 
         //btnPatDoctorGetOnlineHelp Button
         btnPatDoctorGetOnlineHelp = findViewById(R.id.btnPatDoctorGetOnlineHelp);
+
+
+
+        Bundle mBundle = getIntent().getExtras();
+        if (mBundle != null) {
+            mFname.setText(mBundle.getString("firstName"));
+            mLname.setText(mBundle.getString("LastName"));
+            mAddress.setText(mBundle.getString("Address"));
+        }
 
         //Action For Book Appointment
         btnPatDoctorBookAppointment.setOnClickListener(new View.OnClickListener() {

@@ -38,7 +38,7 @@ public class DocListAdapter extends RecyclerView.Adapter<DocListHolder> {
         holder.mdocListLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mIntent = new Intent(mContext, listDocDetail.class);
+                Intent mIntent = new Intent(mContext, PatientFindDoctorPg2.class);
                 mIntent.putExtra("firstName", holder.mFname.getText().toString());
                 mIntent.putExtra("LastName", holder.mLname.getText().toString());
                 mIntent.putExtra("Address", holder.mAddress.getText().toString());

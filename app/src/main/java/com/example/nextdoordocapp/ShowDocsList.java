@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import java.util.ArrayList;
@@ -21,11 +22,6 @@ public class ShowDocsList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_docs_list);
 
-/* Bundle mBundle = getIntent().getExtras();
-        if (mBundle != null) {
-            mFname.setText(mBundle.getString("icon"));
-            mLname.setText(mBundle.getString("sender"));
-            mAddress.setText(mBundle.getString("title"));*/
         databaseHelper = new DatabaseHelper(this);
 
 
@@ -37,61 +33,47 @@ public class ShowDocsList extends AppCompatActivity {
 
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
 
+        ListData mList;
 
-        Intent intentDocList = getIntent();
-        String docFName = String.valueOf(getIntent().getIntExtra("docFirstName",0));
-        String docLName = String.valueOf(getIntent().getIntExtra("docLastName",0));
-        String docAddress = String.valueOf(getIntent().getIntExtra("docAddress",0));
-/*   databaseHelper.viewNewMessageDoc();
-        Cursor c = databaseHelper.viewNewMessageDoc();
-        if(c.getCount()>0){
-            while (c.moveToNext()){
-                String sender = c.getString(0);
-                String title = c.getString(1);
-                String Details = c.getString(2);
-                String time = c.getString(3);
 
-                mEmail = new EmailData("Patient: " + sender, "Message/Question",
-                        Details,
-                        time);
+        String doctorFName;
+        String doctorLName;
+        String doctorAdd;
+
+        Intent docIntent = getIntent();
+        Bundle extraInfo = docIntent.getExtras();
+        String addressDoc = extraInfo.getString("Address");
+
+        Cursor DoctorByAddCursor = databaseHelper.getDoctorByAddress(addressDoc);
+        if(DoctorByAddCursor.getCount()>0){
+            while (DoctorByAddCursor.moveToNext()){
+                doctorFName = DoctorByAddCursor.getString(0);
+                doctorLName = DoctorByAddCursor.getString(1);
+                doctorAdd = DoctorByAddCursor.getString(2);
+
+                mList = new ListData(doctorFName, doctorLName,
+                        doctorAdd);
+
+                mListData.add(mList);
             }
-            mEmailData.add(mEmail);
-        }*/
+        }
 
+        Intent docIntentPostal = getIntent();
+        Bundle extraInfoo = docIntentPostal.getExtras();
+        String firstThreeCharsPostalCode = extraInfoo.getString("postalCode");
+        Cursor DoctorBtPostalCursor = databaseHelper.getDoctorByPostalCode(firstThreeCharsPostalCode);
+        //Log.d("Dc", )
+        if(DoctorBtPostalCursor.getCount()>0){
+            while (DoctorBtPostalCursor.moveToNext()){
+                doctorFName = DoctorBtPostalCursor.getString(0);
+                doctorLName = DoctorBtPostalCursor.getString(1);
+                doctorAdd = DoctorBtPostalCursor.getString(2);
+                mList = new ListData(doctorFName, doctorLName,
+                        doctorAdd);
 
-        ListData mList= new ListData("Sam", "Gholi",
-                "Coquitlam");
-
-        mListData.add(mList);
-
-        mList = new ListData(docFName, docLName,
-                docAddress);
-        mListData.add(mList);
-
-        mList = new ListData("Sam", "Gholi",
-                "Coquitlam");
-
-        mListData.add(mList);
-
-        mList = new ListData("Sam", "Gholi",
-                "Coquitlam");
-
-        mListData.add(mList);
-
-        mList = new ListData("Sam", "Gholi",
-                "Coquitlam");
-
-        mListData.add(mList);
-
-        mList = new ListData("Sam", "Gholi",
-                "Coquitlam");
-
-        mListData.add(mList);
-        mList = new ListData("Sam", "Gholi",
-                "Coquitlam");
-
-        mListData.add(mList);
-
+                mListData.add(mList);
+            }
+        }
 
         DocListAdapter mListAapter = new DocListAdapter(ShowDocsList.this, mListData);
         mRecyclerView.setAdapter(mListAapter);

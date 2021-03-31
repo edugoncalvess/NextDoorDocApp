@@ -74,9 +74,8 @@
     <string name="inptPatDoctorAddress">Enter Doctor Address</string>
     <string name="inptPatPostalCode">Enter your Postal Code</string>
     <string name="btnPatFindDoctorLabel">Find</string>
-    <string name="txtPatDoctorNameLbl">Doctor Name</string>
-    <string name="txtPatDoctorAddressLbl">Address</string>
-    <string name="txtPatDoctorPhoneLbl">Phone</string>
+    <string name="txtPatDoctorNameLbl">Doctor Name:</string>
+    <string name="txtPatDoctorAddressLbl">Address:</string>
     <string name="btnPatDoctorBookAppointment">Book an Appointment</string>
     <string name="btnPatDoctorCheckAvailability">Check Availability</string>
     <string name="btnPatDoctorGetOnlineHelp">Get Online Help</string>
@@ -242,6 +241,7 @@
     <string name="rcdlAddress">Address</string>
     <string name="rcdllastName">Last Name</string>
     <string name="rcdlfirstName">First Name</string>
+    <string name="txtPatDoctorLastNameLbl">Last Name:</string>
 
     <string-array name="txtArraySelectTime">
         <item>8-9</item>
