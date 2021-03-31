@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".patientChangesPassword"></activity>
-        <activity android:name=".listDocDetail" />
         <activity android:name=".ShowDocsList" />
         <activity android:name=".AdminRegistrationModule" />
         <activity android:name=".AdminResetsDeletesUser" />
@@ -18,7 +17,6 @@
         <activity android:name=".AdmTicketDetail"></activity>
         <activity android:name=".AdmListOfTickets" />
         <activity android:name=".CashierListOfPayments" />
-        <activity android:name=".AdminResetsDeletesUser" />
         <activity android:name=".AdmApplicationMaintenance" />
         <activity android:name=".AdminUpdatingDoctor" />
         <activity android:name=".PatientCheckNewMessage" />

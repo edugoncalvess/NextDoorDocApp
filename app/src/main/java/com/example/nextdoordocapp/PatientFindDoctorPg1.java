@@ -76,8 +76,6 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
                     firstThreeCharsPostalCode = docPostalCode;
                 }
 
-                System.out.println(firstThreeCharsPostalCode);
-
 
                 ArrayList<String> doctorsArray = new ArrayList<String>();
 
@@ -98,11 +96,7 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
                             Log.d("Name", String.valueOf(doctorsArray));
                             //Log.d("Last",doctorLName);
                             //Log.d("Add",doctorAdd);
-                            Intent docIntent = new Intent(PatientFindDoctorPg1.this,ShowDocsList.class);
-                            Bundle extraInfo = new Bundle();
-                            extraInfo.putString("Address", docAddress);
-                            docIntent.putExtras(extraInfo);
-                            startActivity(docIntent);
+
                         }
                     }
                     else if(!docPostalCode.isEmpty()){
@@ -128,15 +122,27 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
                             System.out.println("List of Doctors" + String.valueOf(doctorsArray));
 
                             Log.d("Name", String.valueOf(doctorsArray));
-                            Intent docIntentPostalCode = new Intent(PatientFindDoctorPg1.this,ShowDocsList.class);
-                            Bundle extraInfoo = new Bundle();
-                            extraInfoo.putString("postalCode", firstThreeCharsPostalCode);
+                          /*  Intent docIntentPostalCode = new Intent(PatientFindDoctorPg1.this,ShowDocsList.class);
+                          //  Bundle extraInfoo = new Bundle();
+
+
                             Log.d("firstTHreadChars?",firstThreeCharsPostalCode);
 
                             docIntentPostalCode.putExtras(extraInfoo);
-                            startActivity(docIntentPostalCode);
+                            startActivity(docIntentPostalCode);*/
                         }
                     }
+                    Intent docIntent = new Intent(PatientFindDoctorPg1.this,ShowDocsList.class);
+                    Bundle extraInfo = new Bundle();
+                    extraInfo.putString("Address", docAddress);
+                    extraInfo.putInt("PatientId", patientId);
+                    //findDoctorPg1Intent.putExtra("patientId", patientId);
+                  //  extraInfo.putString("PatientId", String.valueOf(patientId));
+                    extraInfo.putString("postalCode", firstThreeCharsPostalCode);
+                    docIntent.putExtras(extraInfo);
+                    startActivity(docIntent);
+
+
 
 
                 }

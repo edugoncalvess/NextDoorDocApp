@@ -123,11 +123,11 @@ public class PatientSendMessageToDoctorPg1 extends AppCompatActivity {
 
                 isInserted = databaseHelper.addRecordPatient_leaveMessage_Doctor(pId,docId,time,date,message.toString(),"","");
                 if (isInserted){
-                    Toast.makeText(PatientSendMessageToDoctorPg1.this,"added",Toast.LENGTH_LONG).show();
+                    Toast.makeText(PatientSendMessageToDoctorPg1.this,"SENT",Toast.LENGTH_LONG).show();
 
                 }
                 else {
-                    Toast.makeText(PatientSendMessageToDoctorPg1.this,"not added",Toast.LENGTH_LONG).show();
+                    Toast.makeText(PatientSendMessageToDoctorPg1.this,"not sent",Toast.LENGTH_LONG).show();
 
                 }
 

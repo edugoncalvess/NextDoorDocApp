@@ -42,6 +42,7 @@ public class DocListAdapter extends RecyclerView.Adapter<DocListHolder> {
                 mIntent.putExtra("firstName", holder.mFname.getText().toString());
                 mIntent.putExtra("LastName", holder.mLname.getText().toString());
                 mIntent.putExtra("Address", holder.mAddress.getText().toString());
+
                 mContext.startActivity(mIntent);
             }
         });

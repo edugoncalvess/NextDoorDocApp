@@ -3,6 +3,7 @@ package com.example.nextdoordocapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,11 +26,15 @@ public class PatientFindDoctorPg2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_find_doctor_pg2);
 
-        Intent findDoctorPg1Intent = getIntent();
-        int patientIdPG2 = findDoctorPg1Intent.getIntExtra("patientId",0);
-        patientId = patientIdPG2;
-        Log.d("PatientIdDoc2" , String.valueOf(patientId));
+      //  Intent findDoctorPg1Intent = getIntent();
+     //   int patientIdPG2 = findDoctorPg1Intent.getIntExtra("patientId",0);
+     //   patientId = patientIdPG2;
 
+        SharedPreferences preferences = getSharedPreferences("MyPref",MODE_PRIVATE);
+
+        int patientId = preferences.getInt("patientId",0);
+
+        Log.d("PatientIdDoc2" , String.valueOf(patientId));
         // DoctorNameResult
         mFname = findViewById(R.id.txtPatDoctorNameResult);
 
