@@ -1061,6 +1061,30 @@ public boolean addRecordPaymentTest() {
 
     }
 
+    // Method to close ticket. It changes the ticketStatus from "OPEN" to "CLOSED"
+    public boolean updateCloseTicket(int ticketId) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T13COL_5, "CLOSED");
+
+        int d= sqLiteDatabase.update(TABLE13_NAME, values, "ticketId=?", new String[]{Integer.toString(ticketId)});
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }
+
+    // List all Open tickets
+    public Cursor listAllOpenTickets() {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        String checkAllPendingPayments = "SELECT * FROM " + TABLE13_NAME
+        + " Where " + T13COL_5 + " = 'OPEN'";
+        Cursor c = sqLiteDatabase.rawQuery(checkAllPendingPayments, null);
+        return c;
+    }
+
+
 }
 
 

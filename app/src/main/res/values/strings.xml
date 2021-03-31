@@ -232,7 +232,11 @@
     <string name="txtTitleListPmt">List of Pending Payments</string>
     <string name="btnCheckPendingPaymts">Check Pending Payments</string>
     <string name="btnCashierLogoff">Logoff</string>
-
+    <string name="txtTitleListTks">List of Pending Tickets</string>
+    <string name="btnCheckPendingTkts">Check Pending Tickets</string>
+    <string name="btnOpenTickets">Open Tickets</string>
+    <string name="btnTicketsDetails">Ticket Details</string>
+    <string name="hintTicketID">Ticket ID</string>
 
 
 </resources>

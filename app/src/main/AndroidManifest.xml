@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NextDoorDocApp">
-        <activity android:name=".CashierListOfPayments"></activity>
+        <activity android:name=".AdmTicketDetail"></activity>
+        <activity android:name=".AdmListOfTickets" />
+        <activity android:name=".CashierListOfPayments" />
         <activity android:name=".AdminResetsDeletesUser" />
         <activity android:name=".AdmApplicationMaintenance" />
         <activity android:name=".AdminUpdatingDoctor" />

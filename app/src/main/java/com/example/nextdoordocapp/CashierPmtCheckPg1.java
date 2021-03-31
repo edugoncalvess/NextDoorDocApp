@@ -16,8 +16,7 @@ import java.text.DecimalFormat;
 
 public class CashierPmtCheckPg1 extends AppCompatActivity {
 
-    // REMOVE THIS FOLLOWING VARIABLE AFTERWARDS
-    String messageToBeShown; //  Just to show something on the screen while we don't have the SQL statements functioning
+
     int patientID = 0;
     int paymentId;
     double PAmount;
@@ -62,7 +61,7 @@ public class CashierPmtCheckPg1 extends AppCompatActivity {
                 }
 
                 // Call this method only for test, to manually create a pending payment so we have one register at least
-                databaseHelper.addRecordPaymentTest();
+                // databaseHelper.addRecordPaymentTest();
 
 
 
