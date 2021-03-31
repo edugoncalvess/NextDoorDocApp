@@ -22,7 +22,7 @@ public class PatientMainActions extends AppCompatActivity {
     Button findDoctorBtn;
     Button changePassword;
     DatabaseHelper db;
-    int patientId ;
+    int patientId;
 
 
     @Override
@@ -77,24 +77,30 @@ public class PatientMainActions extends AppCompatActivity {
         changePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PatientMainActions.this,patientChangesPassword.class));
+                startActivity(new Intent(PatientMainActions.this, patientChangesPassword.class));
             }
         });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent logoutHistory = new Intent(PatientMainActions.this,SplashActivity.class);
+                Intent logoutHistory = new Intent(PatientMainActions.this, SplashActivity.class);
                 logoutHistory.putExtra("patientId", patientId);
-                startActivity(new Intent(PatientMainActions.this,SplashActivity.class));
+                startActivity(new Intent(PatientMainActions.this, SplashActivity.class));
                 //add today Date
                 Date currentTime = Calendar.getInstance().getTime();
-
-                boolean r= db.updateLoginTime(patientId,currentTime.toString());
-                if (r){
-                    Log.d("entered the value","yes");
-                }else
-                Log.d("entered the value","no");
+                StringBuilder log = new StringBuilder();
+                Cursor l = db.getIdLoginTime(patientId);
+                if (l.getCount() > 0) {
+                    while(l.moveToNext())
+                    log.append(l.getString(0));
+                }
+                Log.d("logid",log.toString());
+                boolean r = db.updateLoginTime(patientId, Integer.parseInt(log.toString()), currentTime.toString());
+                if (r) {
+                    Log.d("entered the value", "yes");
+                } else
+                    Log.d("entered the value", "no");
 
 
             }
