@@ -936,9 +936,9 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         String findDoctorByPostalCodeQuery = "SELECT " + T8COL_3 + "," + T8COL_4 + "," + T8COL_8 + " FROM " + TABLE8_NAME + " Where "
-                + T8COL_6 + " LIKE " +"'" + postalCode+"'% '"+ "'";
-        Log.d("Here", findDoctorByPostalCodeQuery);
+                + T8COL_6 + " LIKE " +"'" + postalCode+"%'";
         Cursor c = sqLiteDatabase.rawQuery(findDoctorByPostalCodeQuery, null);
+        Log.d("Test", findDoctorByPostalCodeQuery);
         return c;
     }
 
