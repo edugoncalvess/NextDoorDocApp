@@ -3,12 +3,17 @@ package com.example.nextdoordocapp;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class LoginActivityPg1 extends AppCompatActivity {
     DatabaseHelper databaseHelper;
@@ -64,6 +69,17 @@ public class LoginActivityPg1 extends AppCompatActivity {
                             Intent loginNavigation = new Intent(LoginActivityPg1.this, PatientMainActions.class);
                             loginNavigation.putExtra("patientId", Integer.parseInt(id.toString()));
                             startActivity(loginNavigation);
+                            //add today Date
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                            String currentDate = sdf.format(new Date());
+                              Date currentTime = Calendar.getInstance().getTime();
+                            boolean r= databaseHelper.addRecordPatHist(id.toString(),currentDate.toString(),currentTime.toString());
+                            if (r){
+                                Log.d("entered the value","yes");
+                            }else
+                                Log.d("entered the value","no");
+
+
 
                         }
                     } else if ("doctor".equals(role.toString())) {
