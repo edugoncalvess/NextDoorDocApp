@@ -570,6 +570,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
     }
 
+
     //    inserting the login table into the database
     public boolean insert(String email, String password, String role) {
         SQLiteDatabase db = this.getWritableDatabase();

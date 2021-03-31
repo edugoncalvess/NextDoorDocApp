@@ -43,6 +43,7 @@ public class ShowDocsList extends AppCompatActivity {
         Intent docIntent = getIntent();
         Bundle extraInfo = docIntent.getExtras();
         String addressDoc = extraInfo.getString("Address");
+        int pId = extraInfo.getInt("patientId");
 
         Cursor DoctorByAddCursor = databaseHelper.getDoctorByAddress(addressDoc);
         if(DoctorByAddCursor.getCount()>0){
@@ -61,6 +62,8 @@ public class ShowDocsList extends AppCompatActivity {
         Intent docIntentPostal = getIntent();
         Bundle extraInfoo = docIntentPostal.getExtras();
         String firstThreeCharsPostalCode = extraInfoo.getString("postalCode");
+
+
         Cursor DoctorBtPostalCursor = databaseHelper.getDoctorByPostalCode(firstThreeCharsPostalCode);
         //Log.d("Dc", )
         if(DoctorBtPostalCursor.getCount()>0){
@@ -78,5 +81,6 @@ public class ShowDocsList extends AppCompatActivity {
         DocListAdapter mListAapter = new DocListAdapter(ShowDocsList.this, mListData);
         mRecyclerView.setAdapter(mListAapter);
     }
+
 
 }

@@ -26,6 +26,7 @@ public class DocSchedulePg1 extends AppCompatActivity {
     CalendarView calender;
     TextView dateView;
     String Date;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,17 +41,14 @@ public class DocSchedulePg1 extends AppCompatActivity {
         calender = findViewById(R.id.calender);
         dateView = findViewById(R.id.dateView);
 
+        Intent docMessagesIntent = getIntent();
+        int docID = getIntent().getIntExtra("docID",0);
 
         calender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
 
 
-                /*Calendar c = Calendar.getInstance();
-                java.util.Date yourDate = new Date();
-                c.setTime(yourDate);
-                int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);*/
-               // new SimpleDateFormat("EE").format(yourDate);
                 Calendar selected = Calendar.getInstance();
                 selected.setTimeInMillis(view.getDate());
                 Date = dayOfMonth + "/" + (month +1) + "/" + year;

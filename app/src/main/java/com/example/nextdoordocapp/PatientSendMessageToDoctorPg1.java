@@ -18,8 +18,8 @@ public class PatientSendMessageToDoctorPg1 extends AppCompatActivity {
 
     int pId =1;
     int docId =1;
-    String time ="";
-    String date = "";
+    String time ="10:20";
+    String date = "11:50";
     DatabaseHelper databaseHelper;
     EditText messageToDoc;
     Button btn;

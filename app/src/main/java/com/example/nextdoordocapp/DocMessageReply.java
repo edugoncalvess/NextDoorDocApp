@@ -33,14 +33,12 @@ public class DocMessageReply extends AppCompatActivity {
 
         btnReply.setOnClickListener(new View.OnClickListener() {
             int intId=1;
+
             @Override
             public void onClick(View v) {
                     reply = replyText.getText().toString();
                     Log.d("reply", reply);
-                    //Having error in here
-                   // intId = Integer.parseInt(idPatient.toString());
 
-                   // Log.d("reply", reply);
                   boolean isUpdated = databaseHelper.updateReplyFieldDoc(intId, reply);
                   if (isUpdated) {
                       Toast.makeText(DocMessageReply.this, "Sent", Toast.LENGTH_LONG).show();

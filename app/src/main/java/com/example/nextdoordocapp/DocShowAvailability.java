@@ -27,6 +27,8 @@ public class DocShowAvailability extends AppCompatActivity {
         addMoreButton = findViewById(R.id.btnPatOkCheckedSchedule);
         showAllSchedule = findViewById(R.id.txtDocShowAllAvailibility);
 
+        Intent docMessagesIntent = getIntent();
+        int docID = getIntent().getIntExtra("docID",0);
 
         Cursor c = databaseHelper.viewDoctorAvailability();
         StringBuilder str = new StringBuilder();
@@ -45,14 +47,18 @@ public class DocShowAvailability extends AppCompatActivity {
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DocShowAvailability.this,DoctorHelloPg1.class));
+
+               startActivity(new Intent(DocShowAvailability.this,DoctorHelloPg1.class));
             }
         });
 
         addMoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DocShowAvailability.this,DocSchedulePg1.class));
+               // startActivity(new Intent(DocShowAvailability.this,DocSchedulePg1.class));
+                Intent doctorShowSchedule = new Intent(DocShowAvailability.this, DocSchedulePg1.class);
+                doctorShowSchedule.putExtra("docID", Integer.parseInt(String.valueOf(docID)));
+                startActivity(doctorShowSchedule);
             }
         });
 

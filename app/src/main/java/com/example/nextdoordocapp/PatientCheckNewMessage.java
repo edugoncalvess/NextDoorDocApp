@@ -46,19 +46,5 @@ public class PatientCheckNewMessage extends AppCompatActivity {
             });
         }
 
-/* Cursor c = databaseHelper.viewData();
-                StringBuilder str = new StringBuilder();
-                if(c.getCount()>0){
-                    while (c.moveToNext()){
-                        str.append(("ID : ") + c.getString(0));
-                        str.append(("Name " + c.getString(1)));
-                        str.append((" :" + c.getString(2)));
-                        str.append((" Course " + c.getString(3)));
-                        str.append("\n");
-
-                    }
-                    output.setText(str);
-                }
-            }*/
 
 }

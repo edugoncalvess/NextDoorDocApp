@@ -131,7 +131,6 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
                             Intent docIntentPostalCode = new Intent(PatientFindDoctorPg1.this,ShowDocsList.class);
                             Bundle extraInfoo = new Bundle();
                             extraInfoo.putString("postalCode", firstThreeCharsPostalCode);
-
                             Log.d("firstTHreadChars?",firstThreeCharsPostalCode);
 
                             docIntentPostalCode.putExtras(extraInfoo);
@@ -139,17 +138,12 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
                         }
                     }
 
-                    Intent findDoctorPg1Intent = new Intent(PatientFindDoctorPg1.this, PatientFindDoctorPg2.class);
-                    findDoctorPg1Intent.putExtra("patientId", patientId);
-                    startActivity(findDoctorPg1Intent);
-                   //startActivity(new Intent(PatientFindDoctorPg1.this,PatientFindDoctorPg2.class));
+
                 }
                 else {
                     message.setText("Please Enter Address or Postal code");
                 }
 
-
-              //  startActivity(new Intent(PatientFindDoctorPg1.this,PatientFindDoctorPg2.class));
             }
         });
 
