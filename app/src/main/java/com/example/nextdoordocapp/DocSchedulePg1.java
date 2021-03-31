@@ -65,6 +65,9 @@ public class DocSchedulePg1 extends AppCompatActivity {
             public void onClick(View v) {
                 t1 =Integer.parseInt(timeAvailability.getText().toString());
                 t2 =Integer.parseInt(timeAvailability2.getText().toString());
+                if(t1 > t2 || t1> 24 || t1<=0 || t2> 24 || t2<= 0 )
+                    Toast.makeText(DocSchedulePg1.this,"Please chose a proper time in 24hr format",Toast.LENGTH_LONG).show();
+                else{
                 dateView.setText(Date + " " + "From " + t1 + " to " + t2 );
                 boolean isInserted = databaseHelper.addRecordDoctorAvailability(Date,t1.toString(),t2.toString());
                 if (isInserted){
@@ -73,6 +76,8 @@ public class DocSchedulePg1 extends AppCompatActivity {
                 }
                 else {
                     Toast.makeText(DocSchedulePg1.this,"not added",Toast.LENGTH_LONG).show();
+
+                }
 
                 }
             }
