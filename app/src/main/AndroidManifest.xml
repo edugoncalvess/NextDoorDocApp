@@ -9,12 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".patientChangesPassword"></activity>
+        <activity android:name=".TicketPage"></activity>
+        <activity android:name=".patientChangesPassword" />
         <activity android:name=".ShowDocsList" />
         <activity android:name=".AdminRegistrationModule" />
         <activity android:name=".AdminResetsDeletesUser" />
-        android:theme="@style/Theme.NextDoorDocApp">
-        <activity android:name=".AdmTicketDetail"></activity>
+        <activity android:name=".AdmTicketDetail" />
         <activity android:name=".AdmListOfTickets" />
         <activity android:name=".CashierListOfPayments" />
         <activity android:name=".AdmApplicationMaintenance" />

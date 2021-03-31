@@ -62,23 +62,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button btnTestTicketsList = findViewById(R.id.btnTestTicketsList);
-        btnTestTicketsList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,AdmListOfTickets.class));
-            }
-        });
 
-        Button btnTestTicketsDetails = findViewById(R.id.btnTestTicketsDetails);
-
-        btnTestTicketsDetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,AdmTicketDetail.class));
-
-            }
-        });
 
     }
 }
