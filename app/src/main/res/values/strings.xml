@@ -16,7 +16,7 @@
     <string name="btnDocAllpages">Doctor Pages</string>
     <string name="txtHelloDoc">Hello Doctor!</string>
     <string name="btnDocShowMessages">Show Messages</string>
-    <string name="btnDocShowSchedule">Show schedule</string>
+    <string name="btnDocShowSchedule">Arrange schedule</string>
     <string name="txtTitleSchedule">Schedule</string>
     <string name="txtTitleMessages">Messages</string>
     <string name="btnAdminAllPages">Admin Pages</string>
