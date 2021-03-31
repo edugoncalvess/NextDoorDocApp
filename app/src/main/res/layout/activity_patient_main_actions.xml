@@ -18,9 +18,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPatWelcomeMessage"
+        app:layout_constraintVertical_bias="0.162" />
 
     <Button
         android:id="@+id/btnPatFindDoctor"
@@ -44,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="154dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         android:text="@string/txtPatWelcomeMessage"
@@ -70,4 +71,31 @@
         app:layout_constraintHorizontal_bias="0.389"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnPatFindDoctor" />
+
+    <Button
+        android:id="@+id/btnPatChangePassword"
+        android:layout_width="271dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/btnChangePasswordForUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnPatientCheckMessage" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/logOutFAB"
+        android:layout_width="61dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="28dp"
+        android:contentDescription="logout"
+        android:src="@android:drawable/ic_lock_lock"
+        android:tint="#FFFFFFFF"
+        android:visibility="visible"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:rippleColor="#FFFFFFFF" />
 </androidx.constraintlayout.widget.ConstraintLayout>

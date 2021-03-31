@@ -29,6 +29,8 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
     String doctorLName;
     String doctorAdd;
 
+    int patientId ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +39,9 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this);
 
         Intent findDoctorPg1Intent = getIntent();
-        int patientId = getIntent().getIntExtra("patientId",0);
-        Log.d("This is User id" , String.valueOf(patientId));
+        int patientIdPG1 = findDoctorPg1Intent.getIntExtra("patientId",0);
+        patientId = patientIdPG1;
+        Log.d("PatientId" , String.valueOf(patientId));
 
         /*databaseHelper.addRecordDocTest();
         databaseHelper.addRecordPatientTest();*/
@@ -81,7 +84,7 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
                 if(!docAddress.isEmpty() || !docPostalCode.isEmpty()){
                     if(!docAddress.isEmpty()){
                         Cursor DoctorByAddCursor = databaseHelper.getDoctorByAddress(docAddress);
-                        Log.d("Here", String.valueOf(DoctorByAddCursor.getCount()));
+                        Log.d("DocCount", String.valueOf(DoctorByAddCursor.getCount()));
                         if(DoctorByAddCursor.getCount()>0){
                             while (DoctorByAddCursor.moveToNext()){
                                 doctorFName = DoctorByAddCursor.getString(0);
@@ -104,6 +107,7 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
                     }
                     else if(!docPostalCode.isEmpty()){
                         Cursor DoctorBtPostalCursor = databaseHelper.getDoctorByPostalCode(firstThreeCharsPostalCode);
+                        Log.d("Dc", String.valueOf(DoctorBtPostalCursor.getCount()));
                         Log.d("Dc",firstThreeCharsPostalCode );
                         Log.d("Count", String.valueOf(DoctorBtPostalCursor.getCount()));
                         if(DoctorBtPostalCursor.getCount()>0){
@@ -115,9 +119,14 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
                                 doctorsArray.add(doctorFName);
                                 doctorsArray.add(doctorLName);
                                 doctorsArray.add(doctorAdd);
+
+
                                 Log.d("Dc","inside while" );
                                 Log.d("Dc",docPostalCode );
                             }
+
+                            System.out.println("List of Doctors" + String.valueOf(doctorsArray));
+
                             Log.d("Name", String.valueOf(doctorsArray));
                             Intent docIntentPostalCode = new Intent(PatientFindDoctorPg1.this,ShowDocsList.class);
                             Bundle extraInfoo = new Bundle();
@@ -129,10 +138,16 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
                             startActivity(docIntentPostalCode);
                         }
                     }
+
+                    Intent findDoctorPg1Intent = new Intent(PatientFindDoctorPg1.this, PatientFindDoctorPg2.class);
+                    findDoctorPg1Intent.putExtra("patientId", patientId);
+                    startActivity(findDoctorPg1Intent);
+                   //startActivity(new Intent(PatientFindDoctorPg1.this,PatientFindDoctorPg2.class));
                 }
                 else {
                     message.setText("Please Enter Address or Postal code");
                 }
+
 
               //  startActivity(new Intent(PatientFindDoctorPg1.this,PatientFindDoctorPg2.class));
             }

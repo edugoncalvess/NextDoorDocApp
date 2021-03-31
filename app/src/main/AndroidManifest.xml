@@ -9,12 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".listDocDetail"></activity>
+        <activity android:name=".patientChangesPassword"></activity>
+        <activity android:name=".listDocDetail" />
         <activity android:name=".ShowDocsList" />
         <activity android:name=".AdminRegistrationModule" />
         <activity android:name=".AdminResetsDeletesUser" />
         android:theme="@style/Theme.NextDoorDocApp">
-        <activity android:name=".CashierListOfPayments"></activity>
+        <activity android:name=".AdmTicketDetail"></activity>
+        <activity android:name=".AdmListOfTickets" />
+        <activity android:name=".CashierListOfPayments" />
         <activity android:name=".AdminResetsDeletesUser" />
         <activity android:name=".AdmApplicationMaintenance" />
         <activity android:name=".AdminUpdatingDoctor" />
@@ -42,7 +45,6 @@
         <activity android:name=".DocSchedulePg1" />
         <activity android:name=".DocMessagesPg1" />
         <activity android:name=".DoctorHelloPg1" />
-        <activity android:name=".AdminRegistrationPage" />
         <activity android:name=".AdmInfoRegistration" />
         <activity android:name=".AdmCasInformation" />
         <activity android:name=".AdmDocInformation" />

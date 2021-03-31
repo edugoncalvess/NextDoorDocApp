@@ -51,8 +51,6 @@ public class PatientRegistrationPg1 extends AppCompatActivity {
         Button btnRegisterPatient = findViewById(R.id.btnRgstPgCreatePatient);
 
 
-
-
         btnRegisterPatient.setOnClickListener(new View.OnClickListener() {
             boolean isInserted;
 
@@ -73,6 +71,10 @@ public class PatientRegistrationPg1 extends AppCompatActivity {
                 if (chkEmail == true) {
                     Boolean i = databaseHelper.insert(emailId, password, role);
                     if (i == true) {
+                        String patInsNum = patientInsuranceNumber.getText().toString();
+                        if (patInsNum.isEmpty())
+                            patientInsuranceNumber.setText("NULL");
+
                         isInserted = databaseHelper.addRecordPatient(patientEmail.getText().toString(),
                                 patientFirstName.getText().toString(),
                                 patientLastName.getText().toString(),

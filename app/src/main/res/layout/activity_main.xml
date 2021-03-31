@@ -27,12 +27,13 @@
         android:layout_height="62dp"
         android:layout_marginStart="161dp"
         android:layout_marginLeft="161dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="157dp"
         android:layout_marginRight="157dp"
         android:text="@string/btnDocAllpages"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.416"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnPatAllPages" />
 
@@ -40,10 +41,11 @@
         android:id="@+id/btnAdminAllPages"
         android:layout_width="216dp"
         android:layout_height="62dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="36dp"
         android:text="@string/btnAdminAllPages"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.574"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnDocAllPages" />
 
@@ -53,23 +55,23 @@
         android:layout_height="62dp"
         android:layout_marginStart="102dp"
         android:layout_marginLeft="102dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="103dp"
         android:layout_marginRight="103dp"
         android:text="@string/btnCashierAllpages"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.416"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAdminAllPages" />
+        app:layout_constraintTop_toBottomOf="@+id/btnTestTicketsList" />
 
     <Button
         android:id="@+id/btnLoginPage"
         android:layout_width="166dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="16dp"
         android:text="@string/btnLoginPage"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,13 +83,40 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
         android:layout_marginLeft="14dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="35dp"
         android:layout_marginRight="35dp"
         android:text="@string/btnSplashPage"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/btnLoginPage"
         app:layout_constraintTop_toBottomOf="@+id/btnCashierPages" />
+
+    <Button
+        android:id="@+id/btnTestTicketsList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:text="@string/btnOpenTickets"
+        app:layout_constraintEnd_toStartOf="@+id/btnTestTicketsDetails"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAdminAllPages" />
+
+    <Button
+        android:id="@+id/btnTestTicketsDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:text="@string/btnTicketsDetails"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnTestTicketsList"
+        app:layout_constraintTop_toBottomOf="@+id/btnAdminAllPages" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,42 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CashierListOfPayments">
+    tools:context=".AdmListOfTickets">
 
     <TextView
-        android:id="@+id/txtTitleListPayments"
+        android:id="@+id/txtTitleListTickets"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="62dp"
-        android:text="@string/txtTitleListPmt"
+        android:text="@string/txtTitleListTks"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:textSize="26sp" />
 
     <Button
-        android:id="@+id/btnCheckPendingPaymts"
+        android:id="@+id/btnCheckPendingTickets"
         android:layout_width="283dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="33dp"
-        android:text="@string/btnCheckPendingPaymts"
+        android:text="@string/btnCheckPendingTkts"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTitleListPayments" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTitleListTickets" />
 
     <TextView
-        android:id="@+id/txtListOfPendingPmts"
+        android:id="@+id/txtListOfPendingTickets"
         android:layout_width="283dp"
         android:layout_height="350dp"
         android:layout_marginTop="10dp"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCheckPendingPaymts" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCheckPendingTickets" />
 
     <Button
-        android:id="@+id/btnBackHomeFromPmtList"
+        android:id="@+id/btnBackHomeFromTktList"
         android:layout_width="283dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -47,5 +47,10 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtListOfPendingPmts" />
+        app:layout_constraintTop_toBottomOf="@+id/txtListOfPendingTickets" />
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,10 +8,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class PatientMainActions extends AppCompatActivity {
 
     Button foodTrackBtn;
     Button findDoctorBtn;
+    Button changePassword;
     DatabaseHelper db;
     int patientId ;
 
@@ -27,8 +30,9 @@ public class PatientMainActions extends AppCompatActivity {
         db = new DatabaseHelper(this);
         foodTrackBtn = findViewById(R.id.btnPatFoodTrack);
         findDoctorBtn = findViewById(R.id.btnPatFindDoctor);
+        changePassword = findViewById(R.id.btnPatChangePassword);
         Button checkMessage = findViewById(R.id.btnPatientCheckMessage);
-
+        FloatingActionButton logout = findViewById(R.id.logOutFAB);
 
 
         foodTrackBtn.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +65,20 @@ public class PatientMainActions extends AppCompatActivity {
                 foodTrackIntent.putExtra("patientId", patientId);
                 startActivity(foodTrackIntent);
 
+            }
+        });
+
+        changePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PatientMainActions.this,patientChangesPassword.class));
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PatientMainActions.this,SplashActivity.class));
             }
         });
     }

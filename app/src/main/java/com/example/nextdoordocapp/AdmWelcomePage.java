@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class AdmWelcomePage extends AppCompatActivity {
 
     @Override
@@ -17,7 +19,7 @@ public class AdmWelcomePage extends AppCompatActivity {
         Button btnAdmMaintenance = (Button) findViewById(R.id.btnAdmMaintenance);
         Button btnAdmUpdateDetails= findViewById(R.id.btnAdmUpdateDetails);;
         Button btnAdmReg = (Button) findViewById(R.id.btnAdmReg);
-
+        FloatingActionButton logout = findViewById(R.id.logoutAdmin);
         btnAdmReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,6 +41,13 @@ public class AdmWelcomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 startActivity(new Intent(AdmWelcomePage.this,AdmApplicationMaintenance.class));
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AdmWelcomePage.this,SplashActivity.class));
             }
         });
 
