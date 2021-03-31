@@ -72,6 +72,13 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnTestTicketsDetails = findViewById(R.id.btnTestTicketsDetails);
 
+        btnTestTicketsDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,AdmTicketDetail.class));
+
+            }
+        });
 
     }
 }

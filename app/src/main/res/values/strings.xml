@@ -278,6 +278,10 @@
     <string name="btnOpenTickets">Open Tickets</string>
     <string name="btnTicketsDetails">Ticket Details</string>
     <string name="hintTicketID">Ticket ID</string>
+    <string name="lblTktContactEmail">Contact E-mail</string>
+    <string name="lblTktContactPhone">Contact Phone</string>
+    <string name="btnCloseTicket">Close Ticket</string>
+
 
 
 </resources>

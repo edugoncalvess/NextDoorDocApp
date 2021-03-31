@@ -1124,6 +1124,15 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         return c;
     }
 
+    public Cursor checkTicketByPatientId(int id) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        String checkPendingPayments = "SELECT * FROM " + TABLE13_NAME + " Where " + T13COL_1 + " = " + id + " AND " + T13COL_5 + " <> 'CLOSED'";
+        Cursor c = sqLiteDatabase.rawQuery(checkPendingPayments, null);
+        return c;
+    }
+
+
 
 }
 
