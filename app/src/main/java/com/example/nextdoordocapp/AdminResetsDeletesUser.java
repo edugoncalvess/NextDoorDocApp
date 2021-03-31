@@ -38,14 +38,26 @@ public class AdminResetsDeletesUser extends AppCompatActivity {
                         }
                     }
                     boolean r = databaseHelper.resetPasswordLogin(sEmail, "NextDoorDoc");
-                    boolean resMain = databaseHelper.resetPasswordLogin(sEmail, "NextDoorDoc");
+                    boolean resMain;
+                    if ("patient".equals(role.toString())) {
+                        resMain = databaseHelper.resetPasswordPatient(sEmail, "NextDoorDoc");
+
+                    } else if ("doctor".equals(role.toString())) {
+                        resMain = databaseHelper.resetPasswordDoctor(sEmail, "NextDoorDoc");
+                    } else if ("cashier".equals(role.toString())) {
+                        resMain = databaseHelper.resetPasswordCashier(sEmail, "NextDoorDoc");
+                    } else {
+                        resMain = databaseHelper.resetPasswordAdmin(sEmail, "NextDoorDoc");
+                    }
                     if (r && resMain) {
                         Toast.makeText(AdminResetsDeletesUser.this, "Password Reset Successfully", Toast.LENGTH_SHORT).show();
-                    }else
+                    } else
                         Toast.makeText(AdminResetsDeletesUser.this, "Reset Failed", Toast.LENGTH_SHORT).show();
 
-                }else
+
+                } else
                     Toast.makeText(AdminResetsDeletesUser.this, "Email Id doesn't exists", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -53,6 +65,38 @@ public class AdminResetsDeletesUser extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sEmail = email.getText().toString();
+                boolean valEmailPassword = databaseHelper.valAdminEmailPassword(sEmail);
+                StringBuilder role = new StringBuilder();
+                if (valEmailPassword) {
+//                    Toast.makeText(LoginActivityPg1.this, "Login successful", Toast.LENGTH_LONG).show();
+                    Cursor cursor = databaseHelper.roleAdminLoginTableExists(sEmail);
+                    if (cursor.getCount() > 0) {
+                        while (cursor.moveToNext()) {
+                            role.append(cursor.getString(0));
+                        }
+                    }
+                    boolean r = databaseHelper.resetPasswordLogin(sEmail, "NextDoorDoc");
+                    boolean resMain;
+                    if ("patient".equals(role.toString())) {
+                        resMain = databaseHelper.resetPasswordPatient(sEmail, "NextDoorDoc");
+
+                    } else if ("doctor".equals(role.toString())) {
+                        resMain = databaseHelper.resetPasswordDoctor(sEmail, "NextDoorDoc");
+                    } else if ("cashier".equals(role.toString())) {
+                        resMain = databaseHelper.resetPasswordCashier(sEmail, "NextDoorDoc");
+                    } else {
+                        resMain = databaseHelper.resetPasswordAdmin(sEmail, "NextDoorDoc");
+                    }
+                    if (r && resMain) {
+                        Toast.makeText(AdminResetsDeletesUser.this, "Password Reset Successfully", Toast.LENGTH_SHORT).show();
+                    } else
+                        Toast.makeText(AdminResetsDeletesUser.this, "Reset Failed", Toast.LENGTH_SHORT).show();
+
+
+                } else
+                    Toast.makeText(AdminResetsDeletesUser.this, "Email Id doesn't exists", Toast.LENGTH_SHORT).show();
+
+
             }
         });
     }
