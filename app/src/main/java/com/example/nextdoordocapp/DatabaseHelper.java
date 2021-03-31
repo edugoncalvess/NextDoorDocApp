@@ -317,7 +317,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         SQLiteDatabase sqLiteDatabase= this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(T1COL_5,eTime);
-        long r = sqLiteDatabase.update(TABLE1_NAME,values, "patientId=?", new String[]{Integer.toString(id)} );
+        long r = sqLiteDatabase.update(TABLE1_NAME,values, "patientId=?" , new String[]{Integer.toString(id)} );
         if (r > 0)
             return true;
         else
