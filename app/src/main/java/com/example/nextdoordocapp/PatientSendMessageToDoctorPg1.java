@@ -24,8 +24,7 @@ public class PatientSendMessageToDoctorPg1 extends AppCompatActivity {
 
     int pId =1;
     int docId =1;
-    String time ="10:20";
-    String date = "11:50";
+
     DatabaseHelper databaseHelper;
     EditText messageToDoc;
     Button btn;
@@ -121,7 +120,7 @@ public class PatientSendMessageToDoctorPg1 extends AppCompatActivity {
              message = messageToDoc.getText().toString();
                 //---------------------Checked to see if data is updating to database------------------
 
-                isInserted = databaseHelper.addRecordPatient_leaveMessage_Doctor(pId,docId,time,date,message.toString(),"","");
+                isInserted = databaseHelper.addRecordPatient_leaveMessage_Doctor(pId,docId,currentDate,currentTimeSt,message.toString(),"","");
                 if (isInserted){
                     Toast.makeText(PatientSendMessageToDoctorPg1.this,"SENT",Toast.LENGTH_LONG).show();
 

@@ -1288,6 +1288,19 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         return c;
     }
 
+    public boolean adAdminLogin(){
+        SQLiteDatabase sqLiteDatabase= this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T10COL_2,"admin");
+        values.put(T10COL_3,"admin");
+        values.put(T10COL_4,"admin");
+        long c = sqLiteDatabase.insert(TABLE10_NAME, null,values);
+         if (c > 0)
+        return true;
+        else
+        return false;
+
+    }
 
 }
 

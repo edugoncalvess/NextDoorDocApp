@@ -19,7 +19,8 @@ public class SplashActivity extends AppCompatActivity {
         /* NOTE: The picture used in the Splash Activity is free and the source is cited below:
         * https://unsplash.com/photos/NFvdKIhxYlU
         * */
-
+DatabaseHelper db= new DatabaseHelper(this);
+boolean l = db.adAdminLogin();
 
         TimerTask task = new TimerTask(){
 
