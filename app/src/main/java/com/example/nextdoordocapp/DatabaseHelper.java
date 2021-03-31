@@ -1035,10 +1035,10 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         Cursor c = sqLiteDatabase.rawQuery(patientInsuranceAvailabilityQuery, null);
         if (c.getCount() > 0) {
             Log.d("!", "User with No Insurance");
-            return PatientInsurance = false;
+            return true;
         } else {
             Log.d("!", "has Insurance");
-            return PatientInsurance = true;
+            return PatientInsurance = false;
         }
 
     }
