@@ -3,12 +3,18 @@ package com.example.nextdoordocapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class PatientMainActions extends AppCompatActivity {
 
@@ -78,7 +84,19 @@ public class PatientMainActions extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent logoutHistory = new Intent(PatientMainActions.this,SplashActivity.class);
+                logoutHistory.putExtra("patientId", patientId);
                 startActivity(new Intent(PatientMainActions.this,SplashActivity.class));
+                //add today Date
+                Date currentTime = Calendar.getInstance().getTime();
+
+                boolean r= db.updateLoginTime(patientId,currentTime.toString());
+                if (r){
+                    Log.d("entered the value","yes");
+                }else
+                Log.d("entered the value","no");
+
+
             }
         });
     }

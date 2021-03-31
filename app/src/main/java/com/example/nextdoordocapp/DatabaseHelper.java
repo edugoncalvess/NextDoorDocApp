@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.strictmode.SqliteObjectLeakedViolation;
 import android.util.Log;
 import android.view.View;
 
@@ -294,13 +295,14 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     //add  record method for table Patient_loginHistory
     //add user patient history
     //this method can be used with Toast to make sure our data has been stored in database
-    public boolean addRecordPatHist(String email, String date, String sTime, String eTime) {
+
+    public boolean addRecordPatHist(String id, String date, String sTime) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(T1COL_2, email);
+        values.put(T1COL_2, id);
         values.put(T1COL_3, date);
         values.put(T1COL_4, sTime);
-        values.put(T1COL_5, eTime);
+//        values.put(T1COL_5, eTime);
 
         long r = sqLiteDatabase.insert(TABLE1_NAME, null, values);
         if (r > 0)
@@ -309,6 +311,19 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
 
     }
+
+    //updates the loginHistory Table
+    public boolean updateLoginTime(int id, String eTime){
+        SQLiteDatabase sqLiteDatabase= this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T1COL_5,eTime);
+        long r = sqLiteDatabase.update(TABLE1_NAME,values, "patientId=?", new String[]{Integer.toString(id)} );
+        if (r > 0)
+            return true;
+        else
+            return false;
+    }
+
 
     //add record method for table FoodItem
     public boolean addRecordFoodItem(String cAmount, String fName) {
