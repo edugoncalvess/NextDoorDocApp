@@ -1032,14 +1032,14 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         String patientInsuranceAvailabilityQuery = "SELECT " + T3COL_0 + " FROM " + TABLE3_NAME + " Where " + T3COL_15 + "= ''";
-        Log.d("HELPME",patientInsuranceAvailabilityQuery);
+        Log.d("insuranceSQL",patientInsuranceAvailabilityQuery);
         Cursor c = sqLiteDatabase.rawQuery(patientInsuranceAvailabilityQuery, null);
         if (c.getCount() > 0) {
-            Log.d("!", "No Insurance");
-            return PatientInsurance = false;
+            Log.d("!", "User with No Insurance");
+            return true;
         } else {
             Log.d("!", "has Insurance");
-            return PatientInsurance = true;
+            return PatientInsurance = false;
         }
 
     }
@@ -1098,6 +1098,24 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         return c;
     }
 
+    //Patient add record payment
+    public boolean addRecordPatToPayment(int pId, String payDate, String pTime, int payAmount, String payMethod,String payStatus) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T4COL_2, pId);
+        values.put(T4COL_3, payDate);
+        values.put(T4COL_4, pTime);
+        values.put(T4COL_5, payAmount);
+        values.put(T4COL_6, payMethod);
+        values.put(T4COL_7, payStatus);
+
+        long r = sqLiteDatabase.insert(TABLE4_NAME, null, values);
+        if (r > 0)
+            return true;
+        else
+            return false;
+
+    }
 
 
     public boolean updateMessagePatientTable(int msgId, String newMessage){
