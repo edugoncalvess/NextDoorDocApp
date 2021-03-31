@@ -349,7 +349,10 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         values.put(T3COL_12, pStreet);
         values.put(T3COL_13, pPostalCode);
         values.put(T3COL_14, pPassword);
+        if(!pInsuranceNumber.isEmpty())
         values.put(T3COL_15, pInsuranceNumber);
+        else
+            values.put(T3COL_15,"");
         values.put(T3COL_16, pDiseaseName);
         values.put(T3COL_17, pAllergyName);
         values.put(T3COL_18, pMedicineName);
@@ -1201,6 +1204,39 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
 
     }
+
+    // Method to close ticket. It changes the ticketStatus from "OPEN" to "CLOSED"
+    public boolean updateCloseTicket(int ticketId) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T13COL_5, "CLOSED");
+
+        int d= sqLiteDatabase.update(TABLE13_NAME, values, "ticketId=?", new String[]{Integer.toString(ticketId)});
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }
+
+    // List all Open tickets
+    public Cursor listAllOpenTickets() {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        String checkAllPendingPayments = "SELECT * FROM " + TABLE13_NAME
+        + " Where " + T13COL_5 + " = 'OPEN'";
+        Cursor c = sqLiteDatabase.rawQuery(checkAllPendingPayments, null);
+        return c;
+    }
+
+    public Cursor checkTicketByPatientId(int id) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        String checkPendingPayments = "SELECT * FROM " + TABLE13_NAME + " Where " + T13COL_1 + " = " + id + " AND " + T13COL_5 + " <> 'CLOSED'";
+        Cursor c = sqLiteDatabase.rawQuery(checkPendingPayments, null);
+        return c;
+    }
+
+
 
 }
 

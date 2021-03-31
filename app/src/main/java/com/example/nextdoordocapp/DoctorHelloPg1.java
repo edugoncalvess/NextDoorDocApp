@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class DoctorHelloPg1 extends AppCompatActivity {
     DatabaseHelper databaseHelper;
     @Override
@@ -18,7 +20,7 @@ public class DoctorHelloPg1 extends AppCompatActivity {
 
         Intent docMessagesIntent = getIntent();
         int docID = getIntent().getIntExtra("docID",0);
-
+ FloatingActionButton logout = findViewById(R.id.logoutDoctor);
         databaseHelper = new DatabaseHelper(this);
 
 
@@ -45,6 +47,13 @@ public class DoctorHelloPg1 extends AppCompatActivity {
                 docScheduleIntent.putExtra("docId", docID);
                 startActivity(docScheduleIntent);
 
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DoctorHelloPg1.this,SplashActivity.class));
             }
         });
     }

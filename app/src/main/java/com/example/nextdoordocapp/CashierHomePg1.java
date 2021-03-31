@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class CashierHomePg1 extends AppCompatActivity {
 
     @Override
@@ -18,7 +20,7 @@ public class CashierHomePg1 extends AppCompatActivity {
         Button btnHmListOfAllPayments = findViewById(R.id.btnHmListOfAllPayments);
         Button btnCashierLogoff = findViewById(R.id.btnCashierLogoff);
         //Button btnRegisterPayment = findViewById(R.id.btnRegisterPayment);
-
+        FloatingActionButton logout = findViewById(R.id.logoutCashier);
         btnCheckPayment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,6 +53,12 @@ public class CashierHomePg1 extends AppCompatActivity {
         });
         * */
 
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CashierHomePg1.this,SplashActivity.class));
+            }
+        });
 
 
     }

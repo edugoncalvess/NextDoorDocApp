@@ -52,7 +52,7 @@ public class ContactSupportPg1 extends AppCompatActivity {
 
                         if (isInserted){
                             // Sending message on screen
-                            Toast.makeText(ContactSupportPg1.this,"Data added. Wait for your password reset or call us. " + needLoginHelpEmail,Toast.LENGTH_LONG).show();
+                            Toast.makeText(ContactSupportPg1.this,"Data added. We are going to solve it ASAP",Toast.LENGTH_LONG).show();
                             Log.d("ContactSupport002", "Ticket registered" + "Email: " + needLoginHelpEmail + ", " + "Phone: " + needLoginHelpPhone + ", " + "Message: " + needLoginHelpMessage);
                         }
                         else {
