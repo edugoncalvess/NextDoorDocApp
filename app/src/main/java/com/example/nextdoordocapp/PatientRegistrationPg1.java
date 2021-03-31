@@ -50,12 +50,7 @@ public class PatientRegistrationPg1 extends AppCompatActivity {
 
         Button btnRegisterPatient = findViewById(R.id.btnRgstPgCreatePatient);
 
-        int spinner_pos = patientGenderSelection.getSelectedItemPosition();
-        Log.d("SnrPos", "The selected position was " + spinner_pos);
 
-        patientGender = patientGenderSelection.getSelectedItem().toString();
-
-        Log.d("SpinnerGenderSelection", patientGenderSelection.getSelectedItem().toString());
 
 
         btnRegisterPatient.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +58,14 @@ public class PatientRegistrationPg1 extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                int spinner_pos = patientGenderSelection.getSelectedItemPosition();
+                Log.d("SnrPos", "The selected position was " + spinner_pos);
+
+                patientGender = patientGenderSelection.getSelectedItem().toString();
+
+                Log.d("SpinnerGenderSelection", patientGenderSelection.getSelectedItem().toString());
+
+
                 String emailId = patientEmail.getText().toString();
                 String password = patientPassword.getText().toString();
 

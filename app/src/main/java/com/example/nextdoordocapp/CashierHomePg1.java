@@ -15,7 +15,9 @@ public class CashierHomePg1 extends AppCompatActivity {
         setContentView(R.layout.activity_cashier_home_pg1);
 
         Button btnCheckPayment = findViewById(R.id.btnCheckPayment);
-        Button btnRegisterPayment = findViewById(R.id.btnRegisterPayment);
+        Button btnHmListOfAllPayments = findViewById(R.id.btnHmListOfAllPayments);
+        Button btnCashierLogoff = findViewById(R.id.btnCashierLogoff);
+        //Button btnRegisterPayment = findViewById(R.id.btnRegisterPayment);
 
         btnCheckPayment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,13 +26,32 @@ public class CashierHomePg1 extends AppCompatActivity {
             }
         });
 
+        btnHmListOfAllPayments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CashierHomePg1.this,CashierListOfPayments.class));
+            }
+        });
 
-        btnRegisterPayment.setOnClickListener(new View.OnClickListener() {
+        btnCashierLogoff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CashierHomePg1.this,LoginActivityPg1.class));
+            }
+        });
+
+
+
+        /*
+        *         btnRegisterPayment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CashierHomePg1.this,CashierRegisterPmtPg1.class));
             }
         });
+        * */
+
+
 
     }
 }

@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Struct;
 
 public class PatientBookAppointmentDoctorPg1 extends AppCompatActivity {
 
@@ -18,6 +20,14 @@ public class PatientBookAppointmentDoctorPg1 extends AppCompatActivity {
     Spinner spinnerPatAppointmentDocDays;
     Spinner spinnerPatAppointmentDocTime;
     Button btnPatAppointmentDocRegister;
+    String spinnerChoiceDate;
+    String spinnerChoiceTime;
+    int timeRange;
+    String date;
+    String startTime;
+    String endTime;
+    TextView txtAppointment;
+    boolean isUpdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,39 +38,59 @@ public class PatientBookAppointmentDoctorPg1 extends AppCompatActivity {
 
         // Spinner spinnerPatAppointmentDocDays
         spinnerPatAppointmentDocDays = findViewById(R.id.spinnerPatAppointmentDocDays);
-
         // Spinner spinnerPatAppointmentDocDays
-        spinnerPatAppointmentDocTime = findViewById(R.id.spinnerPatAppointmentDocTime);
-
+        spinnerPatAppointmentDocTime = findViewById(R.id.spinnerPatAppointmentDocTime2);
         // Button Register
         btnPatAppointmentDocRegister = findViewById(R.id.btnPatAppointmentDocRegister);
-
-
-
-
-/* Cursor c = databaseHelper.viewNewMessageDoc();
-        if(c.getCount()>0){
-            while (c.moveToNext()){
-                String sender = c.getString(0);
-                String title = c.getString(1);
-                String Details = c.getString(2);
-                String time = c.getString(3);
-
-                mEmail = new EmailData("Patient: " + sender, "Message/Question",
-                        Details,
-                        time);
-            }
-            mEmailData.add(mEmail);
-        }*/
-
+        txtAppointment = findViewById(R.id.txtBookedApptConfirm);
 
 
         btnPatAppointmentDocRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-            }
+                spinnerChoiceDate = spinnerPatAppointmentDocDays.getSelectedItem().toString();
+                spinnerChoiceTime =spinnerPatAppointmentDocTime.getSelectedItem().toString();
+                timeRange = spinnerPatAppointmentDocTime.getSelectedItemPosition() + 8;
+
+                Log.d("bookeddate",spinnerChoiceDate);
+                Log.d("bookedTime", String.valueOf(timeRange));
+                Cursor c = databaseHelper.viewDoctorAvailability();
+                if(c.getCount()>0) {
+                    while (c.moveToNext()) {
+                        date = c.getString(1);
+                        startTime = c.getString(2);
+                        endTime = c.getString(3);
+                        Log.d("dateDoc", date);
+                        Log.d("startTimeDoc",startTime);
+                        Log.d("endTimeDoc",endTime);
+
+                        if (spinnerChoiceDate.equals(date) && timeRange >= Integer.parseInt(startTime) && timeRange <= Integer.parseInt(endTime))
+                            {
+                                isUpdate = databaseHelper.addRecordPatient_BookAppointment_Doctor("", "", date, String.valueOf(timeRange),"");
+                                if (isUpdate) {
+                                    Toast.makeText(PatientBookAppointmentDoctorPg1.this, "Appointment Saved", Toast.LENGTH_LONG).show();
+                                    txtAppointment.setText("You booked for " + spinnerChoiceDate + " For " + timeRange + " to " + (timeRange + 1));
+                                    break;
+                                }
+
+                         }
+                    }
+
+                }
+                if(c.getCount()==0)
+                    txtAppointment.setText("Please wait for doctor to set the schedule.");
+
+             // Toast.makeText(PatientBookAppointmentDoctorPg1.this,"Please chose according to availability", Toast.LENGTH_LONG).show();
+
+                }
+
+
+
         });
 
+
     }
+
+
 }
