@@ -348,7 +348,10 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         values.put(T3COL_12, pStreet);
         values.put(T3COL_13, pPostalCode);
         values.put(T3COL_14, pPassword);
+        if(!pInsuranceNumber.isEmpty())
         values.put(T3COL_15, pInsuranceNumber);
+        else
+            values.put(T3COL_15,"");
         values.put(T3COL_16, pDiseaseName);
         values.put(T3COL_17, pAllergyName);
         values.put(T3COL_18, pMedicineName);

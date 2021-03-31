@@ -242,6 +242,9 @@
     <string name="rcdlAddress">Address</string>
     <string name="rcdllastName">Last Name</string>
     <string name="rcdlfirstName">First Name</string>
+    <string name="btnChangePasswordForUser">Change Password</string>
+    <string name="changePassLabel">Enter the email to Change Password</string>
+
 
     <string-array name="txtArraySelectTime">
         <item>8-9</item>
