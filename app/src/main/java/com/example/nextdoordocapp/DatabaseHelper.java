@@ -51,6 +51,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     final static String TABLE10_NAME = "Login_Table";
     final static String TABLE11_NAME = "Cashier";
     final static String TABLE12_NAME = "Admin";
+    final static String TABLE13_NAME = "TroubleTicket";
 
     //Patient_loginHistory table columns
     final static String T1COL_1 = "LogId";
@@ -167,6 +168,12 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     final static String T12COL_8 = "admAddress";
     final static String T12COL_9 = "admDOB";
 
+    //Trouble Ticket to support (Admin)
+    final static String T13COL_1 = "ticketId";
+    final static String T13COL_2 = "ticketEmail";
+    final static String T13COL_3 = "ticketPhone";
+    final static String T13COL_4 = "ticketMessage";
+    final static String T13COL_5 = "ticketStatus";
 
     //Database created - no need fo update here
     public DatabaseHelper(@Nullable Context context) {
@@ -256,6 +263,12 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
                 + T12COL_6 + " TEXT," + T12COL_7 + " TEXT," + T12COL_8 + " TEXT," + T12COL_9 + " TEXT)";
 
         db.execSQL(AdminQuery);
+
+        //   Table for Trouble Ticket (contact support = Admin). For future implementation
+        String TicketQuery = "CREATE TABLE " + TABLE13_NAME + " (" + T13COL_1 + " INTEGER PRIMARY KEY,"
+                + T13COL_2 + " TEXT," + T13COL_3 + " TEXT," + T13COL_4 + " TEXT," + T13COL_5 + " TEXT)";
+
+        db.execSQL(TicketQuery);
     }
 
     @Override
@@ -272,6 +285,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         db.execSQL("DROP table if exists " + TABLE10_NAME);
         db.execSQL("DROP table if exists " + TABLE11_NAME);
         db.execSQL("DROP table if exists " + TABLE12_NAME);
+        db.execSQL("DROP table if exists " + TABLE13_NAME);
         onCreate(db);
 
     }
@@ -1067,6 +1081,26 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         Cursor c = sqLiteDatabase.rawQuery(checkAllPendingPayments, null);
         return c;
     }
+
+
+    ////    Registering new user Admin
+    public boolean addTicketRecords(String ticketMail, String ticketPhone, String ticketMessage) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(T13COL_2, ticketMail);
+        contentValues.put(T13COL_3, ticketPhone);
+        contentValues.put(T13COL_4, ticketMessage);
+        contentValues.put(T13COL_5, "OPEN");
+
+
+        long r = sqLiteDatabase.insert(TABLE13_NAME, null, contentValues);
+        if (r > 0)
+            return true;
+        else
+            return false;
+
+    }
+
 }
 
 

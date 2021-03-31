@@ -52,7 +52,14 @@ public class CashierPmtCheckPg1 extends AppCompatActivity {
         btnCheckPmtStatus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                patientID = Integer.parseInt(txtPatientID.getText().toString());
+
+
+                if (txtPatientID.getText().toString().trim().length() > 0){
+                    patientID = Integer.parseInt(txtPatientID.getText().toString());
+                }
+                else {
+                    patientID = 0;
+                }
 
                 // Call this method only for test, to manually create a pending payment so we have one register at least
                  databaseHelper.addRecordPaymentTest();

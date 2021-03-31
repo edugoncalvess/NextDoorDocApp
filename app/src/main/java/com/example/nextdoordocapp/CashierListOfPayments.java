@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -61,6 +62,12 @@ public class CashierListOfPayments extends AppCompatActivity {
                     }
                     txtListOfPendingPmts.setText(strMsg);
                 }
+                else if(c.getCount() == 0)  {
+                    strMsg.append("There are no pending payments"); strMsg.append("\t");
+                    Log.d("PaymentCursorCount", "Query retrieving pending payments returned with 0 entries " + c.getCount());
+                    txtListOfPendingPmts.setText(strMsg);
+                }
+
                 c.close();;
 
             }
