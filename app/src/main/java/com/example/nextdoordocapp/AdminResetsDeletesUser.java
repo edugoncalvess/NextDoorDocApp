@@ -75,22 +75,22 @@ public class AdminResetsDeletesUser extends AppCompatActivity {
                             role.append(cursor.getString(0));
                         }
                     }
-                    boolean r = databaseHelper.resetPasswordLogin(sEmail, "NextDoorDoc");
+                    boolean r = databaseHelper.deleteLogin(sEmail);
                     boolean resMain;
                     if ("patient".equals(role.toString())) {
-                        resMain = databaseHelper.resetPasswordPatient(sEmail, "NextDoorDoc");
+                        resMain = databaseHelper.deletePatient(sEmail);
 
                     } else if ("doctor".equals(role.toString())) {
-                        resMain = databaseHelper.resetPasswordDoctor(sEmail, "NextDoorDoc");
+                        resMain = databaseHelper.deleteDoctor(sEmail);
                     } else if ("cashier".equals(role.toString())) {
-                        resMain = databaseHelper.resetPasswordCashier(sEmail, "NextDoorDoc");
+                        resMain = databaseHelper.deleteCashier(sEmail);
                     } else {
-                        resMain = databaseHelper.resetPasswordAdmin(sEmail, "NextDoorDoc");
+                        resMain = databaseHelper.deleteAdmin(sEmail);
                     }
                     if (r && resMain) {
-                        Toast.makeText(AdminResetsDeletesUser.this, "Password Reset Successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AdminResetsDeletesUser.this, "User Deleted Successfully", Toast.LENGTH_SHORT).show();
                     } else
-                        Toast.makeText(AdminResetsDeletesUser.this, "Reset Failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AdminResetsDeletesUser.this, "Delete Failed", Toast.LENGTH_SHORT).show();
 
 
                 } else

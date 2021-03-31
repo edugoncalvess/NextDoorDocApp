@@ -951,7 +951,60 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
     }
 
+    //Deletes user at login table
+    public boolean deleteLogin(String email) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        int d = sqLiteDatabase.delete(TABLE10_NAME,  "emailID=?", new String[]{email});
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }
+    //Delete user at Patient table
+    public boolean deletePatient(String email) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
+
+        int d = sqLiteDatabase.delete(TABLE3_NAME,  "Email=?", new String[]{email});
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }
+    //Delete user at Doctor table
+    public boolean deleteDoctor(String email) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+
+        int d = sqLiteDatabase.delete(TABLE8_NAME, "docEmail=?", new String[]{email});
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }
+
+    //delete user at Cashier table
+    public boolean deleteCashier(String email) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        int d = sqLiteDatabase.delete(TABLE11_NAME, "casEmail=?", new String[]{email});
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }
+
+    //delete at Admin table
+    public boolean deleteAdmin(String email) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+
+        int d = sqLiteDatabase.delete(TABLE12_NAME, "admEmail=?", new String[]{email});
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }
 
     //check if any record is available for this patient in daily calorie table
     public Boolean checkPatientHasRecord(int id, String date) {
