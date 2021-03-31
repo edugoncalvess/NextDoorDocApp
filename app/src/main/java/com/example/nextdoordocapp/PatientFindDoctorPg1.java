@@ -90,11 +90,18 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
                                 doctorsArray.add(doctorFName);
                                 doctorsArray.add(doctorLName);
                                 doctorsArray.add(doctorAdd);
-
+                              /*  mEmail = new EmailData("Patient: " + sender, "Message/Question",
+                                        Details,
+                                        time);*/
                             }
                             Log.d("Name", String.valueOf(doctorsArray));
                             //Log.d("Last",doctorLName);
                             //Log.d("Add",doctorAdd);
+                            Intent intentDocList = new Intent(PatientFindDoctorPg1.this,ShowDocsList.class);
+                            intentDocList.putExtra("docFirstName", doctorFName);
+                            intentDocList.putExtra("docLastName",doctorLName);
+                            intentDocList.putExtra("Address",docAddress);
+                            startActivity(intentDocList);
                         }
                     }
                     else if(!docPostalCode.isEmpty()){

@@ -41,6 +41,8 @@ public class PatientCheckDocsAvailability extends AppCompatActivity {
             }
             showAllSchedule.setText(str);
         }
+        if(c.getCount()==0)
+            showAllSchedule.setText("Please wait for the doctor to set their availability. Thank you!");
 
         okBtn.setOnClickListener(new View.OnClickListener() {
             @Override

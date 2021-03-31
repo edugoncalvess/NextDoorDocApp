@@ -36,7 +36,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     Boolean userAvailable;
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
 
-    final static int DATABASE_VERSION = 30;
+    final static int DATABASE_VERSION = 1;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -397,11 +397,10 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     }
 
     //add record method for table Patient_BookAppointment_Doctor
-    public boolean addRecordPatient_BookAppointment_Doctor(String bookApId, String docId, String patId, String appDate,
+    public boolean addRecordPatient_BookAppointment_Doctor( String docId, String patId, String appDate,
                                                            String appTime, String insuarnce) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(T6COL_0, bookApId);
         values.put(T6COL_1, docId);
         values.put(T6COL_2, patId);
         values.put(T6COL_3, appDate);
@@ -415,26 +414,54 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         else
             return false;
     }
-
-    public boolean upDateApptWithAvb(String time, String date) {
+/*  public boolean upDateApptWithAvb(int id,String time, String date){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(T6COL_3, date);
         values.put(T6COL_4, time);
-        int d = sqLiteDatabase.update(TABLE6_NAME, values, "BookAppointmentId=?", new String[]{time, date});
+        int d = sqLiteDatabase.update(TABLE6_NAME, values, "BookAppointmentId=?" , new String[]{Integer.toString(id)});
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }*/
+    public boolean upDateApptWithAvb (int id,String time, String date) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T6COL_3, date);
+        values.put(T6COL_4, time);
+        int d = sqLiteDatabase.update(TABLE6_NAME, values, "BookAppointmentId=?", new String[]{String.valueOf(id)});
         if (d > 0)
             return true;
         else
             return false;
     }
+    //Test if appointment is working
+    public boolean upDateApptWithAvbTest() {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T6COL_0, "1");
+        values.put(T6COL_1, "1");
+        values.put(T6COL_2, "1");
+        values.put(T6COL_3, "");
+        values.put(T6COL_4, "");
+        values.put(T6COL_5, "");
+
+        long r = sqLiteDatabase.insert(TABLE6_NAME, null, values);
+        if (r > 0)
+            return true;
+        else
+            return false;
+
+    }
 
     //add record method for table Patient_leaveMessage_Doctor
-    public boolean addRecordPatient_leaveMessage_Doctor(String pEmail, String dEmail, String messageDate,
+    public boolean addRecordPatient_leaveMessage_Doctor( int pId, int docId, String messageDate,
                                                         String messageTime, String msg, String Rpl, String msgFee) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(T7COL_1, pEmail);
-        values.put(T7COL_2, dEmail);
+        values.put(T7COL_1, pId);
+        values.put(T7COL_2, docId);
         values.put(T7COL_3, messageDate);
         values.put(T7COL_4, messageTime);
         values.put(T7COL_5, msg);
@@ -448,7 +475,8 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
     }
 
-    public boolean addRecordPatient_leaveMessage_DoctorTest() {
+    //test for leave message Doctor
+  /*  public boolean addRecordPatient_leaveMessage_DoctorTest() {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(T7COL_1, 1);
@@ -464,7 +492,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return true;
         else
             return false;
-    }
+    }*/
 
     //Test if data is adding to patient table
     public boolean addRecordPatientTest() {
@@ -521,6 +549,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
 
     }
+
 
     //Add record for doctor_Availability
     public boolean addRecordDoctorAvailability(String DocDate, String DocStime, String DocEtime) {
@@ -957,12 +986,37 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
     }
 
 
-    public Cursor viewNewMessagePatient() {
+    public Cursor viewNewMessageforPatient() {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         String addedNewMessagePatient = "SELECT " + T7COL_6 + " FROM " + TABLE7_NAME + " WHERE MessageId=1 ";
         Cursor c = sqLiteDatabase.rawQuery(addedNewMessagePatient, null);
         return c;
     }
+
+
+
+    public boolean updateMessagePatientTable(int msgId, String newMessage){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T7COL_5, newMessage);
+        int d = sqLiteDatabase.update(TABLE7_NAME, values, "MessageId=?" , new String[]{Integer.toString(msgId)});
+        if (d > 0)
+            return true;
+        else
+            return false;
+    }
+/* final static String T7COL_0 = "MessageId";
+    final static String T7COL_1 = "PatientId";
+    final static String T7COL_2 = "DoctorId";
+    final static String T7COL_3 = "Date";
+    final static String T7COL_4 = "Time";
+    final static String T7COL_5 = "Message";
+    final static String T7COL_6 = "Reply";
+    final static String T7COL_7 = "Fee";*/
+
+
+/*   final static String T6COL_3 = "AppointmentDate";
+    final static String T6COL_4 = "AppointmentTime";*/
 //Delete food ID from table Food Item
   /*  public boolean deleteRec(int id){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
@@ -973,21 +1027,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
             return false;
     }*/
 
-/*       public boolean updateRec(int id,String C) {
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(T1COL_4, C);
-
-        int d= sqLiteDatabase.update(TABLE1_NAME, values, "id=?", new String[]{Integer.toString(id)});
-        if (d > 0)
-            return true;
-        else
-            return false;
-    }
-
-
-    }*/
-public boolean addRecordPaymentTest() {
+    public boolean addRecordPaymentTest() {
     SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
     ContentValues values = new ContentValues();
     values.put(T4COL_2, "2");

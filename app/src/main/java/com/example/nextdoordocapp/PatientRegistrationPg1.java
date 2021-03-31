@@ -65,6 +65,7 @@ public class PatientRegistrationPg1 extends AppCompatActivity {
 
                 Log.d("SpinnerGenderSelection", patientGenderSelection.getSelectedItem().toString());
 
+
                 String emailId = patientEmail.getText().toString();
                 String password = patientPassword.getText().toString();
 
