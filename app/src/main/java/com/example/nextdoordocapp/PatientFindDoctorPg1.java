@@ -29,6 +29,8 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
     String doctorLName;
     String doctorAdd;
 
+    int patientId ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +39,8 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this);
 
         Intent findDoctorPg1Intent = getIntent();
-        int patientId = getIntent().getIntExtra("patientId",0);
+        int patientIdPG1 = findDoctorPg1Intent.getIntExtra("patientId",0);
+        patientId = patientIdPG1;
         Log.d("PatientId" , String.valueOf(patientId));
 
         /*databaseHelper.addRecordDocTest();
@@ -81,7 +84,7 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
                 if(!docAddress.isEmpty() || !docPostalCode.isEmpty()){
                     if(!docAddress.isEmpty()){
                         Cursor DoctorByAddCursor = databaseHelper.getDoctorByAddress(docAddress);
-                        Log.d("Here", String.valueOf(DoctorByAddCursor.getCount()));
+                        Log.d("DocCount", String.valueOf(DoctorByAddCursor.getCount()));
                         if(DoctorByAddCursor.getCount()>0){
                             while (DoctorByAddCursor.moveToNext()){
                                 doctorFName = DoctorByAddCursor.getString(0);
@@ -124,7 +127,10 @@ public class PatientFindDoctorPg1 extends AppCompatActivity {
                         }
                     }
 
-                    startActivity(new Intent(PatientFindDoctorPg1.this,PatientFindDoctorPg2.class));
+                    Intent findDoctorPg1Intent = new Intent(PatientFindDoctorPg1.this, PatientFindDoctorPg2.class);
+                    findDoctorPg1Intent.putExtra("patientId", patientId);
+                    startActivity(findDoctorPg1Intent);
+                   //startActivity(new Intent(PatientFindDoctorPg1.this,PatientFindDoctorPg2.class));
                 }
                 else {
                     message.setText("Please Enter Address or Postal code");

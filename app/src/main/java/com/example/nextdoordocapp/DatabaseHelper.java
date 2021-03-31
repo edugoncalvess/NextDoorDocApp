@@ -34,9 +34,10 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
 
 */
     Boolean userAvailable;
+    Boolean PatientInsurance;
     final static String DATABASE_NAME = "NextDoorDocInfo.db";
 
-    final static int DATABASE_VERSION = 1;
+    final static int DATABASE_VERSION = 30;
     final static String TABLE1_NAME = "Patient_loginHistory";
     final static String TABLE2_NAME = "FoodItem";
     final static String TABLE3_NAME = "patient";
@@ -1023,6 +1024,24 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         }
 
     }
+    public Boolean checkPatientHasInsurance(int id) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        String patientInsuranceAvailabilityQuery = "SELECT " + T3COL_0 + " FROM " + TABLE3_NAME + " Where " + T3COL_15 + "= ''";
+        Log.d("HELPME",patientInsuranceAvailabilityQuery);
+        Cursor c = sqLiteDatabase.rawQuery(patientInsuranceAvailabilityQuery, null);
+        if (c.getCount() > 0) {
+            Log.d("!", "No Insurance");
+            return PatientInsurance = false;
+        } else {
+            Log.d("!", "has Insurance");
+            return PatientInsurance = true;
+        }
+
+    }
+
+    //check if patient has insurance
+
 
     //Check if record is available for patient in Daily Calorie table
     public boolean updateRecDailyCalorie(int id, int amount) {
