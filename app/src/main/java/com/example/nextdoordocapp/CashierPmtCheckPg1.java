@@ -62,7 +62,7 @@ public class CashierPmtCheckPg1 extends AppCompatActivity {
                 }
 
                 // Call this method only for test, to manually create a pending payment so we have one register at least
-                // databaseHelper.addRecordPaymentTest();
+                databaseHelper.addRecordPaymentTest();
 
 
 
