@@ -1292,7 +1292,7 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         SQLiteDatabase sqLiteDatabase= this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(T10COL_2,"admin");
-        values.put(T10COL_3,"admin");
+        values.put(T10COL_3,"pass");
         values.put(T10COL_4,"admin");
         long c = sqLiteDatabase.insert(TABLE10_NAME, null,values);
          if (c > 0)
@@ -1301,6 +1301,21 @@ Doctor_Availabilty (docID ,docAvailabiltyID, DocDate, DocStime, DocEtime )
         return false;
 
     }
+
+    public boolean adAdminTable(){
+        SQLiteDatabase sqLiteDatabase= this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(T12COL_2,"admin");
+        values.put(T12COL_5,"pass");
+
+        long c = sqLiteDatabase.insert(TABLE12_NAME, null,values);
+        if (c > 0)
+            return true;
+        else
+            return false;
+
+    }
+
 
 }
 
